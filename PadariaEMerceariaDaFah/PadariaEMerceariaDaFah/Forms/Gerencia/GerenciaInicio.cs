@@ -1,4 +1,5 @@
-﻿using PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario;
+﻿using PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor;
+using PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario;
 using System;
 using System.Windows.Forms;
 
@@ -15,6 +16,12 @@ namespace PadariaEMerceariaDaFah.Forms
         {
             var funcionario = new FuncionarioInicio();
             funcionario.ShowDialog();
+        }
+
+        private void go_fornecedor_Click(object sender, EventArgs e)
+        {
+            var fornecedor = new FornecedorInicio();
+            fornecedor.ShowDialog();
         }
     }
 }

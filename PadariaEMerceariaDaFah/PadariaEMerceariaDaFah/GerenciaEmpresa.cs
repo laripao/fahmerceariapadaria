@@ -14,6 +14,7 @@ namespace Comercio
         public List<Produto> Produtos;
         public List<Cliente> Clientes;
         public List<Venda> Vendas;
+        public List<Fornecedor> Fornecedores;
 
         public static GerenciaEmpresa Instance;
 
@@ -23,6 +24,7 @@ namespace Comercio
             Produtos = new List<Produto>();
             Clientes = new List<Cliente>();
             Vendas = new List<Venda>();
+            Fornecedores = new List<Fornecedor>();
             Instance = this;
         }
 
@@ -42,6 +44,10 @@ namespace Comercio
         {
             Vendas.Add(Novo);
         }
+        public void AdicionarFornecedor(Fornecedor Novo)
+        {
+            Fornecedores.Add(Novo);
+        }
 
         public void RemoverFuncionario(Funcionario Item)
         {
@@ -58,6 +64,11 @@ namespace Comercio
         public void RemoverVenda(Venda Item)
         {
             Vendas.Remove(Vendas.Find(x => x.Codigo == Item.Codigo));
+        }
+
+        public void RemoverFornecedor(Fornecedor Item)
+        {
+            Fornecedores.Remove(Fornecedores.Find(x => x.Codigo == Item.Codigo));
         }
 
         public void AtualizarFuncionario(Funcionario Item)
@@ -77,6 +88,11 @@ namespace Comercio
             Vendas.FirstOrDefault(x => x.Codigo == Item.Codigo).AtualizarVenda(Item);
         }
 
+        public void AtualizarFornecedor(Fornecedor Item)
+        {
+            Fornecedores.FirstOrDefault(x => x.Codigo == Item.Codigo).AtualizarFornecedor(Item);
+        }
+
         public void SalvarFuncionarios(List<Funcionario> Item)
         {
             SalvarEEscrever.SaveBinFile<List<Funcionario>>("funcionarios", Item);
@@ -92,6 +108,10 @@ namespace Comercio
         public void SalvarVendas(List<Venda> Item)
         {
             SalvarEEscrever.SaveBinFile<List<Venda>>("Vendas", Item);
+        }
+        public void SalvarFornecedores(List<Fornecedor> Item)
+        {
+            SalvarEEscrever.SaveBinFile<List<Fornecedor>>("Fornecedores", Item);
         }
 
         public List<Funcionario> CarregarFuncionarios()
@@ -109,6 +129,10 @@ namespace Comercio
         public List<Venda> CarregarVendas()
         {
             return SalvarEEscrever.ReadBinFile<List<Venda>>("Vendas");
+        }
+        public List<Fornecedor> CarregarFornecedores()
+        {
+            return SalvarEEscrever.ReadBinFile<List<Fornecedor>>("Fornecedores");
         }
     }
 }
