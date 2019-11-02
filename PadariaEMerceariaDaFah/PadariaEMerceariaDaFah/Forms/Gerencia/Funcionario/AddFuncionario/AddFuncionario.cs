@@ -25,12 +25,11 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.AddFuncinario
             {
                 cod = Comercio.GerenciaEmpresa.Instance.Funcionarios.Max(x => x.Codigo) + 1;
             }
-            var novoFunc = new Comercio.Funcionario(cod, func_nome.Text, func_funcao.Text, new Comercio.Contato(func_telefone.Text, func_celular.Text, func_email.Text), new Comercio.Endereco(func_rua.Text, func_cidade.Text,func_estado.Text,func_pais.Text, func_cep.Text, func_numero.Text));
+            var novoFunc = new Comercio.Funcionario(cod, func_nome.Text, func_funcao.Text, func_cpf.Text,new Comercio.Contato(func_telefone.Text, func_celular.Text, func_email.Text), new Comercio.Endereco(func_rua.Text, func_cidade.Text,func_estado.Text,func_pais.Text, func_cep.Text, func_numero.Text));
 
             Comercio.GerenciaEmpresa.Instance.AdicionarFuncionario(novoFunc);
 
             this.Close();
         }
-
     }
 }

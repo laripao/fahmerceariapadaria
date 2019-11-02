@@ -67,6 +67,7 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
 
                 func_nome.Enabled = true;
                 func_funcao.Enabled = true;
+                func_cpf.Enabled = true;
                 func_celular.Enabled = true;
                 func_telefone.Enabled = true;
                 func_email.Enabled = true;
@@ -85,6 +86,7 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
 
                 func_nome.Enabled = false;
                 func_funcao.Enabled = false;
+                func_cpf.Enabled = false;
                 func_celular.Enabled = false;
                 func_telefone.Enabled = false;
                 func_email.Enabled = false;
@@ -108,6 +110,7 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
 
                 func.Nome = func_nome.Text;
                 func.Funcao = func_funcao.Text;
+                func.CPF = func_cpf.Text;
                 func.Contato.Celular = func_celular.Text;
                 func.Contato.Telefone = func_telefone.Text;
                 func.Contato.Email = func_email.Text;
@@ -145,6 +148,7 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
 
                 func_nome.Text = func.Nome;
                 func_funcao.Text = func.Funcao;
+                func_cpf.Text = func.CPF;
                 func_celular.Text = func.Contato.Celular;
                 func_telefone.Text = func.Contato.Telefone;
                 func_email.Text = func.Contato.Email;
@@ -158,6 +162,11 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
 
             }
 
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
 
         }
     }
