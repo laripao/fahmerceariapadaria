@@ -1,0 +1,14 @@
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\PadariaEMerceariaDaFah.exe.config
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\PadariaEMerceariaDaFah.exe
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\PadariaEMerceariaDaFah.pdb
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.csprojAssemblyReference.cache
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Inicio.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Properties.Resources.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.csproj.GenerateResource.cache
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.csproj.CoreCompileInputs.cache
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.exe
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.pdb
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.AddFuncinario.AddFuncionario.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.FuncionarioInicio.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.GerenciaInicio.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.RemoveFuncionario.RemoverFuncionario.resources
