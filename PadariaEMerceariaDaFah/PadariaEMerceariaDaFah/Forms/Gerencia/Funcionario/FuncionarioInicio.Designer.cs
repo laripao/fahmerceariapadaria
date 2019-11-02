@@ -30,8 +30,10 @@
         {
             this.list_func = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.habilitar_edicao = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.remove_func = new System.Windows.Forms.Button();
+            this.save_edit_func = new System.Windows.Forms.Button();
             this.func_nome = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -56,15 +58,15 @@
             this.func_celular = new System.Windows.Forms.TextBox();
             this.func_funcao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.habilitar_edicao = new System.Windows.Forms.CheckBox();
-            this.remove_func = new System.Windows.Forms.Button();
-            this.save_edit_func = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.add_funcionario = new System.Windows.Forms.Button();
+            this.func_cpf = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // list_func
@@ -89,19 +91,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Funcionários Existentes";
             // 
-            // groupBox2
+            // habilitar_edicao
             // 
-            this.groupBox2.Controls.Add(this.groupBox1);
-            this.groupBox2.Controls.Add(this.add_funcionario);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(925, 705);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Funcionários";
+            this.habilitar_edicao.AutoSize = true;
+            this.habilitar_edicao.Location = new System.Drawing.Point(245, 32);
+            this.habilitar_edicao.Name = "habilitar_edicao";
+            this.habilitar_edicao.Size = new System.Drawing.Size(129, 21);
+            this.habilitar_edicao.TabIndex = 10;
+            this.habilitar_edicao.Text = "Habilitar Edição";
+            this.habilitar_edicao.UseVisualStyleBackColor = true;
+            this.habilitar_edicao.CheckedChanged += new System.EventHandler(this.habilitar_edicao_CheckedChanged_1);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.func_cpf);
             this.groupBox3.Controls.Add(this.remove_func);
             this.groupBox3.Controls.Add(this.save_edit_func);
             this.groupBox3.Controls.Add(this.func_nome);
@@ -116,6 +120,32 @@
             this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Funcionario";
+            // 
+            // remove_func
+            // 
+            this.remove_func.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
+            this.remove_func.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.remove_func.Location = new System.Drawing.Point(403, 469);
+            this.remove_func.Name = "remove_func";
+            this.remove_func.Size = new System.Drawing.Size(196, 50);
+            this.remove_func.TabIndex = 8;
+            this.remove_func.Text = "Remover Funcionário";
+            this.remove_func.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.remove_func.UseVisualStyleBackColor = true;
+            this.remove_func.Click += new System.EventHandler(this.remove_func_Click);
+            // 
+            // save_edit_func
+            // 
+            this.save_edit_func.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
+            this.save_edit_func.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.save_edit_func.Location = new System.Drawing.Point(26, 469);
+            this.save_edit_func.Name = "save_edit_func";
+            this.save_edit_func.Size = new System.Drawing.Size(143, 50);
+            this.save_edit_func.TabIndex = 7;
+            this.save_edit_func.Text = "Salvar Edição";
+            this.save_edit_func.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.save_edit_func.UseVisualStyleBackColor = true;
+            this.save_edit_func.Click += new System.EventHandler(this.save_edit_func_Click);
             // 
             // func_nome
             // 
@@ -138,7 +168,7 @@
             this.groupBox4.Controls.Add(this.func_pais);
             this.groupBox4.Controls.Add(this.func_cidade);
             this.groupBox4.Controls.Add(this.func_rua);
-            this.groupBox4.Location = new System.Drawing.Point(26, 222);
+            this.groupBox4.Location = new System.Drawing.Point(26, 257);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(579, 206);
             this.groupBox4.TabIndex = 6;
@@ -258,7 +288,7 @@
             this.groupBox5.Controls.Add(this.func_email);
             this.groupBox5.Controls.Add(this.func_telefone);
             this.groupBox5.Controls.Add(this.func_celular);
-            this.groupBox5.Location = new System.Drawing.Point(26, 90);
+            this.groupBox5.Location = new System.Drawing.Point(26, 125);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(579, 126);
             this.groupBox5.TabIndex = 4;
@@ -329,42 +359,17 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Função:";
             // 
-            // habilitar_edicao
+            // groupBox2
             // 
-            this.habilitar_edicao.AutoSize = true;
-            this.habilitar_edicao.Location = new System.Drawing.Point(245, 32);
-            this.habilitar_edicao.Name = "habilitar_edicao";
-            this.habilitar_edicao.Size = new System.Drawing.Size(129, 21);
-            this.habilitar_edicao.TabIndex = 10;
-            this.habilitar_edicao.Text = "Habilitar Edição";
-            this.habilitar_edicao.UseVisualStyleBackColor = true;
-            this.habilitar_edicao.CheckedChanged += new System.EventHandler(this.habilitar_edicao_CheckedChanged_1);
-            // 
-            // remove_func
-            // 
-            this.remove_func.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
-            this.remove_func.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.remove_func.Location = new System.Drawing.Point(392, 456);
-            this.remove_func.Name = "remove_func";
-            this.remove_func.Size = new System.Drawing.Size(196, 50);
-            this.remove_func.TabIndex = 8;
-            this.remove_func.Text = "Remover Funcionário";
-            this.remove_func.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.remove_func.UseVisualStyleBackColor = true;
-            this.remove_func.Click += new System.EventHandler(this.remove_func_Click);
-            // 
-            // save_edit_func
-            // 
-            this.save_edit_func.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
-            this.save_edit_func.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.save_edit_func.Location = new System.Drawing.Point(26, 456);
-            this.save_edit_func.Name = "save_edit_func";
-            this.save_edit_func.Size = new System.Drawing.Size(143, 50);
-            this.save_edit_func.TabIndex = 7;
-            this.save_edit_func.Text = "Salvar Edição";
-            this.save_edit_func.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.save_edit_func.UseVisualStyleBackColor = true;
-            this.save_edit_func.Click += new System.EventHandler(this.save_edit_func_Click);
+            this.groupBox2.Controls.Add(this.groupBox1);
+            this.groupBox2.Controls.Add(this.add_funcionario);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(925, 705);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Funcionários";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // add_funcionario
             // 
@@ -378,6 +383,22 @@
             this.add_funcionario.UseVisualStyleBackColor = true;
             this.add_funcionario.Click += new System.EventHandler(this.add_funcionario_Click);
             // 
+            // func_cpf
+            // 
+            this.func_cpf.Location = new System.Drawing.Point(94, 90);
+            this.func_cpf.Name = "func_cpf";
+            this.func_cpf.Size = new System.Drawing.Size(511, 22);
+            this.func_cpf.TabIndex = 9;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(23, 93);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(38, 17);
+            this.label12.TabIndex = 10;
+            this.label12.Text = "CPF:";
+            // 
             // FuncionarioInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -389,13 +410,13 @@
             this.Load += new System.EventHandler(this.FuncionarioInicio_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -434,5 +455,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button remove_func;
         private System.Windows.Forms.CheckBox habilitar_edicao;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox func_cpf;
     }
 }

@@ -43,12 +43,16 @@
             this.label6 = new System.Windows.Forms.Label();
             this.acc_remove = new System.Windows.Forms.Button();
             this.cancel_remove = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.func_cpf = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.func_cpf);
+            this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.func_nome);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.groupBox5);
@@ -56,7 +60,7 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Location = new System.Drawing.Point(18, 45);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(621, 248);
+            this.groupBox3.Size = new System.Drawing.Size(621, 253);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Funcionario";
@@ -86,7 +90,7 @@
             this.groupBox5.Controls.Add(this.func_email);
             this.groupBox5.Controls.Add(this.func_telefone);
             this.groupBox5.Controls.Add(this.func_celular);
-            this.groupBox5.Location = new System.Drawing.Point(26, 90);
+            this.groupBox5.Location = new System.Drawing.Point(26, 118);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(579, 124);
             this.groupBox5.TabIndex = 4;
@@ -195,6 +199,23 @@
             this.cancel_remove.UseVisualStyleBackColor = true;
             this.cancel_remove.Click += new System.EventHandler(this.cancel_remove_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(23, 95);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 17);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "CPF:";
+            // 
+            // func_cpf
+            // 
+            this.func_cpf.Enabled = false;
+            this.func_cpf.Location = new System.Drawing.Point(94, 93);
+            this.func_cpf.Name = "func_cpf";
+            this.func_cpf.Size = new System.Drawing.Size(511, 22);
+            this.func_cpf.TabIndex = 6;
+            // 
             // RemoverFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -233,5 +254,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button cancel_remove;
         private System.Windows.Forms.Button acc_remove;
+        private System.Windows.Forms.TextBox func_cpf;
+        private System.Windows.Forms.Label label7;
     }
 }

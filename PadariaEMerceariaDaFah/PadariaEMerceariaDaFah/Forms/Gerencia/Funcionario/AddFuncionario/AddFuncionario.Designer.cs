@@ -40,6 +40,8 @@
             this.func_telefone = new System.Windows.Forms.TextBox();
             this.func_celular = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.func_estado = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.func_numero = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -51,10 +53,10 @@
             this.func_cidade = new System.Windows.Forms.TextBox();
             this.func_rua = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.func_cpf = new System.Windows.Forms.TextBox();
             this.add_funcionario_cancel = new System.Windows.Forms.Button();
             this.add_funcionario_salvar = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.func_estado = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -100,7 +102,7 @@
             this.groupBox1.Controls.Add(this.func_email);
             this.groupBox1.Controls.Add(this.func_telefone);
             this.groupBox1.Controls.Add(this.func_celular);
-            this.groupBox1.Location = new System.Drawing.Point(79, 103);
+            this.groupBox1.Location = new System.Drawing.Point(79, 124);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(605, 126);
             this.groupBox1.TabIndex = 4;
@@ -169,12 +171,28 @@
             this.groupBox2.Controls.Add(this.func_pais);
             this.groupBox2.Controls.Add(this.func_cidade);
             this.groupBox2.Controls.Add(this.func_rua);
-            this.groupBox2.Location = new System.Drawing.Point(79, 235);
+            this.groupBox2.Location = new System.Drawing.Point(79, 256);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(610, 206);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Endereço:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 62);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 17);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Estado:";
+            // 
+            // func_estado
+            // 
+            this.func_estado.Location = new System.Drawing.Point(90, 59);
+            this.func_estado.Name = "func_estado";
+            this.func_estado.Size = new System.Drawing.Size(498, 22);
+            this.func_estado.TabIndex = 10;
             // 
             // label10
             // 
@@ -258,6 +276,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.func_cpf);
             this.groupBox3.Controls.Add(this.func_nome);
             this.groupBox3.Controls.Add(this.groupBox2);
             this.groupBox3.Controls.Add(this.label1);
@@ -270,6 +290,22 @@
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cadastro de Funcionario";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(23, 93);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(38, 17);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "CPF:";
+            // 
+            // func_cpf
+            // 
+            this.func_cpf.Location = new System.Drawing.Point(94, 90);
+            this.func_cpf.Name = "func_cpf";
+            this.func_cpf.Size = new System.Drawing.Size(590, 22);
+            this.func_cpf.TabIndex = 7;
             // 
             // add_funcionario_cancel
             // 
@@ -290,22 +326,6 @@
             this.add_funcionario_salvar.Text = "Salvar";
             this.add_funcionario_salvar.UseVisualStyleBackColor = true;
             this.add_funcionario_salvar.Click += new System.EventHandler(this.add_funcionario_salvar_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 62);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(56, 17);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Estado:";
-            // 
-            // func_estado
-            // 
-            this.func_estado.Location = new System.Drawing.Point(90, 59);
-            this.func_estado.Name = "func_estado";
-            this.func_estado.Size = new System.Drawing.Size(498, 22);
-            this.func_estado.TabIndex = 10;
             // 
             // AddFuncionario
             // 
@@ -356,5 +376,7 @@
         private System.Windows.Forms.Button add_funcionario_salvar;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox func_estado;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox func_cpf;
     }
 }

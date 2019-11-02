@@ -27,6 +27,7 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.RemoveFuncionario
 
                 func_nome.Text = func.Nome;
                 func_funcao.Text = func.Funcao;
+                func_cpf.Text = func.CPF;
                 func_celular.Text = func.Contato.Celular;
                 func_telefone.Text = func.Contato.Telefone;
                 func_email.Text = func.Contato.Email;
