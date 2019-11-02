@@ -120,9 +120,12 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
                 func.Endereco.Cidade = func_cidade.Text;
                 func.Endereco.Rua = func_rua.Text;
                 func.Endereco.Numero = func_numero.Text;
-                func.Endereco.CEP = func_cep.Text;
+                func.Endereco.CEP = func_cep.Text;                
 
                 UpdateForm(selectedFunc);
+
+                MessageBox.Show("Salvo com sucesso.");
+
             }
         }
 
