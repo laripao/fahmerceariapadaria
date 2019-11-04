@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.go_gerencia = new System.Windows.Forms.Button();
+            this.go_estoque = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // go_gerencia
@@ -41,11 +42,22 @@
             this.go_gerencia.UseVisualStyleBackColor = true;
             this.go_gerencia.Click += new System.EventHandler(this.go_gerencia_Click);
             // 
+            // go_estoque
+            // 
+            this.go_estoque.Location = new System.Drawing.Point(38, 12);
+            this.go_estoque.Name = "go_estoque";
+            this.go_estoque.Size = new System.Drawing.Size(118, 48);
+            this.go_estoque.TabIndex = 1;
+            this.go_estoque.Text = "Estoque";
+            this.go_estoque.UseVisualStyleBackColor = true;
+            this.go_estoque.Click += new System.EventHandler(this.go_estoque_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.go_estoque);
             this.Controls.Add(this.go_gerencia);
             this.Name = "Inicio";
             this.Text = "Inicio";
@@ -57,6 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Button go_gerencia;
+        private System.Windows.Forms.Button go_estoque;
     }
 }
 

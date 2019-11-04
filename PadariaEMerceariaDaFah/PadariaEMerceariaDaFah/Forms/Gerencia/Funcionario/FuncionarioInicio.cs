@@ -124,6 +124,8 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
 
                 UpdateForm(selectedFunc);
 
+                Comercio.GerenciaEmpresa.Instance.SalvarFuncionarios(Comercio.GerenciaEmpresa.Instance.Funcionarios);
+
                 MessageBox.Show("Salvo com sucesso.");
 
             }

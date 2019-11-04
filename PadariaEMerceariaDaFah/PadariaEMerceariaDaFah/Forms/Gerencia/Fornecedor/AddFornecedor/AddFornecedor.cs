@@ -35,7 +35,14 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.AddFornecedor
 
             Comercio.GerenciaEmpresa.Instance.AdicionarFornecedor(novoFornecedor);
 
+            Comercio.GerenciaEmpresa.Instance.SalvarFornecedores(Comercio.GerenciaEmpresa.Instance.Fornecedores);
+
             this.Close();
+        }
+
+        private void fornecedor_nome_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

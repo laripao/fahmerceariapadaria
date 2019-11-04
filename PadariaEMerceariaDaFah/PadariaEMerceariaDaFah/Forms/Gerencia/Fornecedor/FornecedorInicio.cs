@@ -51,6 +51,8 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor
 
                 UpdateForm(selectedfornecedor);
 
+                Comercio.GerenciaEmpresa.Instance.SalvarFornecedores(Comercio.GerenciaEmpresa.Instance.Fornecedores);
+
                 MessageBox.Show("Salvo com sucesso.");
 
             }
@@ -69,8 +71,6 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor
                 fornecedor_celular.Text = fornecedor.Contato.Celular;
                 fornecedor_telefone.Text = fornecedor.Contato.Telefone;
                 fornecedor_email.Text = fornecedor.Contato.Email;
-
-
             }
         }
 

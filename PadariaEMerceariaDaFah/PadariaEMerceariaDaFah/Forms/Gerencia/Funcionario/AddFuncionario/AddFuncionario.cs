@@ -29,6 +29,8 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.AddFuncinario
 
             Comercio.GerenciaEmpresa.Instance.AdicionarFuncionario(novoFunc);
 
+            Comercio.GerenciaEmpresa.Instance.SalvarFuncionarios(Comercio.GerenciaEmpresa.Instance.Funcionarios);
+
             this.Close();
         }
     }

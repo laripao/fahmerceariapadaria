@@ -18,7 +18,8 @@ namespace Arquivos
             //Forma 1
             try
             {
-                contents = File.ReadAllLines(path).ToList();
+                if(File.Exists(path))
+                    contents = File.ReadAllLines(path).ToList();
             }
             catch (Exception ex)
             {
@@ -98,9 +99,18 @@ namespace Arquivos
             T content;
             try
             {
-                fs = new FileStream(path, FileMode.Open, FileAccess.Read);
-                BinaryFormatter bf = new BinaryFormatter();
-                content= (T)bf.Deserialize(fs);
+                if (File.Exists(path))
+                {
+                    fs = new FileStream(path, FileMode.Open, FileAccess.Read);
+                    BinaryFormatter bf = new BinaryFormatter();
+                    content = (T)bf.Deserialize(fs);
+                }
+                else
+                {
+                    content = default(T);
+                }
+
+
             }
             catch (Exception ex)
             {
@@ -109,7 +119,10 @@ namespace Arquivos
             }
             finally
             {
-                fs.Close();
+                if (File.Exists(path))
+                {
+                    fs.Close();
+                }
             }
 
             return content;

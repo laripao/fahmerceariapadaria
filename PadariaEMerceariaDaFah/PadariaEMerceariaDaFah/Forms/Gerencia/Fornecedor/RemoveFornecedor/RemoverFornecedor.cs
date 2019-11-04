@@ -30,6 +30,7 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.RemoveFornecedor
             {
                 var fornecedor = Comercio.GerenciaEmpresa.Instance.Fornecedores.FirstOrDefault(x => x.Codigo == Code);
                 Comercio.GerenciaEmpresa.Instance.Fornecedores.Remove(fornecedor);
+                Comercio.GerenciaEmpresa.Instance.SalvarFornecedores(Comercio.GerenciaEmpresa.Instance.Fornecedores);
                 MessageBox.Show("Fornecedor Removido.");
                 this.Close();
             }

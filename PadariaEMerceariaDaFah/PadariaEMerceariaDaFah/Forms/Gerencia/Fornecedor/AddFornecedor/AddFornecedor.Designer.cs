@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.add_fornecedor_salvar = new System.Windows.Forms.Button();
+            this.add_fornecedor_cancel = new System.Windows.Forms.Button();
             this.fornecedor_nome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -40,8 +42,6 @@
             this.fornecedor_celular = new System.Windows.Forms.TextBox();
             this.fornecedor_description = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.add_fornecedor_salvar = new System.Windows.Forms.Button();
-            this.add_fornecedor_cancel = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -62,12 +62,33 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Fornecedor";
             // 
+            // add_fornecedor_salvar
+            // 
+            this.add_fornecedor_salvar.Location = new System.Drawing.Point(173, 277);
+            this.add_fornecedor_salvar.Name = "add_fornecedor_salvar";
+            this.add_fornecedor_salvar.Size = new System.Drawing.Size(163, 49);
+            this.add_fornecedor_salvar.TabIndex = 11;
+            this.add_fornecedor_salvar.Text = "Salvar";
+            this.add_fornecedor_salvar.UseVisualStyleBackColor = true;
+            this.add_fornecedor_salvar.Click += new System.EventHandler(this.add_fornecedor_salvar_Click);
+            // 
+            // add_fornecedor_cancel
+            // 
+            this.add_fornecedor_cancel.Location = new System.Drawing.Point(425, 277);
+            this.add_fornecedor_cancel.Name = "add_fornecedor_cancel";
+            this.add_fornecedor_cancel.Size = new System.Drawing.Size(163, 49);
+            this.add_fornecedor_cancel.TabIndex = 10;
+            this.add_fornecedor_cancel.Text = "Cancelar";
+            this.add_fornecedor_cancel.UseVisualStyleBackColor = true;
+            this.add_fornecedor_cancel.Click += new System.EventHandler(this.add_fornecedor_cancel_Click);
+            // 
             // fornecedor_nome
             // 
             this.fornecedor_nome.Location = new System.Drawing.Point(94, 36);
             this.fornecedor_nome.Name = "fornecedor_nome";
             this.fornecedor_nome.Size = new System.Drawing.Size(676, 22);
             this.fornecedor_nome.TabIndex = 0;
+            this.fornecedor_nome.TextChanged += new System.EventHandler(this.fornecedor_nome_TextChanged);
             // 
             // label1
             // 
@@ -144,9 +165,9 @@
             // fornecedor_description
             // 
             this.fornecedor_description.Location = new System.Drawing.Point(94, 62);
-            this.fornecedor_description.MinimumSize = new System.Drawing.Size(0, 50);
+            this.fornecedor_description.MinimumSize = new System.Drawing.Size(4, 50);
             this.fornecedor_description.Name = "fornecedor_description";
-            this.fornecedor_description.Size = new System.Drawing.Size(676, 50);
+            this.fornecedor_description.Size = new System.Drawing.Size(676, 22);
             this.fornecedor_description.TabIndex = 2;
             // 
             // label2
@@ -157,26 +178,6 @@
             this.label2.Size = new System.Drawing.Size(75, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Descrição:";
-            // 
-            // add_fornecedor_salvar
-            // 
-            this.add_fornecedor_salvar.Location = new System.Drawing.Point(173, 277);
-            this.add_fornecedor_salvar.Name = "add_fornecedor_salvar";
-            this.add_fornecedor_salvar.Size = new System.Drawing.Size(163, 49);
-            this.add_fornecedor_salvar.TabIndex = 11;
-            this.add_fornecedor_salvar.Text = "Salvar";
-            this.add_fornecedor_salvar.UseVisualStyleBackColor = true;
-            this.add_fornecedor_salvar.Click += new System.EventHandler(this.add_fornecedor_salvar_Click);
-            // 
-            // add_fornecedor_cancel
-            // 
-            this.add_fornecedor_cancel.Location = new System.Drawing.Point(425, 277);
-            this.add_fornecedor_cancel.Name = "add_fornecedor_cancel";
-            this.add_fornecedor_cancel.Size = new System.Drawing.Size(163, 49);
-            this.add_fornecedor_cancel.TabIndex = 10;
-            this.add_fornecedor_cancel.Text = "Cancelar";
-            this.add_fornecedor_cancel.UseVisualStyleBackColor = true;
-            this.add_fornecedor_cancel.Click += new System.EventHandler(this.add_fornecedor_cancel_Click);
             // 
             // AddFornecedor
             // 

@@ -116,7 +116,7 @@ namespace Comercio
 
         public List<Funcionario> CarregarFuncionarios()
         {
-            return SalvarEEscrever.ReadBinFile<List<Funcionario>>("Funcionario");
+            return SalvarEEscrever.ReadBinFile<List<Funcionario>>("Funcionarios");
         }
         public List<Produto> CarregarProdutos()
         {
@@ -134,5 +134,6 @@ namespace Comercio
         {
             return SalvarEEscrever.ReadBinFile<List<Fornecedor>>("Fornecedores");
         }
+
     }
 }

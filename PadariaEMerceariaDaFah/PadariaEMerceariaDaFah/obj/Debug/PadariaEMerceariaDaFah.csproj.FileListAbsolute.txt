@@ -16,6 +16,13 @@ C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\Pad
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\PadariaEMerceariaDaFah.exe
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\PadariaEMerceariaDaFah.pdb
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.csprojAssemblyReference.cache
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.AddProduto.AddProduto.resources
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.EstoqueInicio.resources
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores.FornecedoresList.resources
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Produtos.ProdutoInicio.resources
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.AddFornecedor.AddFornecedor.resources
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.FornecedorInicio.resources
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.RemoveFornecedor.RemoverFornecedor.resources
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.AddFuncinario.AddFuncionario.resources
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.FuncionarioInicio.resources
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.RemoveFuncionario.RemoverFuncionario.resources
@@ -25,3 +32,4 @@ C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\Pad
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.csproj.GenerateResource.cache
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.exe
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.pdb
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Produtos.RemoverProduto.RemoverProduto.resources
