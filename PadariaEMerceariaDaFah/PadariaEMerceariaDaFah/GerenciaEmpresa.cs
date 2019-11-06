@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Arquivos;
+using Formulario;
 
 namespace Comercio
 {
@@ -15,6 +16,7 @@ namespace Comercio
         public List<Cliente> Clientes;
         public List<Venda> Vendas;
         public List<Fornecedor> Fornecedores;
+        public DB Banco;
 
         public static GerenciaEmpresa Instance;
 
@@ -25,6 +27,7 @@ namespace Comercio
             Clientes = new List<Cliente>();
             Vendas = new List<Venda>();
             Fornecedores = new List<Fornecedor>();
+            Banco = new DB();
             Instance = this;
         }
 
