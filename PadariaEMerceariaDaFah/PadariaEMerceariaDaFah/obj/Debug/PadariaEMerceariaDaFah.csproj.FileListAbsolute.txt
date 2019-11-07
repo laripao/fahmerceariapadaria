@@ -63,3 +63,11 @@ C:\kevin.santos\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFa
 C:\kevin.santos\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.csproj.CopyComplete
 C:\kevin.santos\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.exe
 C:\kevin.santos\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.pdb
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\Google.Protobuf.dll
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\MySql.Data.dll
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\Renci.SshNet.dll
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\Google.Protobuf.xml
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\MySql.Data.xml
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\Renci.SshNet.xml
+C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.csproj.CopyComplete
