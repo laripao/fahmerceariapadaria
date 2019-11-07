@@ -44,7 +44,7 @@ namespace Formulario
             catch(MySqlException ex)
             {
                 //Erro --> TRATAMENTO
-                MessageBox.Show("VUSH! NÃO ABRIU RAPÁ. \n Veja o que aconteceu: " + ex.Message, "IIIIIIIIIHHHHHH");
+                MessageBox.Show("Erro ao conectar com o banco de dados: " + ex.Message);
                 return false;
             }
         }
@@ -58,7 +58,7 @@ namespace Formulario
             catch (MySqlException ex)
             {
                 //Erro --> TRATAMENTO
-                MessageBox.Show("VUSH! NÃO FECHOU RAPÁ. \n Veja o que aconteceu: " + ex.Message, "IIIIIIIIIHHHHHH");
+                MessageBox.Show("Erro ao fechar banco de dados: " + ex.Message, "IIIIIIIIIHHHHHH");
                 return false;
             }
         }
@@ -75,7 +75,7 @@ namespace Formulario
                 }
                 catch(MySqlException ex)
                 {
-                    MessageBox.Show("DEU RUIM BROTHER: " + ex.Message);
+                    MessageBox.Show("Erro ao inserir dados: " + ex.Message);
                     return false;
                 }
                 finally
@@ -150,7 +150,7 @@ namespace Formulario
                 }
                 catch (MySqlException ex)
                 {
-                    MessageBox.Show("DEU ERRO FI: " + ex.Message);
+                    MessageBox.Show("Erro ao selecionar dados do banco de dados: " + ex.Message);
                     return null;
                 }
                 finally
