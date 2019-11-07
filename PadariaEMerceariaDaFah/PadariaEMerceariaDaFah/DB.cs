@@ -20,12 +20,13 @@ namespace Formulario
         private MySqlConnection connection;
         //Informações do banco
         private string host = "localhost"; //endereço do banco
-        private string database = "laripaos"; //nome do banco de dados
+        private string database; //nome do banco de dados
         private string username = "root"; //login no servidor
         private string password = ""; //senha no servidor
-        public DB()
+        public DB(string DATABASE = "mysql")
         {
-            string connectionString = "SERVER="+ host + ";" +
+            database = DATABASE;
+            string connectionString = "SERVER=" + host + ";" +
                                        "DATABASE=" + database + ";" +
                                        "UID=" + username + ";" +
                                        "PASSWORD=" + password + ";";
