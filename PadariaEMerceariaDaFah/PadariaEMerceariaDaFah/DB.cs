@@ -58,7 +58,7 @@ namespace Formulario
             catch (MySqlException ex)
             {
                 //Erro --> TRATAMENTO
-                MessageBox.Show("Erro ao fechar banco de dados: " + ex.Message, "IIIIIIIIIHHHHHH");
+                MessageBox.Show("Erro ao fechar banco de dados: " + ex.Message);
                 return false;
             }
         }

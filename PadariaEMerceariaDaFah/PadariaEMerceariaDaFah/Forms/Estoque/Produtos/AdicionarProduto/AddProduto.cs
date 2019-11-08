@@ -1,4 +1,5 @@
-﻿using PadariaEMerceariaDaFah.Enums;
+﻿using Formulario;
+using PadariaEMerceariaDaFah.Enums;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
 using System;
 using System.Collections.Generic;
@@ -87,6 +88,9 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
             Comercio.GerenciaEmpresa.Instance.AdicionarProduto(novoProduto);
             Comercio.GerenciaEmpresa.Instance.SalvarProdutos(Comercio.GerenciaEmpresa.Instance.Produtos);
 
+            var query = "INSERT INTO ESTOQUE_PRODUTO VALUES(default" + "," + " '" + nome_produto.Text + "' " + "," + " '" + des_text.Text + "' "+"," + (fabricado.Checked ? 0 : 1) + ", " + Convert.ToDouble(valor_text.Text) + ", '', " + codFornecedor + ");";
+            Comercio.GerenciaEmpresa.Instance.Banco.Insert(query);
+
             this.Close();
         }
 
@@ -94,8 +98,6 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
         {
             fabricado.Checked = true;
             Fornecedor.Enabled = false;
-
-            Ingredientes.Add("");
         }
 
         private void add_ingredientes_Click(object sender, EventArgs e)

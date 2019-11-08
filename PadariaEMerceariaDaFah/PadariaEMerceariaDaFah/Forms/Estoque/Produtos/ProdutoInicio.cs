@@ -1,4 +1,5 @@
-﻿using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
+﻿using Formulario;
+using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -89,7 +90,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 group_ingredientes.Visible = produto.Tipo == Enums.Produto_tipo.fabricado ? true : false;
                 linkFornecedores.Visible = produto.Tipo == Enums.Produto_tipo.fabricado ? false : true;
                 fornecedores.Visible = produto.Tipo == Enums.Produto_tipo.fabricado ? false : true;
-                Fornecedor.Text = produto.codFornecedor == null ? "" : fornecedor.Nome;
+                //Fornecedor.Text = revendido.Checked == false ? "" : fornecedor.Nome;
                 Fornecedor.Visible = produto.Tipo == Enums.Produto_tipo.fabricado ? false : true;
 
                 if (produto.Tipo == Enums.Produto_tipo.fabricado)
@@ -118,6 +119,10 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 var selectedFunc = Convert.ToInt32(list_produto.SelectedItem.ToString().Split('|').First());
                 var remove = new RemoverProduto.RemoverProduto(selectedFunc);
                 remove.ShowDialog();
+
+                var query = "DELETE FROM ESTOQUE_PRODUTO WHERE CODIGO = '" + selectedFunc+"'";
+                Comercio.GerenciaEmpresa.Instance.Banco.Delete(query);
+
                 UpdateForm(selectedFunc);
             }
         }
@@ -150,6 +155,10 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 Comercio.GerenciaEmpresa.Instance.SalvarProdutos(Comercio.GerenciaEmpresa.Instance.Produtos);
 
                 MessageBox.Show("Salvo com sucesso.");
+
+                var query = "UPDATE ESTOQUE_PRODUTO SET name = '" + nome_produto.Text + "', description = '" + des_text.Text + "', tipo =" + (fabricado.Checked ? 0 : 1) + ", valor = " + Convert.ToDouble(valor_text.Text) + ", ingredientes = '' , cod_fornecedor = '" + codFornecedor + "' WHERE CODIGO = " + produto.Codigo + ";";
+
+                Comercio.GerenciaEmpresa.Instance.Banco.Update(query);
 
                 if (codFornecedor == null)
                 {
