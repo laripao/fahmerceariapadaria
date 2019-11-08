@@ -28,7 +28,7 @@ namespace PadariaEMerceariaDaFah
             gerenciaEmpresa.Banco = new Formulario.DB("Laripaos");
 
             gerenciaEmpresa.Banco.Insert("CREATE TABLE IF NOT EXISTS GERENCIA_FORNECEDOR  (codigo int primary key AUTO_INCREMENT, name varchar(45), description text,                telefone varchar(20),                celular varchar(20),               email varchar(100))");
-            gerenciaEmpresa.Banco.Insert("CREATE TABLE IF NOT EXISTS GERENCIA_FUNCIONARIO(        CODIGO INT PRIMARY KEY AUTO_INCREMENT,        CPF VARCHAR(20) NOT NULL UNIQUE,        NOME VARCHAR(45),        DESCRICAO TEXT,        FUNCAO VARCHAR(20),        TELEFONE VARCHAR(20),        CELULAR VARCHAR(10),        EMAIL VARCHAR(100),        RUA VARCHAR(20),        CIDADE VARCHAR(20),        ESTADO VARCHAR(20),        PAIS VARCHAR(20),        NUMERO VARCHAR(10));");
+            gerenciaEmpresa.Banco.Insert("CREATE TABLE IF NOT EXISTS GERENCIA_FUNCIONARIO(        CODIGO INT PRIMARY KEY AUTO_INCREMENT,        CPF VARCHAR(20) NOT NULL UNIQUE,        NAME VARCHAR(45),          FUNCAO VARCHAR(50),        TELEFONE VARCHAR(20),        CELULAR VARCHAR(10),        EMAIL VARCHAR(100),        RUA VARCHAR(20),        CIDADE VARCHAR(20),        ESTADO VARCHAR(20),        PAIS VARCHAR(20),        NUMERO INT, CEP VARCHAR(20));");
             gerenciaEmpresa.Banco.Insert("CREATE TABLE IF NOT EXISTS ESTOQUE_PRODUTO  (                codigo int primary key AUTO_INCREMENT,                name varchar(45),                description text,                tipo int,                valor double,                email varchar(100),                cod_fornecedor int); ");
 
             if (GerenciaEmpresa.Instance.CarregarFornecedores() != null)
@@ -39,6 +39,8 @@ namespace PadariaEMerceariaDaFah
 
             if (GerenciaEmpresa.Instance.CarregarProdutos() != null)
                 GerenciaEmpresa.Instance.Produtos.AddRange(GerenciaEmpresa.Instance.CarregarProdutos());
+
+            GerenciaEmpresa.Instance.CarregarFornecedoresBanco();
         }
 
         private void go_estoque_Click(object sender, EventArgs e)

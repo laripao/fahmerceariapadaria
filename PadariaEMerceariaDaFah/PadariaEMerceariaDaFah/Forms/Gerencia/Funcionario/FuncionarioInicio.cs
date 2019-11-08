@@ -120,7 +120,10 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
                 func.Endereco.Cidade = func_cidade.Text;
                 func.Endereco.Rua = func_rua.Text;
                 func.Endereco.Numero = func_numero.Text;
-                func.Endereco.CEP = func_cep.Text;                
+                func.Endereco.CEP = func_cep.Text;
+
+                Comercio.GerenciaEmpresa.Instance.Banco.Insert("update gerencia_funcionario set cpf = '" + func.CPF + "' ,name= '" + func.Nome + "',funcao= '" + func.Funcao + "',telefone= '" + func.Contato.Telefone + "',celular= '" + func.Contato.Celular + "',email= '" + func.Contato.Email + "', rua= '" + func.Endereco.Rua + "',cidade= '" + func.Endereco.Cidade + "',estado= '" + func.Endereco.Estado + "',pais= '" + func.Endereco.Pais + "',numero= '" + func.Endereco.Numero + "', cep= '" + func.Endereco.CEP + "' where codigo = '"+func.Codigo+"' ;");
+
 
                 UpdateForm(selectedFunc);
 
