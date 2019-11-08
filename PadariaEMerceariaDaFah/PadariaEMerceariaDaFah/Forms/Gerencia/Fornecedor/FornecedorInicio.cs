@@ -49,6 +49,10 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor
                 fornecedor.Contato.Telefone = fornecedor_telefone.Text;
                 fornecedor.Contato.Email = fornecedor_email.Text;
 
+                Comercio.GerenciaEmpresa.Instance.Banco.Update("update gerencia_fornecedor set name = '"+fornecedor.Nome+"', description = '"+
+                    fornecedor.Description+"', telefone = '"+fornecedor.Contato.Telefone+"', celular = '"+fornecedor.Contato.Celular+
+                    "', email = '"+fornecedor.Contato.Email+"' where codigo = '"+fornecedor.Codigo+"'");
+
                 UpdateForm(selectedfornecedor);
 
                 Comercio.GerenciaEmpresa.Instance.SalvarFornecedores(Comercio.GerenciaEmpresa.Instance.Fornecedores);

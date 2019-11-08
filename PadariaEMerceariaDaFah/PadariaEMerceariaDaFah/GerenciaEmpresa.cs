@@ -138,5 +138,12 @@ namespace Comercio
             return SalvarEEscrever.ReadBinFile<List<Fornecedor>>("Fornecedores");
         }
 
+        public List<Fornecedor> CarregarFornecedoresBanco()
+        {
+           var fornecedores = Banco.Select("Select * from gerencia_fornecedor");
+            var t = 1;
+            return null;
+        }
+
     }
 }

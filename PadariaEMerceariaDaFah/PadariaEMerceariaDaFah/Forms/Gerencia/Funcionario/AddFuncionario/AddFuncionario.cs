@@ -29,6 +29,8 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.AddFuncinario
 
             Comercio.GerenciaEmpresa.Instance.AdicionarFuncionario(novoFunc);
 
+            Comercio.GerenciaEmpresa.Instance.Banco.Insert("insert into gerencia_funcionario values (default,'"+ novoFunc.CPF+ "' ,'" + novoFunc.Nome + "','" + novoFunc.Funcao + "', '" + novoFunc.Contato.Telefone + "', '" + novoFunc.Contato.Celular + "', '" + novoFunc.Contato.Email + "', '"+ novoFunc.Endereco.Rua+ "', '"+ novoFunc.Endereco.Cidade+ "', '"+ novoFunc.Endereco.Estado+ "', '"+ novoFunc.Endereco.Pais+ "', '"+ novoFunc.Endereco.Numero+ "', '"+ novoFunc.Endereco.CEP+ "');");
+
             Comercio.GerenciaEmpresa.Instance.SalvarFuncionarios(Comercio.GerenciaEmpresa.Instance.Funcionarios);
 
             this.Close();
