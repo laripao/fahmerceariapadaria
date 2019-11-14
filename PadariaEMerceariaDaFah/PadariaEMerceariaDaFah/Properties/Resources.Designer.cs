@@ -143,6 +143,16 @@ namespace PadariaEMerceariaDaFah.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_procurar_estoque_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-procurar-estoque-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap remove_func_icon {
             get {
                 object obj = ResourceManager.GetObject("remove-func-icon", resourceCulture);

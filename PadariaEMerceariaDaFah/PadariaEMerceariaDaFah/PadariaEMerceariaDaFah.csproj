@@ -221,6 +221,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-procurar-estoque-32.png" />
     <None Include="Icones\shopping-basket-remove-icon.png" />
     <None Include="Icones\buy.png" />
     <None Include="Icones\Actions-window-close-icon.png" />
