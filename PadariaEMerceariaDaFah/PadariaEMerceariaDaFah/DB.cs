@@ -139,12 +139,11 @@ namespace Formulario
                             {
                                 novaLinha[i] = data.GetValue(i); //info está aqui!!!
 
-                                tbRetorno.Rows.Add(novaLinha);
                             }
-
-                            data.Close();
+                            tbRetorno.Rows.Add(novaLinha);
                         }
-                        
+
+                        data.Close();
                         return tbRetorno;
                     }
                 }

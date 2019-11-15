@@ -114,7 +114,13 @@
             this.TabShowProducts.UseVisualStyleBackColor = true;
             this.TabShowProducts.Click += new System.EventHandler(this.TabShowProducts_Click);
             // 
-            // tabGerencia
+            this.go_gerencia.Location = new System.Drawing.Point(38, 339);
+            this.go_gerencia.Name = "go_gerencia";
+            this.go_gerencia.Size = new System.Drawing.Size(118, 48);
+            this.go_gerencia.TabIndex = 0;
+            this.go_gerencia.Text = "Gerência";
+            this.go_gerencia.UseVisualStyleBackColor = true;
+            this.go_gerencia.Click += new System.EventHandler(this.go_gerencia_Click);
             // 
             this.tabGerencia.AutoScroll = true;
             this.tabGerencia.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -126,63 +132,75 @@
             this.tabGerencia.TabIndex = 2;
             this.tabGerencia.Text = "Gerência";
             // 
-            // TabGo_Fornecedor
+            this.go_estoque.Location = new System.Drawing.Point(38, 12);
+            this.go_estoque.Name = "go_estoque";
+            this.go_estoque.Size = new System.Drawing.Size(118, 48);
+            this.go_estoque.TabIndex = 1;
+            this.go_estoque.Text = "Estoque";
+            this.go_estoque.UseVisualStyleBackColor = true;
+            this.go_estoque.Click += new System.EventHandler(this.go_estoque_Click);
             // 
-            this.TabGo_Fornecedor.Location = new System.Drawing.Point(319, 133);
-            this.TabGo_Fornecedor.Margin = new System.Windows.Forms.Padding(2);
-            this.TabGo_Fornecedor.Name = "TabGo_Fornecedor";
-            this.TabGo_Fornecedor.Size = new System.Drawing.Size(163, 75);
-            this.TabGo_Fornecedor.TabIndex = 2;
-            this.TabGo_Fornecedor.Text = "Fornecedor";
-            this.TabGo_Fornecedor.UseVisualStyleBackColor = true;
-            this.TabGo_Fornecedor.Click += new System.EventHandler(this.TabGo_Fornecedor_Click);
+            // tabControl1
             // 
-            // TabGoFuncionario
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Font = new System.Drawing.Font("Georgia", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Location = new System.Drawing.Point(15, 82);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(970, 465);
+            this.tabControl1.TabIndex = 2;
             // 
-            this.TabGoFuncionario.AutoSize = true;
-            this.TabGoFuncionario.Location = new System.Drawing.Point(78, 133);
-            this.TabGoFuncionario.Margin = new System.Windows.Forms.Padding(2);
-            this.TabGoFuncionario.Name = "TabGoFuncionario";
-            this.TabGoFuncionario.Size = new System.Drawing.Size(163, 75);
-            this.TabGoFuncionario.TabIndex = 1;
-            this.TabGoFuncionario.Text = "Funcionario";
-            this.TabGoFuncionario.UseVisualStyleBackColor = true;
-            this.TabGoFuncionario.Click += new System.EventHandler(this.TabGoFuncionario_Click);
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tabPage1.Size = new System.Drawing.Size(962, 432);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.tabPage2.Size = new System.Drawing.Size(962, 432);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Gerência";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(962, 432);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "Estoque";
             // 
             // Inicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(624, 427);
-            this.Controls.Add(this.tabControl1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximizeBox = false;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.go_estoque);
+            this.Controls.Add(this.go_gerencia);
             this.Name = "Inicio";
             this.Text = "Inicio";
             this.Load += new System.EventHandler(this.Inicio_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tabInicial.ResumeLayout(false);
-            this.tabInicial.PerformLayout();
-            this.tabEstoque.ResumeLayout(false);
-            this.tabEstoque.PerformLayout();
-            this.tabGerencia.ResumeLayout(false);
-            this.tabGerencia.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabInicial;
-        private System.Windows.Forms.TabPage tabEstoque;
-        private System.Windows.Forms.TabPage tabGerencia;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button TabShowProducts;
-        private System.Windows.Forms.Button TabGoFuncionario;
-        private System.Windows.Forms.Button TabGo_Fornecedor;
+
+        private System.Windows.Forms.Button go_gerencia;
+        private System.Windows.Forms.Button go_estoque;
     }
 }
 
