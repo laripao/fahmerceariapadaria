@@ -3,6 +3,9 @@ using PadariaEMerceariaDaFah.Forms;
 using PadariaEMerceariaDaFah.Forms.Estoque;
 using System;
 using System.Windows.Forms;
+using PadariaEMerceariaDaFah.Forms.Estoque.Produtos;
+using PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor;
+using PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario;
 
 namespace PadariaEMerceariaDaFah
 {
@@ -43,10 +46,24 @@ namespace PadariaEMerceariaDaFah
             GerenciaEmpresa.Instance.CarregarFornecedoresBanco();
         }
 
-        private void go_estoque_Click(object sender, EventArgs e)
+
+
+        private void TabShowProducts_Click(object sender, EventArgs e)
         {
-            var estoque = new EstoqueInicio();
-            estoque.ShowDialog();
+            var produto = new ProdutoInicio();
+            produto.ShowDialog();
+        }
+
+        private void TabGoFuncionario_Click(object sender, EventArgs e)
+        {
+            var funcionario = new FuncionarioInicio();
+            funcionario.ShowDialog();
+        }
+
+        private void TabGo_Fornecedor_Click(object sender, EventArgs e)
+        {
+            var fornecedor = new FornecedorInicio();
+            fornecedor.ShowDialog();
         }
     }
 }

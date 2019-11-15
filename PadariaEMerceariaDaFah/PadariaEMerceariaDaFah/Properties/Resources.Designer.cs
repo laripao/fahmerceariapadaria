@@ -63,6 +63,26 @@ namespace PadariaEMerceariaDaFah.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_dialog_ok_apply_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions-dialog-ok-apply-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Actions_edit_delete_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions-edit-delete-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_window_close_icon {
             get {
                 object obj = ResourceManager.GetObject("Actions-window-close-icon", resourceCulture);
