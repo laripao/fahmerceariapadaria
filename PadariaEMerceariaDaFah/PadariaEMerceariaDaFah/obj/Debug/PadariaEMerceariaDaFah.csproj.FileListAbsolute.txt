@@ -71,3 +71,19 @@ C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\Pad
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\MySql.Data.xml
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\Renci.SshNet.xml
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.csproj.CopyComplete
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\BouncyCastle.Crypto.dll
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\Google.Protobuf.dll
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\MySql.Data.dll
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\Renci.SshNet.dll
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\Google.Protobuf.xml
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\MySql.Data.xml
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\bin\Debug\Renci.SshNet.xml
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.AddProduto.AddProduto.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.EstoqueInicio.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores.FornecedoresList.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Produtos.ProdutoInicio.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Produtos.RemoverProduto.RemoverProduto.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.AddFornecedor.AddFornecedor.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.FornecedorInicio.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.RemoveFornecedor.RemoverFornecedor.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.csproj.CopyComplete
