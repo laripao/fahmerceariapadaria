@@ -45,7 +45,7 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.RemoveFuncionario
             {
                 var func = Comercio.GerenciaEmpresa.Instance.Funcionarios.FirstOrDefault(x => x.Codigo == Code);
                 Comercio.GerenciaEmpresa.Instance.Funcionarios.Remove(func);
-                Comercio.GerenciaEmpresa.Instance.Banco.Delete("delete from gerencia_funcionario where codigo = '" + func.Codigo + "'");
+                Comercio.GerenciaEmpresa.Instance.Banco.Delete("update gerencia_funcionario set ativo = 0 where codigo = '" + func.Codigo + "'");
                 Comercio.GerenciaEmpresa.Instance.SalvarFuncionarios(Comercio.GerenciaEmpresa.Instance.Funcionarios);
                 MessageBox.Show("Funcionário Removido.");
                 this.Close();

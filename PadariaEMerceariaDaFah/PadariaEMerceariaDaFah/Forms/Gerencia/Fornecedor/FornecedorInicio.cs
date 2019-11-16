@@ -21,7 +21,10 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor
         private void UpdateForm(int Selected = 0)
         {
             list_fornecedor.Items.Clear();
-            foreach (var item in Comercio.GerenciaEmpresa.Instance.Fornecedores)
+
+            var fornecedores = Comercio.GerenciaEmpresa.Instance.CarregarFornecedoresBanco("SELECT * FROM GERENCIA_FORNECEDOR WHERE ATIVO = 1;");
+
+            foreach (var item in fornecedores)
             {
                 list_fornecedor.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
             }

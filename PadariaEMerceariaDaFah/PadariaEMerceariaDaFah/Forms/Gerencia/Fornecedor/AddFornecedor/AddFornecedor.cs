@@ -25,17 +25,14 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.AddFornecedor
         private void add_fornecedor_salvar_Click(object sender, EventArgs e)
         {
             var fornecedores = Comercio.GerenciaEmpresa.Instance.Fornecedores;
-            var cod = 1;
 
-            if (fornecedores.Any())
-            {
-                cod = Comercio.GerenciaEmpresa.Instance.Fornecedores.Max(x => x.Codigo) + 1;
-            }
+            Comercio.GerenciaEmpresa.Instance.Banco.Insert("insert into gerencia_fornecedor values (default, '" + fornecedor_nome.Text + "', '" + fornecedor_description.Text + "', '" + fornecedor_telefone.Text + "', '" + fornecedor_celular.Text + "', '" + fornecedor_email.Text + "', default );");
+
+            var cod =  Comercio.GerenciaEmpresa.Instance.CarregarFornecedoresBanco("select * from laripaos.gerencia_fornecedor where CODIGO = (select MAX(CODIGO) from laripaos.gerencia_fornecedor)").FirstOrDefault().Codigo; ;
+
             var novoFornecedor = new Comercio.Fornecedor(cod, fornecedor_nome.Text, fornecedor_description.Text, new Comercio.Contato(fornecedor_telefone.Text, fornecedor_celular.Text, fornecedor_email.Text));
 
             Comercio.GerenciaEmpresa.Instance.AdicionarFornecedor(novoFornecedor);
-
-            Comercio.GerenciaEmpresa.Instance.Banco.Insert("insert into gerencia_fornecedor values (default, '" + fornecedor_nome.Text + "', '"+ fornecedor_description.Text + "', '"+ fornecedor_telefone.Text + "', '"+ fornecedor_celular.Text + "', '"+fornecedor_email.Text+"');");
 
             Comercio.GerenciaEmpresa.Instance.SalvarFornecedores(Comercio.GerenciaEmpresa.Instance.Fornecedores);
 
@@ -43,6 +40,11 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.AddFornecedor
         }
 
         private void fornecedor_nome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddFornecedor_Load(object sender, EventArgs e)
         {
 
         }
