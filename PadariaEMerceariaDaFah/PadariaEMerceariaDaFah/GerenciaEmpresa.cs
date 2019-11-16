@@ -138,11 +138,55 @@ namespace Comercio
             return SalvarEEscrever.ReadBinFile<List<Fornecedor>>("Fornecedores");
         }
 
-        public List<Fornecedor> CarregarFornecedoresBanco()
+        public List<Fornecedor> CarregarFornecedoresBanco(string query)
         {
-           var fornecedores = Banco.Select("Select * from gerencia_fornecedor");
-            var t = 1;
-            return null;
+            var fornecedores = Banco.Select(query);
+
+            var listFornecedores = new List<Fornecedor>();
+
+            for (int i = 0; i < fornecedores.Rows.Count; i++)
+            {
+                listFornecedores.Add(new Fornecedor(Convert.ToInt32(fornecedores.Rows[i].ItemArray[0]),
+                                                    fornecedores.Rows[i].ItemArray[1].ToString(),
+                                                    fornecedores.Rows[i].ItemArray[2].ToString(),
+                                                    new Contato(
+                                                    fornecedores.Rows[i].ItemArray[3].ToString(),
+                                                    fornecedores.Rows[i].ItemArray[4].ToString(),
+                                                    fornecedores.Rows[i].ItemArray[5].ToString())));
+            }
+            
+           return listFornecedores;
+        }
+
+        public List<Funcionario> CarregarFuncionariosBanco(string query)
+        {
+
+            var funcionarios = Banco.Select(query);
+
+            var lisFuncionarios = new List<Funcionario>();
+
+            for (int i = 0; i < funcionarios.Rows.Count; i++)
+            {
+                lisFuncionarios.Add(new Funcionario(Convert.ToInt32(funcionarios.Rows[i].ItemArray[0]),
+                                                    funcionarios.Rows[i].ItemArray[2].ToString(),
+                                                    funcionarios.Rows[i].ItemArray[3].ToString(),
+                                                    funcionarios.Rows[i].ItemArray[1].ToString(),
+                                                    new Contato(
+                                                    funcionarios.Rows[i].ItemArray[4].ToString(),
+                                                    funcionarios.Rows[i].ItemArray[5].ToString(),
+                                                    funcionarios.Rows[i].ItemArray[6].ToString()),
+                                                    new Endereco(
+                                                    funcionarios.Rows[i].ItemArray[7].ToString(),
+                                                    funcionarios.Rows[i].ItemArray[8].ToString(),
+                                                    funcionarios.Rows[i].ItemArray[9].ToString(),
+                                                    funcionarios.Rows[i].ItemArray[10].ToString(),
+                                                    funcionarios.Rows[i].ItemArray[12].ToString(),
+                                                    funcionarios.Rows[i].ItemArray[11].ToString()
+                                                        )
+
+                                ));
+            }
+            return lisFuncionarios;
         }
 
     }
