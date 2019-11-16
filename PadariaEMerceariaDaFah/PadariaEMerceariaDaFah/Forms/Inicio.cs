@@ -16,11 +16,6 @@ namespace PadariaEMerceariaDaFah
             InitializeComponent();
         }
 
-        private void go_gerencia_Click(object sender, EventArgs e)
-        {
-            var gerencia = new GerenciaInicio();
-            gerencia.ShowDialog();
-        }
 
         private void Inicio_Load(object sender, EventArgs e)
         {

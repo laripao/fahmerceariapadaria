@@ -56,10 +56,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.group_ingredientes);
-            this.groupBox1.Controls.Add(this.add_produto_salvar);
-            this.groupBox1.Controls.Add(this.add_produto_cancel);
             this.groupBox1.Controls.Add(this.valor_text);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.fabricado);
@@ -76,7 +74,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(620, 452);
+            this.groupBox1.Size = new System.Drawing.Size(620, 412);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Produto";
@@ -129,7 +127,8 @@
             // 
             this.add_produto_salvar.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_dialog_ok_apply_icon;
             this.add_produto_salvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.add_produto_salvar.Location = new System.Drawing.Point(137, 367);
+            this.add_produto_salvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_produto_salvar.Location = new System.Drawing.Point(159, 427);
             this.add_produto_salvar.Margin = new System.Windows.Forms.Padding(2);
             this.add_produto_salvar.Name = "add_produto_salvar";
             this.add_produto_salvar.Size = new System.Drawing.Size(85, 40);
@@ -143,7 +142,8 @@
             // 
             this.add_produto_cancel.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_edit_delete_icon;
             this.add_produto_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.add_produto_cancel.Location = new System.Drawing.Point(319, 367);
+            this.add_produto_cancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_produto_cancel.Location = new System.Drawing.Point(334, 427);
             this.add_produto_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.add_produto_cancel.Name = "add_produto_cancel";
             this.add_produto_cancel.Size = new System.Drawing.Size(104, 40);
@@ -273,11 +273,13 @@
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(639, 472);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.add_produto_salvar);
+            this.Controls.Add(this.add_produto_cancel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "AddProduto";
-            this.Text = "AddProduto";
+            this.Text = "Adicionar Produto";
             this.Load += new System.EventHandler(this.AddProduto_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

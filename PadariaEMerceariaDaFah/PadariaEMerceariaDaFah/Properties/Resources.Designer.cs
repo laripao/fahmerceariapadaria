@@ -83,6 +83,26 @@ namespace PadariaEMerceariaDaFah.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_list_add_user_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions-list-add-user-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Actions_list_add_user_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("Actions-list-add-user-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_window_close_icon {
             get {
                 object obj = ResourceManager.GetObject("Actions-window-close-icon", resourceCulture);
@@ -156,6 +176,26 @@ namespace PadariaEMerceariaDaFah.Properties {
         internal static System.Drawing.Bitmap edit_validated_icon {
             get {
                 object obj = ResourceManager.GetObject("edit-validated-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Editfunc {
+            get {
+                object obj = ResourceManager.GetObject("Editfunc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap func_Add {
+            get {
+                object obj = ResourceManager.GetObject("func_Add", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

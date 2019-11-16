@@ -68,21 +68,24 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(701, 506);
+            this.groupBox2.Size = new System.Drawing.Size(701, 521);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produtos";
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.groupBox1.Controls.Add(this.habilitar_edicao);
             this.groupBox1.Controls.Add(this.group_edit_produto);
+            this.groupBox1.Controls.Add(this.remove_produto);
+            this.groupBox1.Controls.Add(this.save_edit_produto);
             this.groupBox1.Controls.Add(this.list_produto);
-            this.groupBox1.Location = new System.Drawing.Point(4, 59);
+            this.groupBox1.Location = new System.Drawing.Point(0, 59);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(693, 443);
+            this.groupBox1.Size = new System.Drawing.Size(701, 461);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Produtos Existentes";
@@ -101,6 +104,7 @@
             // 
             // group_edit_produto
             // 
+            this.group_edit_produto.BackColor = System.Drawing.Color.White;
             this.group_edit_produto.Controls.Add(this.group_ingredientes);
             this.group_edit_produto.Controls.Add(this.valor_text);
             this.group_edit_produto.Controls.Add(this.label3);
@@ -113,13 +117,11 @@
             this.group_edit_produto.Controls.Add(this.fornecedores);
             this.group_edit_produto.Controls.Add(this.Fornecedor);
             this.group_edit_produto.Controls.Add(this.revendido);
-            this.group_edit_produto.Controls.Add(this.remove_produto);
-            this.group_edit_produto.Controls.Add(this.save_edit_produto);
             this.group_edit_produto.Location = new System.Drawing.Point(184, 48);
             this.group_edit_produto.Margin = new System.Windows.Forms.Padding(2);
             this.group_edit_produto.Name = "group_edit_produto";
             this.group_edit_produto.Padding = new System.Windows.Forms.Padding(2);
-            this.group_edit_produto.Size = new System.Drawing.Size(505, 391);
+            this.group_edit_produto.Size = new System.Drawing.Size(505, 364);
             this.group_edit_produto.TabIndex = 8;
             this.group_edit_produto.TabStop = false;
             this.group_edit_produto.Text = "Produto";
@@ -238,8 +240,9 @@
             // 
             // linkFornecedores
             // 
+            this.linkFornecedores.ActiveLinkColor = System.Drawing.Color.Red;
             this.linkFornecedores.AutoSize = true;
-            this.linkFornecedores.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.linkFornecedores.BackColor = System.Drawing.Color.White;
             this.linkFornecedores.LinkColor = System.Drawing.Color.Blue;
             this.linkFornecedores.Location = new System.Drawing.Point(320, 49);
             this.linkFornecedores.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -286,7 +289,7 @@
             // 
             this.remove_produto.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
             this.remove_produto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.remove_produto.Location = new System.Drawing.Point(309, 346);
+            this.remove_produto.Location = new System.Drawing.Point(434, 416);
             this.remove_produto.Margin = new System.Windows.Forms.Padding(2);
             this.remove_produto.Name = "remove_produto";
             this.remove_produto.Size = new System.Drawing.Size(161, 41);
@@ -300,7 +303,7 @@
             // 
             this.save_edit_produto.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
             this.save_edit_produto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.save_edit_produto.Location = new System.Drawing.Point(11, 346);
+            this.save_edit_produto.Location = new System.Drawing.Point(195, 416);
             this.save_edit_produto.Margin = new System.Windows.Forms.Padding(2);
             this.save_edit_produto.Name = "save_edit_produto";
             this.save_edit_produto.Size = new System.Drawing.Size(137, 41);
@@ -340,13 +343,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(718, 523);
+            this.ClientSize = new System.Drawing.Size(718, 576);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "ProdutoInicio";
-            this.Text = "ProdutoInicio";
+            this.Text = "Produto Início";
             this.Load += new System.EventHandler(this.ProdutoInicio_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
