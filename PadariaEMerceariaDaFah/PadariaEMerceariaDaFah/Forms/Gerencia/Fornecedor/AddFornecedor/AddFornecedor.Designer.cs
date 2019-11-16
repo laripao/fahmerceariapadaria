@@ -187,6 +187,7 @@
             this.Controls.Add(this.groupBox3);
             this.Name = "AddFornecedor";
             this.Text = "AddFornecedor";
+            this.Load += new System.EventHandler(this.AddFornecedor_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox5.ResumeLayout(false);

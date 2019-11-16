@@ -13,8 +13,9 @@ namespace Comercio
         public string Nome, Funcao, CPF;
         public Contato Contato;
         public Endereco Endereco;
+        public bool Ativo;
 
-        public Funcionario(int codigo, string nome, string funcao, string cpf, Contato contato, Endereco endereco) 
+        public Funcionario(int codigo, string nome, string funcao, string cpf, Contato contato, Endereco endereco, bool ativo = true) 
         {
             Codigo = codigo;
             Nome = nome;
@@ -22,6 +23,7 @@ namespace Comercio
             Contato = contato;
             Endereco = endereco;
             CPF = cpf;
+            Ativo = ativo;
         }
 
         public void AtualizarFuncionario(Funcionario Item) 
@@ -32,6 +34,7 @@ namespace Comercio
             this.CPF = Item.CPF;
             this.Contato = Item.Contato;
             this.Endereco = Item.Endereco;
+            this.Ativo = Item.Ativo;
 
         }
     }
