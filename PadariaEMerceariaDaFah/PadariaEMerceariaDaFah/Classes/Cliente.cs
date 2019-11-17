@@ -11,15 +11,15 @@ namespace Comercio
     {
         public int Codigo;
         public string Nome;
+        public string Documento;
         public Contato Contato;
-        public Endereco Endereco;
 
-        public Cliente(int codigo, string nome, Contato contato, Endereco endereco) 
+        public Cliente(int codigo, string nome,string documento, Contato contato) 
         {
             Codigo = codigo;
             Nome = nome;
             Contato = contato;
-            Endereco = endereco;
+            Documento = documento;
         }
 
         public void AtualizarCliente(Cliente Item) 
@@ -27,7 +27,7 @@ namespace Comercio
             this.Codigo = Item.Codigo;
             this.Nome = Item.Nome;
             this.Contato = Item.Contato;
-            this.Endereco = Item.Endereco;
+            this.Documento = Item.Documento;
 
         }
     }

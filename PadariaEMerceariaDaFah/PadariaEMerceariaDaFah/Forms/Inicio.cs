@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos;
 using PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor;
 using PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario;
+using PadariaEMerceariaDaFah.Forms.Gerencia.Cliente;
 
 namespace PadariaEMerceariaDaFah
 {
@@ -35,7 +36,7 @@ namespace PadariaEMerceariaDaFah
                 + "CREATE TABLE IF NOT EXISTS FORNECE (    CODIGO INT PRIMARY KEY AUTO_INCREMENT,    COD_FORNECEDOR INT NOT NULL,    COD_INGREDIENTE INT NOT NULL,    CONSTRAINT `fk_fornece_fornecedor` FOREIGN KEY ( `COD_FORNECEDOR` ) REFERENCES GERENCIA_FORNECEDOR ( `CODIGO` ),	CONSTRAINT `fk_fornece_ingrediente` FOREIGN KEY ( `COD_INGREDIENTE` ) REFERENCES ESTOQUE_INGREDIENTE ( `CODIGO` ));"
                 + "CREATE TABLE IF NOT EXISTS UTILIZA (    CODIGO INT PRIMARY KEY AUTO_INCREMENT,    COD_PRODUTO INT NOT NULL,    COD_INGREDIENTE INT NOT NULL,    QUANTIDADE_UTILIZADA INT NOT NULL,    CONSTRAINT `fk_utiliza_produto` FOREIGN KEY (`COD_PRODUTO`) REFERENCES ESTOQUE_PRODUTO (`CODIGO`),	CONSTRAINT `fk_utiliza_ingrediente` FOREIGN KEY (`COD_INGREDIENTE`) REFERENCES ESTOQUE_INGREDIENTE (`CODIGO`));"
                 + "CREATE TABLE IF NOT EXISTS ITEM_ESTOQUE (    COD_ITEM INT PRIMARY KEY AUTO_INCREMENT,    COD_PRODUTO INT NOT NULL,    TIPO TINYINT(1),    VALIDADE_PRODUTO DATE,    QUANTIDADE_PRODUTO INT);"
-                + "CREATE TABLE IF NOT EXISTS CLIENTE (    CODIGO INT PRIMARY KEY NOT NULL AUTO_INCREMENT,    NOME VARCHAR(45),    CONTATO VARCHAR(15),    DOCUMENTO VARCHAR(15) NOT NULL UNIQUE);"
+                + "CREATE TABLE IF NOT EXISTS CLIENTE (    CODIGO INT PRIMARY KEY NOT NULL AUTO_INCREMENT,    NOME VARCHAR(45),        DOCUMENTO VARCHAR(15) NOT NULL UNIQUE, telefone VARCHAR(20),    celular VARCHAR(20),    email VARCHAR(100));"
                 + "CREATE TABLE IF NOT EXISTS ARMAZENA_PRODUTO (	CODIGO INT PRIMARY KEY AUTO_INCREMENT,    COD_ITEM INT NOT NULL,    COD_PRODUTO INT NOT NULL,	CONSTRAINT `FK_ARMAZENA_ITEM` FOREIGN KEY (`COD_ITEM`) REFERENCES ITEM_ESTOQUE (`COD_ITEM`),	CONSTRAINT `FK_ARMAZENA_PRODUTO` FOREIGN KEY (`COD_PRODUTO`) REFERENCES ESTOQUE_PRODUTO (`codigo`));"
                 + "CREATE TABLE IF NOT EXISTS VENDAS (    CODIGO INT PRIMARY KEY AUTO_INCREMENT,    DATA_DE_VENDA DATETIME,    COD_FUNCIONARIO INT NOT NULL,    COD_CLIENTE INT,    CONSTRAINT `FK_VENDAS_FUNCIONARIOS` FOREIGN KEY (`COD_FUNCIONARIO`) REFERENCES GERENCIA_FUNCIONARIO (`CODIGO`),    CONSTRAINT `FK_VENDA_ENCOMENDA` FOREIGN KEY (`COD_CLIENTE`) REFERENCES CLIENTE (`CODIGO`));"
                 + "CREATE TABLE IF NOT EXISTS VENDA_ITEM (    CODIGO INT PRIMARY KEY AUTO_INCREMENT,    COD_ITEM INT NOT NULL,    COD_VENDA INT NOT NULL,    QUANTIDADE INT,    CONSTRAINT `FK_VENDA_ITEM` FOREIGN KEY (`COD_ITEM`) REFERENCES ITEM_ESTOQUE (`COD_ITEM`),	CONSTRAINT `FK_VENDA_VENDAS` FOREIGN KEY (`COD_VENDA`) REFERENCES VENDAS (`CODIGO`));");
@@ -53,7 +54,8 @@ namespace PadariaEMerceariaDaFah
             {
                 GerenciaEmpresa.Instance.Produtos.AddRange(GerenciaEmpresa.Instance.CarregarProdutos());
             }
-            
+            GerenciaEmpresa.Instance.Clientes.AddRange(GerenciaEmpresa.Instance.CarregarClientesBanco("SELECT * FROM CLIENTE;"));
+
         }
 
 
@@ -74,6 +76,13 @@ namespace PadariaEMerceariaDaFah
         {
             var fornecedor = new FornecedorInicio();
             fornecedor.ShowDialog();
+        }
+
+        private void TabGoCliente_Click(object sender, EventArgs e)
+        {
+            var cliente = new ClienteInicio();
+            cliente.ShowDialog();
+
         }
     }
 }
