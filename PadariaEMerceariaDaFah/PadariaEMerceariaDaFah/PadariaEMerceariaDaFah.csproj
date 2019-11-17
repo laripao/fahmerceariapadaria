@@ -99,6 +99,24 @@
     <Compile Include="Forms\Estoque\Produtos\RemoverProduto\RemoverProduto.Designer.cs">
       <DependentUpon>RemoverProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Gerencia\Cliente\AddCliente\AddCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Gerencia\Cliente\AddCliente\AddCliente.Designer.cs">
+      <DependentUpon>AddCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Gerencia\Cliente\ClienteInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Gerencia\Cliente\ClienteInicio.Designer.cs">
+      <DependentUpon>ClienteInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Gerencia\Cliente\RemoveCliente\RemoverCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Gerencia\Cliente\RemoveCliente\RemoverCliente.Designer.cs">
+      <DependentUpon>RemoverCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Gerencia\Fornecedor\AddFornecedor\AddFornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +174,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Estoque\Produtos\RemoverProduto\RemoverProduto.resx">
       <DependentUpon>RemoverProduto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Gerencia\Cliente\AddCliente\AddCliente.resx">
+      <DependentUpon>AddCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Gerencia\Cliente\ClienteInicio.resx">
+      <DependentUpon>ClienteInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Gerencia\Cliente\RemoveCliente\RemoverCliente.resx">
+      <DependentUpon>RemoverCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Gerencia\Fornecedor\AddFornecedor\AddFornecedor.resx">
       <DependentUpon>AddFornecedor.cs</DependentUpon>

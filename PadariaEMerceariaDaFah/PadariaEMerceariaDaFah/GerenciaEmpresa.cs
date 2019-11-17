@@ -189,5 +189,25 @@ namespace Comercio
             return lisFuncionarios;
         }
 
+        public List<Cliente> CarregarClientesBanco(string query)
+        {
+            var clientes = Banco.Select(query);
+
+            var listClientes = new List<Cliente>();
+
+            for (int i = 0; i < clientes.Rows.Count; i++)
+            {
+                listClientes.Add(new Cliente(Convert.ToInt32(clientes.Rows[i].ItemArray[0]),
+                                            clientes.Rows[i].ItemArray[1].ToString(),
+                                            clientes.Rows[i].ItemArray[2].ToString(),
+                                            new Contato(
+                                                    clientes.Rows[i].ItemArray[3].ToString(),
+                                                    clientes.Rows[i].ItemArray[4].ToString(),
+                                                    clientes.Rows[i].ItemArray[5].ToString())
+                    ));
+            }
+            return listClientes;
+        }
+
     }
 }
