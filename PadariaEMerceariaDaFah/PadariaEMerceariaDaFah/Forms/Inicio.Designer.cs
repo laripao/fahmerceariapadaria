@@ -36,13 +36,20 @@
             this.tabEstoque = new System.Windows.Forms.TabPage();
             this.TabShowProducts = new System.Windows.Forms.Button();
             this.tabGerencia = new System.Windows.Forms.TabPage();
+            this.TabGoCliente = new System.Windows.Forms.Button();
             this.TabGo_Fornecedor = new System.Windows.Forms.Button();
             this.TabGoFuncionario = new System.Windows.Forms.Button();
-            this.TabGoCliente = new System.Windows.Forms.Button();
+            this.tabPesquisa = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabela = new System.Windows.Forms.ComboBox();
+            this.btn_pesquisar = new System.Windows.Forms.Button();
+            this.groupResultados = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabLogo.SuspendLayout();
             this.tabEstoque.SuspendLayout();
             this.tabGerencia.SuspendLayout();
+            this.tabPesquisa.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -53,11 +60,12 @@
             this.tabControl1.Controls.Add(this.tabLogo);
             this.tabControl1.Controls.Add(this.tabEstoque);
             this.tabControl1.Controls.Add(this.tabGerencia);
+            this.tabControl1.Controls.Add(this.tabPesquisa);
             this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(500, 417);
+            this.tabControl1.Size = new System.Drawing.Size(856, 637);
             this.tabControl1.TabIndex = 0;
             // 
             // tabLogo
@@ -68,7 +76,7 @@
             this.tabLogo.Location = new System.Drawing.Point(4, 30);
             this.tabLogo.Name = "tabLogo";
             this.tabLogo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLogo.Size = new System.Drawing.Size(492, 383);
+            this.tabLogo.Size = new System.Drawing.Size(848, 603);
             this.tabLogo.TabIndex = 0;
             // 
             // label1
@@ -97,14 +105,14 @@
             this.tabEstoque.Location = new System.Drawing.Point(4, 30);
             this.tabEstoque.Name = "tabEstoque";
             this.tabEstoque.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEstoque.Size = new System.Drawing.Size(492, 383);
+            this.tabEstoque.Size = new System.Drawing.Size(848, 603);
             this.tabEstoque.TabIndex = 1;
             this.tabEstoque.Text = "Estoque";
             this.tabEstoque.UseVisualStyleBackColor = true;
             // 
             // TabShowProducts
             // 
-            this.TabShowProducts.Location = new System.Drawing.Point(169, 167);
+            this.TabShowProducts.Location = new System.Drawing.Point(58, 167);
             this.TabShowProducts.Name = "TabShowProducts";
             this.TabShowProducts.Size = new System.Drawing.Size(145, 61);
             this.TabShowProducts.TabIndex = 1;
@@ -119,10 +127,20 @@
             this.tabGerencia.Controls.Add(this.TabGoFuncionario);
             this.tabGerencia.Location = new System.Drawing.Point(4, 30);
             this.tabGerencia.Name = "tabGerencia";
-            this.tabGerencia.Size = new System.Drawing.Size(492, 383);
+            this.tabGerencia.Size = new System.Drawing.Size(848, 603);
             this.tabGerencia.TabIndex = 2;
             this.tabGerencia.Text = "Gerência";
             this.tabGerencia.UseVisualStyleBackColor = true;
+            // 
+            // TabGoCliente
+            // 
+            this.TabGoCliente.Location = new System.Drawing.Point(23, 138);
+            this.TabGoCliente.Name = "TabGoCliente";
+            this.TabGoCliente.Size = new System.Drawing.Size(116, 66);
+            this.TabGoCliente.TabIndex = 2;
+            this.TabGoCliente.Text = "Cliente";
+            this.TabGoCliente.UseVisualStyleBackColor = true;
+            this.TabGoCliente.Click += new System.EventHandler(this.TabGoCliente_Click);
             // 
             // TabGo_Fornecedor
             // 
@@ -144,20 +162,79 @@
             this.TabGoFuncionario.UseVisualStyleBackColor = true;
             this.TabGoFuncionario.Click += new System.EventHandler(this.TabGoFuncionario_Click);
             // 
-            // TabGoCliente
+            // tabPesquisa
             // 
-            this.TabGoCliente.Location = new System.Drawing.Point(23, 138);
-            this.TabGoCliente.Name = "TabGoCliente";
-            this.TabGoCliente.Size = new System.Drawing.Size(116, 66);
-            this.TabGoCliente.TabIndex = 2;
-            this.TabGoCliente.Text = "Cliente";
-            this.TabGoCliente.UseVisualStyleBackColor = true;
-            this.TabGoCliente.Click += new System.EventHandler(this.TabGoCliente_Click);
+            this.tabPesquisa.AutoScroll = true;
+            this.tabPesquisa.Controls.Add(this.groupResultados);
+            this.tabPesquisa.Controls.Add(this.btn_pesquisar);
+            this.tabPesquisa.Controls.Add(this.groupBox1);
+            this.tabPesquisa.Controls.Add(this.label2);
+            this.tabPesquisa.Controls.Add(this.tabela);
+            this.tabPesquisa.Location = new System.Drawing.Point(4, 30);
+            this.tabPesquisa.Name = "tabPesquisa";
+            this.tabPesquisa.Size = new System.Drawing.Size(848, 603);
+            this.tabPesquisa.TabIndex = 3;
+            this.tabPesquisa.Text = "Pesquisa";
+            this.tabPesquisa.UseVisualStyleBackColor = true;
+            this.tabPesquisa.Click += new System.EventHandler(this.tabPesquisa_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(16, 53);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(829, 100);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Campos";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(16, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 21);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Buscar:";
+            // 
+            // tabela
+            // 
+            this.tabela.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tabela.FormattingEnabled = true;
+            this.tabela.Items.AddRange(new object[] {
+            "Produto",
+            "Fornecedor",
+            "Funcionario",
+            "Cliente"});
+            this.tabela.Location = new System.Drawing.Point(92, 14);
+            this.tabela.Name = "tabela";
+            this.tabela.Size = new System.Drawing.Size(161, 29);
+            this.tabela.TabIndex = 3;
+            this.tabela.SelectedIndexChanged += new System.EventHandler(this.tabela_SelectedIndexChanged);
+            // 
+            // btn_pesquisar
+            // 
+            this.btn_pesquisar.Location = new System.Drawing.Point(570, 14);
+            this.btn_pesquisar.Name = "btn_pesquisar";
+            this.btn_pesquisar.Size = new System.Drawing.Size(205, 29);
+            this.btn_pesquisar.TabIndex = 6;
+            this.btn_pesquisar.Text = "Pesquisar";
+            this.btn_pesquisar.UseVisualStyleBackColor = true;
+            this.btn_pesquisar.Click += new System.EventHandler(this.btn_pesquisar_Click);
+            // 
+            // groupResultados
+            // 
+            this.groupResultados.Location = new System.Drawing.Point(16, 159);
+            this.groupResultados.Name = "groupResultados";
+            this.groupResultados.Size = new System.Drawing.Size(829, 100);
+            this.groupResultados.TabIndex = 6;
+            this.groupResultados.TabStop = false;
+            this.groupResultados.Text = "Resultados";
             // 
             // Inicio
             // 
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(524, 441);
+            this.ClientSize = new System.Drawing.Size(880, 661);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -169,6 +246,8 @@
             this.tabLogo.PerformLayout();
             this.tabEstoque.ResumeLayout(false);
             this.tabGerencia.ResumeLayout(false);
+            this.tabPesquisa.ResumeLayout(false);
+            this.tabPesquisa.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -187,6 +266,12 @@
         private System.Windows.Forms.Button TabGo_Fornecedor;
         private System.Windows.Forms.Button TabGoFuncionario;
         private System.Windows.Forms.Button TabGoCliente;
+        private System.Windows.Forms.TabPage tabPesquisa;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox tabela;
+        private System.Windows.Forms.Button btn_pesquisar;
+        private System.Windows.Forms.GroupBox groupResultados;
     }
 }
 
