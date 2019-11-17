@@ -7,6 +7,9 @@ using PadariaEMerceariaDaFah.Forms.Estoque.Produtos;
 using PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor;
 using PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario;
 using PadariaEMerceariaDaFah.Forms.Gerencia.Cliente;
+using System.Drawing;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PadariaEMerceariaDaFah
 {
@@ -23,6 +26,8 @@ namespace PadariaEMerceariaDaFah
             var gerenciaEmpresa = new GerenciaEmpresa();
 
             gerenciaEmpresa.Banco.Insert("create database if not exists laripaos");
+
+            this.HorizontalScroll.Enabled = true;
 
             gerenciaEmpresa.Banco = new Formulario.DB("Laripaos");
 
@@ -82,6 +87,173 @@ namespace PadariaEMerceariaDaFah
         {
             var cliente = new ClienteInicio();
             cliente.ShowDialog();
+
+        }
+
+        private void tabPesquisa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabela_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            string tabelaSelecionada;
+
+            groupBox1.Controls.Clear();
+
+            switch (tabela.SelectedItem.ToString())
+            {
+                case "Produto":
+                    tabelaSelecionada = "estoque_produto";
+                    break;
+                case "Funcionario":
+                    tabelaSelecionada = "gerencia_funcionario";
+                    break;
+                case "Fornecedor":
+                    tabelaSelecionada = "gerencia_fornecedor";
+                    break;
+                case "Cliente":
+                    tabelaSelecionada = "cliente";
+                    break;
+                default:
+                    tabelaSelecionada = "SEM TABELA";
+                    break;
+            }
+
+            var desc = Comercio.GerenciaEmpresa.Instance.Banco.Select("desc " + tabelaSelecionada);
+            var maxLinhas = Convert.ToInt32(Comercio.GerenciaEmpresa.Instance.Banco.Select("SELECT COUNT(*) FROM " + tabelaSelecionada).Rows[0].ItemArray[0].ToString());
+            var numCampos = desc.Rows.Count;
+
+            string[,] campos = new string[maxLinhas + 1, numCampos];
+
+            for (int i = 0; i < numCampos; i++)
+            {
+                campos[0, i] = desc.Rows[i].ItemArray[0].ToString();
+            }
+
+            this.WindowState = FormWindowState.Maximized;
+            groupBox1.Width = Width = 15 + (100 * numCampos);
+            groupResultados.Width = 15 + (100 * numCampos);
+
+            for (int i = 0; i < numCampos; i++)
+            {
+                var label = new Label();
+                label.Text = campos[0, i].ToUpper().Replace("COD_", "");
+                label.Width = 95;
+                label.Location = new Point(10 + (100 * i), 25);
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                var combo = new ComboBox();
+                combo.Width = 95;
+                combo.DropDownStyle = ComboBoxStyle.DropDown;
+                combo.AutoCompleteMode = AutoCompleteMode.Suggest;
+
+                var valores = Comercio.GerenciaEmpresa.Instance.Banco.Select("SELECT DISTINCT(" + campos[0, i] + ") from " + tabelaSelecionada).Rows;
+                for (int j = 0; j < valores.Count; j++)
+                {
+                    combo.Items.Add(valores[j].ItemArray[0].ToString());
+                }
+                combo.Location = new Point(10 + (100 * i), 50);
+
+                groupBox1.Controls.Add(label);
+                groupBox1.Controls.Add(combo);
+
+            }
+            /*var combo = new ComboBox();
+            combo.DropDownStyle = ComboBoxStyle.DropDownList;
+            combo.Items.Add("Teste1");
+            combo.Items.Add("Teste2");
+            combo.Items.Add("Teste3");
+            combo.Items.Add("Teste4");
+            combo.Items.Add("Teste4");
+            combo.Location = new Point(50,50);*/
+        }
+
+        private void btn_pesquisar_Click(object sender, EventArgs e)
+        {
+            if (tabela.SelectedItem == null)
+                return;
+            var controles = groupBox1.Controls;
+            groupResultados.Controls.Clear();
+
+            string tabelaSelecionada;
+            
+            switch (tabela.SelectedItem.ToString())
+            {
+                case "Produto":
+                    tabelaSelecionada = "estoque_produto";
+                    break;
+                case "Funcionario":
+                    tabelaSelecionada = "gerencia_funcionario";
+                    break;
+                case "Fornecedor":
+                    tabelaSelecionada = "gerencia_fornecedor";
+                    break;
+                case "Cliente":
+                    tabelaSelecionada = "cliente";
+                    break;
+                default:
+                    tabelaSelecionada = "SEM TABELA";
+                    break;
+            }
+
+            var desc = GerenciaEmpresa.Instance.Banco.Select("desc " + tabelaSelecionada);
+            var maxLinhas = Convert.ToInt32(GerenciaEmpresa.Instance.Banco.Select("SELECT COUNT(*) FROM " + tabelaSelecionada).Rows[0].ItemArray[0].ToString());
+            var numCampos = desc.Rows.Count;
+
+            string[] campos = new string[numCampos];
+
+            for (int i = 0; i < numCampos; i++)
+            {
+                campos[i] = desc.Rows[i].ItemArray[0].ToString();
+            }
+
+            string query;
+            List<ComboBox> Combos = new List<ComboBox>();
+            for (int i =0; i< controles.Count; i++)
+            {
+                if(controles[i].AccessibilityObject.Role == AccessibleRole.ComboBox)
+                    Combos.Add((ComboBox)controles[i]);
+
+            }
+
+            query = "SELECT * FROM " + tabelaSelecionada;
+            if (Combos.Any(x => x.SelectedItem != null))
+            {
+                query = query + " WHERE ";
+                var and = false;
+                for(int i = 0; i< numCampos; i++)
+                {                    
+                    if (Combos[i].SelectedItem != null)
+                    {
+                        if (and)
+                        {
+                            query = query + " AND ";
+                        }
+                        query = query + campos[i] + " = '" + Combos[i].SelectedItem.ToString() + "' ";
+                        and = true;
+                        
+                    } 
+
+                }
+            }
+
+           var dados = GerenciaEmpresa.Instance.Banco.Select(query);
+
+            groupResultados.Height = 25 + (dados.Rows.Count * 25);
+            for (int j = 0; j < dados.Rows.Count; j++)
+            {
+                for (int i = 0; i < numCampos; i++)
+                {
+                    var label = new Label();
+                    label.Width = 95;
+                    label.Location = new Point(10 + (100 * i), 20+(j*25));
+                    label.BackColor = ((j % 2) != 0) ? Color.LightSkyBlue : Color.SkyBlue;
+                    label.Text = dados.Rows[j].ItemArray[i] != null? dados.Rows[j].ItemArray[i].ToString(): "";
+                    groupResultados.Controls.Add(label);
+                }
+                
+            }
 
         }
     }
