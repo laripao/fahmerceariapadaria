@@ -1,14 +1,9 @@
-﻿using Formulario;
-using PadariaEMerceariaDaFah.Enums;
+﻿using PadariaEMerceariaDaFah.Enums;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
+using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaProdutos;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
@@ -17,7 +12,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
     {
         public int? codFornecedor;
         public string nomeFornecedor;
-        public List<string> Ingredientes = new List<string>();
+        public int? codFuncionario = 0;
         public AddProduto()
         {
             InitializeComponent();
@@ -31,6 +26,8 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
                 linkFornecedores.Visible = true;
                 fornecedores.Visible = true;
                 Fornecedor.Visible = true;
+                fabricado_funcionario.Visible = false;
+                QuemFabricou.Visible = false;
 
                 group_ingredientes.Visible = false;
             }
@@ -58,6 +55,8 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
                 linkFornecedores.Visible = false;
                 fornecedores.Visible = false;
                 Fornecedor.Visible = false;
+                fabricado_funcionario.Visible = true;
+                QuemFabricou.Visible = true;
 
                 group_ingredientes.Visible = true;
             }
@@ -72,24 +71,51 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
         private void add_produto_salvar_Click(object sender, EventArgs e)
         {
             var produtos = Comercio.GerenciaEmpresa.Instance.Produtos;
-            var cod = 1;
-            Produto_tipo tipo;
+            
+            var query = "INSERT INTO ESTOQUE_PRODUTO VALUES(default" + "," 
+                        +" '" + nome_produto.Text + "' " + "," 
+                        +" '" + des_text.Text + "' "+"," 
+                        + (fabricado.Checked ? 0 : 1) + ", " 
+                        + Convert.ToDouble(valor_text.Text) + ", " +
+                        "'"+ codFuncionario + "');";
 
-            if (produtos.Any())
-            {
-                cod = Comercio.GerenciaEmpresa.Instance.Produtos.Max(x => x.Codigo) + 1;
-            }
+            Comercio.GerenciaEmpresa.Instance.Banco.Insert(query);
+            
+            Produto_tipo tipo = fabricado.Checked ? Produto_tipo.fabricado : Produto_tipo.revendido;
 
-                tipo = fabricado.Checked ? Produto_tipo.fabricado : Produto_tipo.revendido;
- 
+            var codProduto = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM laripaos.ESTOQUE_PRODUTO WHERE CODIGO = (SELECT MAX(CODIGO) FROM laripaos.ESTOQUE_PRODUTO);").FirstOrDefault();
 
-            var novoProduto = new Comercio.Produto(cod, nome_produto.Text, des_text.Text, tipo,Convert.ToDouble(valor_text.Text), codFornecedor, Ingredientes);
+            int cod = codProduto == null ? 1 : codProduto.Codigo;
+
+
+            var novoProduto = new Comercio.Produto(cod, nome_produto.Text, des_text.Text, tipo,Convert.ToDouble(valor_text.Text), codFornecedor);
 
             Comercio.GerenciaEmpresa.Instance.AdicionarProduto(novoProduto);
             Comercio.GerenciaEmpresa.Instance.SalvarProdutos(Comercio.GerenciaEmpresa.Instance.Produtos);
 
-            var query = "INSERT INTO ESTOQUE_PRODUTO VALUES(default" + "," + " '" + nome_produto.Text + "' " + "," + " '" + des_text.Text + "' "+"," + (fabricado.Checked ? 0 : 1) + ", " + Convert.ToDouble(valor_text.Text) + ", '', " + codFornecedor + ");";
-            Comercio.GerenciaEmpresa.Instance.Banco.Insert(query);
+            
+            if(revendido.Checked == true)
+            {
+                var queryProdRevendido = ("INSERT INTO ESTOQUE_PRODUTO_REVENDIDO VALUES( default, "
+                    + " '"+ cod + "', "
+                    + " '" + codFornecedor + "', "
+                    + " '" + Convert.ToDouble(valor_text.Text) + "');");
+
+                Comercio.GerenciaEmpresa.Instance.Banco.Insert(queryProdRevendido);
+            }
+            else
+            {
+                foreach(var item in lista_ingredientes.Items)
+                {
+                    string[] aux = item.ToString().Split('|');
+                    int cod_ingrediente = Convert.ToInt32(aux[0].Trim());
+
+                    var queryItens = ("INSERT INTO UTILIZA VALUES( default,"
+                        + " '" + cod + "', "
+                        + " '" + cod_ingrediente + "','" +
+                        +1+"');");
+                }
+            }
 
             this.Close();
         }
@@ -102,14 +128,28 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
 
         private void add_ingredientes_Click(object sender, EventArgs e)
         {
-            lista_ingredientes.Items.Add(text_ingredientes.Text);
-            Ingredientes.Add(text_ingredientes.Text);
-            text_ingredientes.Text = "";
+            var ingredientes = new IngredientesList();
+            ingredientes.ShowDialog();
+
+            lista_ingredientes.Items.Add(ingredientes.codIngrediente + "|" + ingredientes.nomeIngrediente);
         }
 
         private void Fornecedor_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void remove_ingredientes_Click(object sender, EventArgs e)
+        {
+            lista_ingredientes.Items.RemoveAt(lista_ingredientes.SelectedIndex);
+        }
+
+        private void valor_text_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((char.IsLetter(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
