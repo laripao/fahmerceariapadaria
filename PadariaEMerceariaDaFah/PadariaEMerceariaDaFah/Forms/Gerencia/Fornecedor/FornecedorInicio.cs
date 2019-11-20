@@ -133,5 +133,10 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor
                 UpdateForm(selectedFunc);
             }
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

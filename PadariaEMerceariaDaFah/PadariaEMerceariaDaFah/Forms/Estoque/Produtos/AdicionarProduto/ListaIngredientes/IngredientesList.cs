@@ -1,0 +1,84 @@
+﻿using PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes;
+using PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaProdutos
+{
+    public partial class IngredientesList : Form
+    {
+        public string nomeIngrediente;
+        public int codIngrediente;
+        public IngredientesList()
+        {
+            InitializeComponent();
+        }
+
+        private void add_produto_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void go_ingrediente_Click_Click(object sender, EventArgs e)
+        {
+            var ingrediente = new IngredientesInicio();
+            ingrediente.ShowDialog();
+            UpdateForm();
+        }
+
+        private void go_addIngrediente_Click(object sender, EventArgs e)
+        {
+            var ingrediente = new AddIngrediente();
+            ingrediente.ShowDialog();
+            UpdateForm();
+        }
+
+        private void IngredientesList_Load(object sender, EventArgs e)
+        {
+            list_ingrediente.Items.Clear();
+
+            foreach(var item in Comercio.GerenciaEmpresa.Instance.Ingredientes)
+            {
+                list_ingrediente.Items.Add(item.Codigo + "|" + item.Nome);
+            }
+        }
+        private void UpdateForm(int Selected = 0)
+        {
+            list_ingrediente.Items.Clear();
+            foreach (var item in Comercio.GerenciaEmpresa.Instance.Ingredientes)
+            {
+                list_ingrediente.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
+            }
+            if (Selected != 0)
+            {
+                var ingredienteSelected = Comercio.GerenciaEmpresa.Instance.Ingredientes.FirstOrDefault(x => x.Codigo == Selected);
+                if (ingredienteSelected != null)
+                {
+                    var index = list_ingrediente.Items.IndexOf(ingredienteSelected.Codigo.ToString() + " | " + ingredienteSelected.Nome);
+                    list_ingrediente.SetSelected(index, true);
+                }
+            }
+        }
+
+        
+        private void add_produto_ingrediente_salvar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void list_ingrediente_DoubleClick(object sender, EventArgs e)
+        {
+            if (list_ingrediente.SelectedItem != null)
+            {
+                string[] aux = list_ingrediente.SelectedItem.ToString().Split('|');
+                nomeIngrediente = aux[1];
+
+                codIngrediente = Convert.ToInt32(aux[0].Trim());
+                Close();
+                this.Close();
+            }
+        }
+    }
+}

@@ -40,28 +40,28 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.RemoverProduto
         {
             if(Code != 0)
             {
-                var produto = Comercio.GerenciaEmpresa.Instance.Produtos.FirstOrDefault(x => x.Codigo == Code);
-                var fornecedor = Comercio.GerenciaEmpresa.Instance.Fornecedores.FirstOrDefault(x => x.Codigo == Code);
+                //var produto = Comercio.GerenciaEmpresa.Instance.Produtos.FirstOrDefault(x => x.Codigo == Code);
+                //var fornecedor = Comercio.GerenciaEmpresa.Instance.Fornecedores.FirstOrDefault(x => x.Codigo == Code);
 
-                nome_produto.Text = produto.Nome;
-                des_text.Text = produto.Descricao;
-                valor_text.Text = produto.Valor.ToString();
+                //nome_produto.Text = produto.Nome;
+                //des_text.Text = produto.Descricao;
+                //valor_text.Text = produto.Valor.ToString();
 
-                revendido.Checked = produto.codFornecedor == null ? false : true;
-                fabricado.Checked = produto.codFornecedor == null ? true : false;
+                //revendido.Checked = produto.codFornecedor == null ? false : true;
+                //fabricado.Checked = produto.codFornecedor == null ? true : false;
 
-                group_ingredientes.Visible = produto.codFornecedor == null ? true : false;
-                fornecedores.Visible = produto.codFornecedor == null ? false : true;
-                Fornecedor.Text = produto.codFornecedor == null ? "" : fornecedor.Nome;
-                Fornecedor.Visible = produto.codFornecedor == null ? false : true;
+                //group_ingredientes.Visible = produto.codFornecedor == null ? true : false;
+                //fornecedores.Visible = produto.codFornecedor == null ? false : true;
+                //Fornecedor.Text = produto.codFornecedor == null ? "" : fornecedor.Nome;
+                //Fornecedor.Visible = produto.codFornecedor == null ? false : true;
 
-                if (produto.codFornecedor == null)
-                {
-                    for (int i = 0; i < produto.Ingredientes.Count - 1; i++)
-                    {
-                        lista_ingredientes.Items.Add(produto.Ingredientes[i].ToString());
-                    }
-                }
+                //if (produto.codFornecedor == null)
+                //{
+                //    for (int i = 0; i < produto.Ingredientes.Count - 1; i++)
+                //    {
+                //        lista_ingredientes.Items.Add(produto.Ingredientes[i].ToString());
+                //    }
+                //}
             }
         }
     }

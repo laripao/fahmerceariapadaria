@@ -1,13 +1,7 @@
 ﻿using PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor;
 using PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.AddFornecedor;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores
@@ -33,16 +27,22 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFo
 
         private void list_fornecedor_DoubleClick(object sender, EventArgs e)
         {
-            string[] aux = list_fornecedor.SelectedItem.ToString().Split('|');
-            nome_fornecedor = aux[1];
-            cod_fornecedor = Convert.ToInt32(aux[0].Trim());
-            Close();
+            if(list_fornecedor.SelectedItem != null)
+            {
+                string[] aux = list_fornecedor.SelectedItem.ToString().Split('|');
+                nome_fornecedor = aux[1];
+                cod_fornecedor = Convert.ToInt32(aux[0].Trim());
+                Close();
+            }
         }
 
         private void UpdateForm(int Selected = 0)
         {
             list_fornecedor.Items.Clear();
-            foreach (var item in Comercio.GerenciaEmpresa.Instance.Fornecedores)
+
+            var fornecedores = Comercio.GerenciaEmpresa.Instance.CarregarFornecedoresBanco("SELECT * FROM GERENCIA_FORNECEDOR WHERE ATIVO = 1;");
+
+            foreach (var item in fornecedores)
             {
                 list_fornecedor.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
             }
@@ -61,6 +61,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFo
         {
             var fornecedor = new FornecedorInicio();
             fornecedor.ShowDialog();
+            UpdateForm();
         }
 
         private void go_addFornecedor_Click(object sender, EventArgs e)

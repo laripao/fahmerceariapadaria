@@ -34,6 +34,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabEstoque = new System.Windows.Forms.TabPage();
+            this.panel_produto = new System.Windows.Forms.Panel();
+            this.tabGerencia = new System.Windows.Forms.TabPage();
+            this.TabGo_Fornecedor = new System.Windows.Forms.Button();
+            this.TabGoFuncionario = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.tabEstoque = new System.Windows.Forms.TabPage();
             this.TabShowProducts = new System.Windows.Forms.Button();
             this.tabGerencia = new System.Windows.Forms.TabPage();
             this.TabGoCliente = new System.Windows.Forms.Button();
@@ -66,6 +73,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(856, 637);
+            this.tabControl1.Size = new System.Drawing.Size(970, 750);
             this.tabControl1.TabIndex = 0;
             // 
             // tabLogo
@@ -77,7 +85,28 @@
             this.tabLogo.Name = "tabLogo";
             this.tabLogo.Padding = new System.Windows.Forms.Padding(3);
             this.tabLogo.Size = new System.Drawing.Size(848, 603);
+            this.tabLogo.Size = new System.Drawing.Size(846, 598);
             this.tabLogo.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(2, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(402, 28);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Produtos que vencerão em 5 dias";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 21;
+            this.listBox1.Location = new System.Drawing.Point(6, 52);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(834, 319);
+            this.listBox1.TabIndex = 0;
             // 
             // label1
             // 
@@ -103,9 +132,12 @@
             // 
             this.tabEstoque.Controls.Add(this.TabShowProducts);
             this.tabEstoque.Location = new System.Drawing.Point(4, 30);
+            this.tabEstoque.Controls.Add(this.panel_produto);
+            this.tabEstoque.Location = new System.Drawing.Point(4, 30);
             this.tabEstoque.Name = "tabEstoque";
             this.tabEstoque.Padding = new System.Windows.Forms.Padding(3);
             this.tabEstoque.Size = new System.Drawing.Size(848, 603);
+            this.tabEstoque.Size = new System.Drawing.Size(962, 716);
             this.tabEstoque.TabIndex = 1;
             this.tabEstoque.Text = "Estoque";
             this.tabEstoque.UseVisualStyleBackColor = true;
@@ -125,13 +157,15 @@
             this.tabGerencia.Controls.Add(this.TabGoCliente);
             this.tabGerencia.Controls.Add(this.TabGo_Fornecedor);
             this.tabGerencia.Controls.Add(this.TabGoFuncionario);
-            this.tabGerencia.Location = new System.Drawing.Point(4, 30);
+            this.tabGerencia.Location = new System.Drawing.Point(4, 26);
             this.tabGerencia.Name = "tabGerencia";
+            this.tabGerencia.Size = new System.Drawing.Size(846, 598);
             this.tabGerencia.Size = new System.Drawing.Size(848, 603);
             this.tabGerencia.TabIndex = 2;
             this.tabGerencia.Text = "Gerência";
             this.tabGerencia.UseVisualStyleBackColor = true;
             // 
+            // TabGo_Fornecedor
             // TabGoCliente
             // 
             this.TabGoCliente.Location = new System.Drawing.Point(23, 138);
@@ -145,6 +179,14 @@
             // TabGo_Fornecedor
             // 
             this.TabGo_Fornecedor.Location = new System.Drawing.Point(352, 138);
+            this.TabGo_Fornecedor.Name = "TabGo_Fornecedor";
+            this.TabGo_Fornecedor.Size = new System.Drawing.Size(116, 66);
+            this.TabGo_Fornecedor.TabIndex = 1;
+            this.TabGo_Fornecedor.Text = "Fornecedor";
+            this.TabGo_Fornecedor.UseVisualStyleBackColor = true;
+            this.TabGo_Fornecedor.Click += new System.EventHandler(this.TabGo_Fornecedor_Click);
+            // 
+            this.TabGo_Fornecedor.Location = new System.Drawing.Point(266, 138);
             this.TabGo_Fornecedor.Name = "TabGo_Fornecedor";
             this.TabGo_Fornecedor.Size = new System.Drawing.Size(116, 66);
             this.TabGo_Fornecedor.TabIndex = 1;
@@ -234,7 +276,7 @@
             // Inicio
             // 
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(880, 661);
+            this.ClientSize = new System.Drawing.Size(994, 774);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -262,9 +304,9 @@
         private System.Windows.Forms.TabPage tabGerencia;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button TabShowProducts;
         private System.Windows.Forms.Button TabGo_Fornecedor;
         private System.Windows.Forms.Button TabGoFuncionario;
+        private System.Windows.Forms.Panel panel_produto;
         private System.Windows.Forms.Button TabGoCliente;
         private System.Windows.Forms.TabPage tabPesquisa;
         private System.Windows.Forms.GroupBox groupBox1;
