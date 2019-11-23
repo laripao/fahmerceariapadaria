@@ -38,18 +38,21 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaPr
         private void IngredientesList_Load(object sender, EventArgs e)
         {
             list_ingrediente.Items.Clear();
+            var ingrediente = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM ESTOQUE_INGREDIENTE WHERE ATIVO = '" + 1 + "';");
 
-            foreach(var item in Comercio.GerenciaEmpresa.Instance.Ingredientes)
+            foreach (var item in ingrediente)
             {
-                list_ingrediente.Items.Add(item.Codigo + "|" + item.Nome);
+                list_ingrediente.Items.Add(item.Codigo.ToString() + "|" + item.Nome);
             }
         }
         private void UpdateForm(int Selected = 0)
         {
             list_ingrediente.Items.Clear();
-            foreach (var item in Comercio.GerenciaEmpresa.Instance.Ingredientes)
+            var ingrediente = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM ESTOQUE_INGREDIENTE WHERE ATIVO = '" + 1 + "';");
+
+            foreach (var item in ingrediente)
             {
-                list_ingrediente.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
+                list_ingrediente.Items.Add(item.Codigo.ToString() + "|" + item.Nome);
             }
             if (Selected != 0)
             {

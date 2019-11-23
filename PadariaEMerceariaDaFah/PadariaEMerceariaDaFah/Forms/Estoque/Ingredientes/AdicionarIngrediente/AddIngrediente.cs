@@ -29,7 +29,17 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente
 
         private void valor_text_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsLetter(e.KeyChar)))
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                e.KeyChar = '.';
+
+                if (valor_text.Text.Contains("."))
+                {
+                    e.Handled = true;
+                }
+            }
+
+            else if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
             {
                 e.Handled = true;
             }
@@ -42,9 +52,17 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente
 
         private void quantidade_text_KeyPress(object sender, KeyPressEventArgs e)
         {
-            string caracteresNaoPermitidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZ,.;";
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                e.KeyChar = '.';
 
-            if ((caracteresNaoPermitidos.Contains(e.KeyChar.ToString().ToUpper())))
+                if (quantidade_text.Text.Contains("."))
+                {
+                    e.Handled = true;
+                }
+            }
+
+            else if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
             {
                 e.Handled = true;
             }

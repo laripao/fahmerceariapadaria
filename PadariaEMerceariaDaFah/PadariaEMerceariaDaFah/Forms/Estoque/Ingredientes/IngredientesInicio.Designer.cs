@@ -30,9 +30,9 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.habilitar_edicao = new System.Windows.Forms.CheckBox();
-            this.list_Ingrediente = new System.Windows.Forms.ListBox();
             this.edit_ingrediente = new System.Windows.Forms.GroupBox();
+            this.remove_ingrediente = new System.Windows.Forms.Button();
+            this.save_edit_ingrediente = new System.Windows.Forms.Button();
             this.quantidade_text = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.data_validade = new System.Windows.Forms.DateTimePicker();
@@ -44,8 +44,8 @@
             this.linkFornecedores = new System.Windows.Forms.LinkLabel();
             this.fornecedores = new System.Windows.Forms.Label();
             this.Fornecedor = new System.Windows.Forms.TextBox();
-            this.remove_ingrediente = new System.Windows.Forms.Button();
-            this.save_edit_ingrediente = new System.Windows.Forms.Button();
+            this.habilitar_edicao = new System.Windows.Forms.CheckBox();
+            this.list_Ingrediente = new System.Windows.Forms.ListBox();
             this.add_ingrediente = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,29 +82,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingredientes Existentes";
             // 
-            // habilitar_edicao
-            // 
-            this.habilitar_edicao.AutoSize = true;
-            this.habilitar_edicao.Location = new System.Drawing.Point(245, 25);
-            this.habilitar_edicao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.habilitar_edicao.Name = "habilitar_edicao";
-            this.habilitar_edicao.Size = new System.Drawing.Size(164, 25);
-            this.habilitar_edicao.TabIndex = 10;
-            this.habilitar_edicao.Text = "Habilitar Edição";
-            this.habilitar_edicao.UseVisualStyleBackColor = true;
-            this.habilitar_edicao.CheckedChanged += new System.EventHandler(this.habilitar_edicao_CheckedChanged);
-            // 
-            // list_Ingrediente
-            // 
-            this.list_Ingrediente.FormattingEnabled = true;
-            this.list_Ingrediente.ItemHeight = 21;
-            this.list_Ingrediente.Location = new System.Drawing.Point(12, 21);
-            this.list_Ingrediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.list_Ingrediente.Name = "list_Ingrediente";
-            this.list_Ingrediente.Size = new System.Drawing.Size(215, 298);
-            this.list_Ingrediente.TabIndex = 1;
-            this.list_Ingrediente.SelectedValueChanged += new System.EventHandler(this.list_Ingrediente_SelectedValueChanged);
-            // 
             // edit_ingrediente
             // 
             this.edit_ingrediente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -134,6 +111,34 @@
             this.edit_ingrediente.TabStop = false;
             this.edit_ingrediente.Text = "Ingrediente";
             // 
+            // remove_ingrediente
+            // 
+            this.remove_ingrediente.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
+            this.remove_ingrediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.remove_ingrediente.Location = new System.Drawing.Point(388, 208);
+            this.remove_ingrediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.remove_ingrediente.Name = "remove_ingrediente";
+            this.remove_ingrediente.Size = new System.Drawing.Size(227, 50);
+            this.remove_ingrediente.TabIndex = 21;
+            this.remove_ingrediente.Text = "Remover Ingrediente";
+            this.remove_ingrediente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.remove_ingrediente.UseVisualStyleBackColor = true;
+            this.remove_ingrediente.Click += new System.EventHandler(this.remove_ingrediente_Click);
+            // 
+            // save_edit_ingrediente
+            // 
+            this.save_edit_ingrediente.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
+            this.save_edit_ingrediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.save_edit_ingrediente.Location = new System.Drawing.Point(69, 208);
+            this.save_edit_ingrediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.save_edit_ingrediente.Name = "save_edit_ingrediente";
+            this.save_edit_ingrediente.Size = new System.Drawing.Size(183, 50);
+            this.save_edit_ingrediente.TabIndex = 20;
+            this.save_edit_ingrediente.Text = "Salvar Edição";
+            this.save_edit_ingrediente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.save_edit_ingrediente.UseVisualStyleBackColor = true;
+            this.save_edit_ingrediente.Click += new System.EventHandler(this.save_edit_ingrediente_Click);
+            // 
             // quantidade_text
             // 
             this.quantidade_text.Location = new System.Drawing.Point(629, 126);
@@ -141,6 +146,7 @@
             this.quantidade_text.Name = "quantidade_text";
             this.quantidade_text.Size = new System.Drawing.Size(49, 27);
             this.quantidade_text.TabIndex = 19;
+            this.quantidade_text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantidade_text_KeyPress);
             // 
             // label5
             // 
@@ -166,6 +172,7 @@
             this.valor_text.Name = "valor_text";
             this.valor_text.Size = new System.Drawing.Size(41, 27);
             this.valor_text.TabIndex = 10;
+            this.valor_text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.valor_text_KeyPress);
             // 
             // label3
             // 
@@ -224,39 +231,36 @@
             // 
             // Fornecedor
             // 
+            this.Fornecedor.Enabled = false;
             this.Fornecedor.Location = new System.Drawing.Point(126, 22);
             this.Fornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Fornecedor.Name = "Fornecedor";
             this.Fornecedor.Size = new System.Drawing.Size(263, 27);
             this.Fornecedor.TabIndex = 1;
+            this.Fornecedor.TextChanged += new System.EventHandler(this.Fornecedor_TextChanged);
             // 
-            // remove_ingrediente
+            // habilitar_edicao
             // 
-            this.remove_ingrediente.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
-            this.remove_ingrediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.remove_ingrediente.Location = new System.Drawing.Point(388, 208);
-            this.remove_ingrediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.remove_ingrediente.Name = "remove_ingrediente";
-            this.remove_ingrediente.Size = new System.Drawing.Size(227, 50);
-            this.remove_ingrediente.TabIndex = 21;
-            this.remove_ingrediente.Text = "Remover Ingrediente";
-            this.remove_ingrediente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.remove_ingrediente.UseVisualStyleBackColor = true;
-            this.remove_ingrediente.Click += new System.EventHandler(this.remove_ingrediente_Click);
+            this.habilitar_edicao.AutoSize = true;
+            this.habilitar_edicao.Location = new System.Drawing.Point(245, 25);
+            this.habilitar_edicao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.habilitar_edicao.Name = "habilitar_edicao";
+            this.habilitar_edicao.Size = new System.Drawing.Size(164, 25);
+            this.habilitar_edicao.TabIndex = 10;
+            this.habilitar_edicao.Text = "Habilitar Edição";
+            this.habilitar_edicao.UseVisualStyleBackColor = true;
+            this.habilitar_edicao.CheckedChanged += new System.EventHandler(this.habilitar_edicao_CheckedChanged);
             // 
-            // save_edit_ingrediente
+            // list_Ingrediente
             // 
-            this.save_edit_ingrediente.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
-            this.save_edit_ingrediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.save_edit_ingrediente.Location = new System.Drawing.Point(69, 208);
-            this.save_edit_ingrediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.save_edit_ingrediente.Name = "save_edit_ingrediente";
-            this.save_edit_ingrediente.Size = new System.Drawing.Size(183, 50);
-            this.save_edit_ingrediente.TabIndex = 20;
-            this.save_edit_ingrediente.Text = "Salvar Edição";
-            this.save_edit_ingrediente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.save_edit_ingrediente.UseVisualStyleBackColor = true;
-            this.save_edit_ingrediente.Click += new System.EventHandler(this.save_edit_ingrediente_Click);
+            this.list_Ingrediente.FormattingEnabled = true;
+            this.list_Ingrediente.ItemHeight = 21;
+            this.list_Ingrediente.Location = new System.Drawing.Point(12, 21);
+            this.list_Ingrediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.list_Ingrediente.Name = "list_Ingrediente";
+            this.list_Ingrediente.Size = new System.Drawing.Size(215, 298);
+            this.list_Ingrediente.TabIndex = 1;
+            this.list_Ingrediente.SelectedValueChanged += new System.EventHandler(this.list_Ingrediente_SelectedValueChanged);
             // 
             // add_ingrediente
             // 

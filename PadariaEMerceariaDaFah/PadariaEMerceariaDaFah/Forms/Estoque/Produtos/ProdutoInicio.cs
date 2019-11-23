@@ -83,13 +83,13 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 selectedProduto = Convert.ToInt32(list_produto.SelectedItem.ToString().Split('|').First());
                 var produto = Comercio.GerenciaEmpresa.Instance.Produtos.FirstOrDefault(x => x.Codigo == selectedProduto);
 
-                var fornecedor = Comercio.GerenciaEmpresa.Instance.CarregarFornecedoresBanco("SELECT * FROM gerencia_fornecedor GF JOIN estoque_produto_revendido EPR ON (GF.codigo = EPR.cod_fornecedor) WHERE cod_produto = '"+produto.Codigo+"';" ).FirstOrDefault();
+                var fornecedor = Comercio.GerenciaEmpresa.Instance.CarregarFornecedoresBanco("SELECT * FROM gerencia_fornecedor GF JOIN estoque_produto_revendido EPR ON (GF.codigo = EPR.cod_fornecedor) WHERE cod_produto = '" + produto.Codigo + "';").FirstOrDefault();
 
                 nome_produto.Text = produto.Nome;
                 des_text.Text = produto.Descricao;
                 valor_text.Text = produto.Valor.ToString();
 
-                revendido.Checked = produto.Tipo == Enums.Produto_tipo.fabricado? false : true;
+                revendido.Checked = produto.Tipo == Enums.Produto_tipo.fabricado ? false : true;
                 fabricado.Checked = produto.Tipo == Enums.Produto_tipo.fabricado ? true : false;
 
                 group_ingredientes.Visible = produto.Tipo == Enums.Produto_tipo.fabricado ? true : false;
@@ -106,7 +106,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
                     foreach (var item in ingrediente)
                     {
-                        list_produto.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
+                        lista_ingredientes.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
                     }
                 }
             }
@@ -130,7 +130,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 remove.ShowDialog();
                 UpdateForm(selectedFunc);
 
-                var query = "DELETE FROM ESTOQUE_PRODUTO WHERE CODIGO = '" + selectedFunc+"'";
+                var query = "DELETE FROM ESTOQUE_PRODUTO WHERE CODIGO = '" + selectedFunc + "'";
                 Comercio.GerenciaEmpresa.Instance.Banco.Delete(query);
             }
         }
@@ -147,9 +147,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 produto.Nome = nome_produto.Text;
                 produto.Valor = Convert.ToDouble(valor_text.Text);
                 produto.Descricao = des_text.Text;
-                produto.Tipo = revendido.Checked == true? Enums.Produto_tipo.revendido : Enums.Produto_tipo.fabricado;
-
-                lista_ingredientes.Items.Clear();
+                produto.Tipo = revendido.Checked == true ? Enums.Produto_tipo.revendido : Enums.Produto_tipo.fabricado;
 
                 Comercio.GerenciaEmpresa.Instance.AtualizarProduto(produto);
 
@@ -183,7 +181,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                             var queryItens = ("INSERT INTO UTILIZA VALUES( default,"
                                 + " '" + produto.Codigo + "', "
                                 + " '" + cod_ingrediente + "'" +
-                                " '" + 1 +"');");
+                                " '" + 1 + "');");
 
                             Comercio.GerenciaEmpresa.Instance.Banco.Insert(queryItens);
                         }
@@ -212,9 +210,9 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
                             var queryItens = ("UPDATE UTILIZA SET"
                                 + " COD_INGREDIENTE = '" + cod_ingrediente + "'," +
-                                "QUANTIDADE = '" + 1 +"'" +
+                                "QUANTIDADE = '" + 1 + "'" +
                                 "WHERE COD_PRODUTO = '" + produto.Codigo + "';");
-                            
+
                             Comercio.GerenciaEmpresa.Instance.Banco.Insert(queryItens);
                         }
 
@@ -227,7 +225,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
         private void revendido_CheckedChanged(object sender, EventArgs e)
         {
-            if(revendido.Checked == true)
+            if (revendido.Checked == true)
             {
                 fabricado.Checked = false;
 
@@ -243,7 +241,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
         private void fabricado_CheckedChanged(object sender, EventArgs e)
         {
-            if(fabricado.Checked == true)
+            if (fabricado.Checked == true)
             {
                 revendido.Checked = false;
 
@@ -274,12 +272,22 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
         private void add_ingredientes_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void valor_text_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsLetter(e.KeyChar)))
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                e.KeyChar = '.';
+
+                if (valor_text.Text.Contains("."))
+                {
+                    e.Handled = true;
+                }
+            }
+
+            else if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
             {
                 e.Handled = true;
             }

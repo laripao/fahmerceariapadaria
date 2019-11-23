@@ -24,9 +24,12 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes
 
         private void IngredientesInicio_Load(object sender, EventArgs e)
         {
-            foreach(var item in Comercio.GerenciaEmpresa.Instance.Ingredientes)
+            list_Ingrediente.Items.Clear();
+            var ingrediente = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM ESTOQUE_INGREDIENTE WHERE ATIVO = '" + 1 + "';");
+
+            foreach (var item in ingrediente)
             {
-                list_Ingrediente.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
+                list_Ingrediente.Items.Add(item.Codigo.ToString() + "|" + item.Nome);
             }
             HabilitarEdicao();
         }
@@ -141,6 +144,47 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes
                 Comercio.GerenciaEmpresa.Instance.SalvarRelacaoForneceIngredientes(Comercio.GerenciaEmpresa.Instance.RelacaoForneceIngredientes);
 
                 MessageBox.Show("Ingrediente Atualizado com sucesso!");
+            }
+        }
+
+        private void Fornecedor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void valor_text_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                e.KeyChar = '.';
+
+                if (valor_text.Text.Contains("."))
+                {
+                    e.Handled = true;
+                }
+            }
+
+            else if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void quantidade_text_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                e.KeyChar = '.';
+
+                if (quantidade_text.Text.Contains("."))
+                {
+                    e.Handled = true;
+                }
+            }
+
+            else if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
+            {
+                e.Handled = true;
             }
         }
     }

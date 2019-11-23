@@ -114,6 +114,8 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
                         + " '" + cod + "', "
                         + " '" + cod_ingrediente + "','" +
                         +1+"');");
+
+                    Comercio.GerenciaEmpresa.Instance.Banco.Insert(queryItens);
                 }
             }
 
@@ -146,7 +148,17 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
 
         private void valor_text_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((char.IsLetter(e.KeyChar)))
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                e.KeyChar = '.';
+
+                if (valor_text.Text.Contains("."))
+                {
+                    e.Handled = true; 
+                }
+            }
+
+            else if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
             {
                 e.Handled = true;
             }
