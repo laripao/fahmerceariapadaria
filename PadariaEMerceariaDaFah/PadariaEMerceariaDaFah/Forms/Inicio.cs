@@ -145,18 +145,21 @@ namespace PadariaEMerceariaDaFah
             }
 
             this.WindowState = FormWindowState.Maximized;
-            groupBox1.Width = Width = 15 + (100 * numCampos);
-            groupResultados.Width = 15 + (100 * numCampos);
+            groupBox1.Width = Width = 15 + (130 * numCampos);
+            groupResultados.Width = 15 + (130 * numCampos);
 
             for (int i = 0; i < numCampos; i++)
             {
                 var label = new Label();
                 label.Text = campos[0, i].ToUpper().Replace("COD_", "");
-                label.Width = 95;
-                label.Location = new Point(10 + (100 * i), 25);
+                label.Width = 90;
+                label.Location = new Point(25 + (120 * i), 25);
                 label.TextAlign = ContentAlignment.MiddleCenter;
+                var checkBox = new CheckBox();
+                checkBox.Checked = true;
+                checkBox.Location = new Point(10+(120 * i), 25);
                 var combo = new ComboBox();
-                combo.Width = 95;
+                combo.Width = 110;
                 combo.DropDownStyle = ComboBoxStyle.DropDown;
                 combo.AutoCompleteMode = AutoCompleteMode.Suggest;
 
@@ -165,20 +168,15 @@ namespace PadariaEMerceariaDaFah
                 {
                     combo.Items.Add(valores[j].ItemArray[0].ToString());
                 }
-                combo.Location = new Point(10 + (100 * i), 50);
+                
+                combo.Location = new Point(10 + (120 * i), 50);
 
                 groupBox1.Controls.Add(label);
                 groupBox1.Controls.Add(combo);
+                groupBox1.Controls.Add(checkBox);
 
             }
-            /*var combo = new ComboBox();
-            combo.DropDownStyle = ComboBoxStyle.DropDownList;
-            combo.Items.Add("Teste1");
-            combo.Items.Add("Teste2");
-            combo.Items.Add("Teste3");
-            combo.Items.Add("Teste4");
-            combo.Items.Add("Teste4");
-            combo.Location = new Point(50,50);*/
+
         }
 
         private void btn_pesquisar_Click(object sender, EventArgs e)
@@ -222,15 +220,19 @@ namespace PadariaEMerceariaDaFah
 
             string query;
             List<ComboBox> Combos = new List<ComboBox>();
+            List<CheckBox> checkBoxes = new List<CheckBox>();
             for (int i =0; i< controles.Count; i++)
             {
                 if(controles[i].AccessibilityObject.Role == AccessibleRole.ComboBox)
                     Combos.Add((ComboBox)controles[i]);
-
+                if (controles[i].AccessibilityObject.Role == AccessibleRole.CheckButton)
+                    checkBoxes.Add((CheckBox)controles[i]);
             }
 
-            query = "SELECT * FROM " + tabelaSelecionada;
-            if (Combos.Any(x => x.SelectedItem != null))
+            var camposSelecionados = CamposSelecionados(tabelaSelecionada, checkBoxes, campos);
+
+            query = "SELECT "+camposSelecionados+" FROM " + tabelaSelecionada;
+            if (Combos.Any(x => x.SelectedItem != null && !string.IsNullOrWhiteSpace(x.SelectedItem.ToString())))
             {
                 query = query + " WHERE ";
                 var and = false;
@@ -252,21 +254,64 @@ namespace PadariaEMerceariaDaFah
 
            var dados = GerenciaEmpresa.Instance.Banco.Select(query);
 
-            groupResultados.Height = 25 + (dados.Rows.Count * 25);
-            for (int j = 0; j < dados.Rows.Count; j++)
+            groupResultados.Height = 100 + (dados.Rows.Count * 25);
+            var count = 0;
+            for (int i = 0; i < campos.Length; i++)
             {
-                for (int i = 0; i < numCampos; i++)
+                if (checkBoxes[i].Checked)
                 {
                     var label = new Label();
-                    label.Width = 95;
-                    label.Location = new Point(10 + (100 * i), 20+(j*25));
-                    label.BackColor = ((j % 2) != 0) ? Color.LightSkyBlue : Color.SkyBlue;
-                    label.Text = dados.Rows[j].ItemArray[i] != null? dados.Rows[j].ItemArray[i].ToString(): "";
+                    label.Width = 110;
+                    label.Location = new Point(10 + (120 * count), 20);
+                    label.BackColor = Color.Gray;
+                    label.Text = campos[i];
                     groupResultados.Controls.Add(label);
+                    count++;
+                }
+            }
+
+            for (int j = 0; j < dados.Rows.Count; j++)
+            {
+                for (int i = 0; i < checkBoxes.Count(x=> x.Checked); i++)
+                {
+                    
+                        var label = new Label();
+                        label.Width = 110;
+                        label.Location = new Point(10 + (120 * i), 45 + (j * 25));
+                        label.BackColor = ((j % 2) != 0) ? Color.LightSkyBlue : Color.SkyBlue;
+                        label.Text = dados.Rows[j].ItemArray[i] != null ? dados.Rows[j].ItemArray[i].ToString() : "";
+                        groupResultados.Controls.Add(label);
+                    
                 }
                 
             }
 
         }
+
+        public string CamposSelecionados(string table, List<CheckBox> checkBoxes, string[] campos)
+        {
+            string select = "";
+            if (!checkBoxes.Any(x => x.Checked))
+            {
+                select = table + ".* ";
+            }
+            else
+            {
+                for (int i= 0; i< checkBoxes.Count; i++)
+                {
+                    if (checkBoxes[i].Checked)
+                    {
+                        if (!string.IsNullOrEmpty(select))
+                        {
+                            select += ", ";
+                        }
+                        select += table + "." + campos[i]+" ";
+                    }
+                }
+            }
+
+            return select;
+        }
+
     }
 }
