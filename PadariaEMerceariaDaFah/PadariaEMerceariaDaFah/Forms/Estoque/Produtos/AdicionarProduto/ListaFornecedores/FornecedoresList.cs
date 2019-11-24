@@ -21,7 +21,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFo
             list_fornecedor.Items.Clear();
             foreach (var item in Comercio.GerenciaEmpresa.Instance.Fornecedores)
             {
-                list_fornecedor.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
+                list_fornecedor.Items.Add(item.Codigo.ToString() + "|" + item.Nome);
             }
         }
 
@@ -69,6 +69,11 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFo
             var fornecedor = new AddFornecedor();
             fornecedor.ShowDialog();
             UpdateForm();
+        }
+
+        private void add_produto_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaPr
     {
         public string nomeIngrediente;
         public int codIngrediente;
+        public double qtdIngrediente;
         public IngredientesList()
         {
             InitializeComponent();
@@ -78,10 +79,34 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaPr
                 string[] aux = list_ingrediente.SelectedItem.ToString().Split('|');
                 nomeIngrediente = aux[1];
 
+                qtdIngrediente = Convert.ToDouble(quantidade_text.Text);
                 codIngrediente = Convert.ToInt32(aux[0].Trim());
                 Close();
                 this.Close();
             }
+        }
+
+        private void quantidade_text_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == '.' || e.KeyChar == ',')
+            {
+                e.KeyChar = '.';
+
+                if (quantidade_text.Text.Contains("."))
+                {
+                    e.Handled = true;
+                }
+            }
+
+            else if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ok_button_qtd_Click(object sender, EventArgs e)
+        {
+            list_ingrediente.Enabled = true;
         }
     }
 }

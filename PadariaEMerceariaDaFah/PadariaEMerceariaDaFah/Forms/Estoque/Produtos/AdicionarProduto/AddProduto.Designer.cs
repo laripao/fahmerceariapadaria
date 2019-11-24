@@ -47,6 +47,7 @@
             this.fornecedores = new System.Windows.Forms.Label();
             this.Fornecedor = new System.Windows.Forms.TextBox();
             this.revendido = new System.Windows.Forms.RadioButton();
+            this.linkFuncionario = new System.Windows.Forms.LinkLabel();
             this.add_produto_salvar = new System.Windows.Forms.Button();
             this.add_produto_cancel = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -59,6 +60,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.linkFuncionario);
             this.groupBox1.Controls.Add(this.QuemFabricou);
             this.groupBox1.Controls.Add(this.fabricado_funcionario);
             this.groupBox1.Controls.Add(this.group_ingredientes);
@@ -78,27 +80,30 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(827, 507);
+            this.groupBox1.Size = new System.Drawing.Size(827, 559);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Produto";
             // 
             // QuemFabricou
             // 
-            this.QuemFabricou.Location = new System.Drawing.Point(156, 476);
+            this.QuemFabricou.Enabled = false;
+            this.QuemFabricou.Location = new System.Drawing.Point(156, 504);
             this.QuemFabricou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.QuemFabricou.Name = "QuemFabricou";
             this.QuemFabricou.Size = new System.Drawing.Size(628, 27);
             this.QuemFabricou.TabIndex = 16;
+            this.QuemFabricou.TextChanged += new System.EventHandler(this.QuemFabricou_TextChanged);
             // 
             // fabricado_funcionario
             // 
             this.fabricado_funcionario.AutoSize = true;
-            this.fabricado_funcionario.Location = new System.Drawing.Point(7, 479);
+            this.fabricado_funcionario.Location = new System.Drawing.Point(7, 507);
             this.fabricado_funcionario.Name = "fabricado_funcionario";
             this.fabricado_funcionario.Size = new System.Drawing.Size(134, 21);
             this.fabricado_funcionario.TabIndex = 15;
             this.fabricado_funcionario.Text = "Fabricado por:";
+            this.fabricado_funcionario.Click += new System.EventHandler(this.fabricado_funcionario_Click);
             // 
             // group_ingredientes
             // 
@@ -254,12 +259,23 @@
             this.revendido.UseVisualStyleBackColor = true;
             this.revendido.CheckedChanged += new System.EventHandler(this.revendido_CheckedChanged);
             // 
+            // linkFuncionario
+            // 
+            this.linkFuncionario.AutoSize = true;
+            this.linkFuncionario.Location = new System.Drawing.Point(322, 533);
+            this.linkFuncionario.Name = "linkFuncionario";
+            this.linkFuncionario.Size = new System.Drawing.Size(215, 21);
+            this.linkFuncionario.TabIndex = 17;
+            this.linkFuncionario.TabStop = true;
+            this.linkFuncionario.Text = "Selecione um funcionário";
+            this.linkFuncionario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFuncionario_LinkClicked);
+            // 
             // add_produto_salvar
             // 
             this.add_produto_salvar.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_dialog_ok_apply_icon;
             this.add_produto_salvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_produto_salvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_produto_salvar.Location = new System.Drawing.Point(212, 526);
+            this.add_produto_salvar.Location = new System.Drawing.Point(212, 577);
             this.add_produto_salvar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.add_produto_salvar.Name = "add_produto_salvar";
             this.add_produto_salvar.Size = new System.Drawing.Size(113, 49);
@@ -274,7 +290,7 @@
             this.add_produto_cancel.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_edit_delete_icon;
             this.add_produto_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_produto_cancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_produto_cancel.Location = new System.Drawing.Point(445, 526);
+            this.add_produto_cancel.Location = new System.Drawing.Point(445, 577);
             this.add_produto_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.add_produto_cancel.Name = "add_produto_cancel";
             this.add_produto_cancel.Size = new System.Drawing.Size(139, 49);
@@ -289,7 +305,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(852, 581);
+            this.ClientSize = new System.Drawing.Size(852, 625);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.add_produto_salvar);
             this.Controls.Add(this.add_produto_cancel);
@@ -328,5 +344,6 @@
         private System.Windows.Forms.TextBox QuemFabricou;
         private System.Windows.Forms.Label fabricado_funcionario;
         private System.Windows.Forms.Button remove_ingredientes;
+        private System.Windows.Forms.LinkLabel linkFuncionario;
     }
 }

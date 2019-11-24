@@ -1,14 +1,8 @@
-﻿using Formulario;
-using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
+﻿using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
+using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFuncionarios;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaProdutos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
@@ -16,6 +10,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
     public partial class ProdutoInicio : Form
     {
         public string nomeFornecedor;
+        public string nomeFuncionario;
         public int? codFornecedor;
         public int? codFuncionario;
 
@@ -98,6 +93,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 Fornecedor.Text = fornecedor == null ? "" : fornecedor.Nome;
                 Fornecedor.Visible = produto.Tipo == Enums.Produto_tipo.fabricado ? false : true;
 
+
                 if (produto.Tipo == Enums.Produto_tipo.fabricado)
                 {
                     var relacaoProduto = Comercio.GerenciaEmpresa.Instance.CarregarRelacaoProdutoUtilizaIngredientesBanco("SELECT * FROM UTILIZA WHERE COD_PRODUTO = '" + produto.Codigo + "';").FirstOrDefault();
@@ -177,11 +173,12 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                         {
                             string[] aux = item.ToString().Split('|');
                             int cod_ingrediente = Convert.ToInt32(aux[0].Trim());
+                            double qtd_ingrediente = Convert.ToDouble(aux[1].Trim());
 
                             var queryItens = ("INSERT INTO UTILIZA VALUES( default,"
                                 + " '" + produto.Codigo + "', "
                                 + " '" + cod_ingrediente + "'" +
-                                " '" + 1 + "');");
+                                " '" + qtd_ingrediente + "');");
 
                             Comercio.GerenciaEmpresa.Instance.Banco.Insert(queryItens);
                         }
@@ -207,10 +204,11 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                         {
                             string[] aux = item.ToString().Split('|');
                             int cod_ingrediente = Convert.ToInt32(aux[0].Trim());
+                            double qtd_ingrediente = Convert.ToDouble(aux[1].Trim());
 
                             var queryItens = ("UPDATE UTILIZA SET"
                                 + " COD_INGREDIENTE = '" + cod_ingrediente + "'," +
-                                "QUANTIDADE = '" + 1 + "'" +
+                                "QUANTIDADE = '" + qtd_ingrediente + "'" +
                                 "WHERE COD_PRODUTO = '" + produto.Codigo + "';");
 
                             Comercio.GerenciaEmpresa.Instance.Banco.Insert(queryItens);
@@ -232,6 +230,9 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 lista_ingredientes.Items.Clear();
 
                 group_ingredientes.Visible = false;
+                fabricado_funcionario.Visible = false;
+                QuemFabricou.Visible = false;
+                linkFuncionario.Visible = false;
 
                 linkFornecedores.Visible = true;
                 fornecedores.Visible = true;
@@ -251,6 +252,9 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 var produto = Comercio.GerenciaEmpresa.Instance.Produtos.FirstOrDefault(x => x.Codigo == selectedProduto);
 
                 group_ingredientes.Visible = true;
+                fabricado_funcionario.Visible = true;
+                QuemFabricou.Visible = true;
+                linkFuncionario.Visible = true;
 
                 linkFornecedores.Visible = false;
                 fornecedores.Visible = false;
@@ -262,7 +266,6 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
         {
             var fornecedor = new FornecedoresList();
             fornecedor.ShowDialog();
-
 
             codFornecedor = FornecedoresList.cod_fornecedor;
             nomeFornecedor = FornecedoresList.nome_fornecedor;
@@ -303,12 +306,28 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
             var ingredientes = new IngredientesList();
             ingredientes.ShowDialog();
 
-            lista_ingredientes.Items.Add(ingredientes.codIngrediente + "|" + ingredientes.nomeIngrediente);
+            if(ingredientes.nomeIngrediente != null)
+            {
+                lista_ingredientes.Items.Add(ingredientes.codIngrediente + "|" + ingredientes.nomeIngrediente + "|" + ingredientes.qtdIngrediente);
+            }
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkFuncionario_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            var funcionario = new FuncionariosList();
+            FuncionariosList.cod_funcionario = 0;
+            FuncionariosList.nome_funcionario = "";
+            funcionario.ShowDialog();
+
+            nomeFuncionario = FuncionariosList.nome_funcionario;
+            codFuncionario = FuncionariosList.cod_funcionario;
+
+            QuemFabricou.Text = nomeFuncionario;
         }
     }
 }

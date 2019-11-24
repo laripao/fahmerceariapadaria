@@ -90,6 +90,7 @@
             this.add_produto_cancel.Text = "Cancelar";
             this.add_produto_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.add_produto_cancel.UseVisualStyleBackColor = true;
+            this.add_produto_cancel.Click += new System.EventHandler(this.add_produto_cancel_Click);
             // 
             // FornecedoresList
             // 
