@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Linq;
+using PadariaEMerceariaDaFah.Classes;
 
 namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor
 {
@@ -46,11 +47,11 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor
                 var selectedfornecedor = Convert.ToInt32(list_fornecedor.SelectedItem.ToString().Split('|').First());
                 var fornecedor = Comercio.GerenciaEmpresa.Instance.Fornecedores.FirstOrDefault(x => x.Codigo == selectedfornecedor);
 
-                fornecedor.Nome = fornecedor_nome.Text;
-                fornecedor.Description = fornecedor_description.Text;
-                fornecedor.Contato.Celular = fornecedor_celular.Text;
-                fornecedor.Contato.Telefone = fornecedor_telefone.Text;
-                fornecedor.Contato.Email = fornecedor_email.Text;
+                fornecedor.Nome = fornecedor_nome.Text.FormatToDB();
+                fornecedor.Description = fornecedor_description.Text.FormatToDB();
+                fornecedor.Contato.Celular = fornecedor_celular.Text.FormatToDB();
+                fornecedor.Contato.Telefone = fornecedor_telefone.Text.FormatToDB();
+                fornecedor.Contato.Email = fornecedor_email.Text.FormatToDB();
 
                 Comercio.GerenciaEmpresa.Instance.Banco.Update("update gerencia_fornecedor set name = '"+fornecedor.Nome+"', description = '"+
                     fornecedor.Description+"', telefone = '"+fornecedor.Contato.Telefone+"', celular = '"+fornecedor.Contato.Celular+

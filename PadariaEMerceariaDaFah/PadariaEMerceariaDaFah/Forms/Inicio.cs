@@ -10,6 +10,7 @@ using PadariaEMerceariaDaFah.Forms.Gerencia.Cliente;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
+using PadariaEMerceariaDaFah.Classes;
 
 namespace PadariaEMerceariaDaFah
 {
@@ -232,7 +233,7 @@ namespace PadariaEMerceariaDaFah
             var camposSelecionados = CamposSelecionados(tabelaSelecionada, checkBoxes, campos);
 
             query = "SELECT "+camposSelecionados+" FROM " + tabelaSelecionada;
-            if (Combos.Any(x => x.SelectedItem != null && !string.IsNullOrWhiteSpace(x.SelectedItem.ToString())))
+            if (Combos.Any(x => x.SelectedItem != null && !string.IsNullOrWhiteSpace(x.SelectedItem.ToString().FormatToDB())))
             {
                 query = query + " WHERE ";
                 var and = false;
@@ -244,7 +245,7 @@ namespace PadariaEMerceariaDaFah
                         {
                             query = query + " AND ";
                         }
-                        query = query + campos[i] + " = '" + Combos[i].SelectedItem.ToString() + "' ";
+                        query = query + campos[i] + " = '" + Combos[i].SelectedItem.ToString().FormatToDB() + "' ";
                         and = true;
                         
                     } 

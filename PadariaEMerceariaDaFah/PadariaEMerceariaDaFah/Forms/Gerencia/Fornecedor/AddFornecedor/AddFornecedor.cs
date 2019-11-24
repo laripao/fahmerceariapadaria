@@ -1,10 +1,10 @@
-﻿using System;
+﻿using PadariaEMerceariaDaFah.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,11 +26,11 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Fornecedor.AddFornecedor
         {
             var fornecedores = Comercio.GerenciaEmpresa.Instance.Fornecedores;
 
-            Comercio.GerenciaEmpresa.Instance.Banco.Insert("insert into gerencia_fornecedor values (default, '" + fornecedor_nome.Text + "', '" + fornecedor_description.Text + "', '" + fornecedor_telefone.Text + "', '" + fornecedor_celular.Text + "', '" + fornecedor_email.Text + "', default );");
+            Comercio.GerenciaEmpresa.Instance.Banco.Insert("insert into gerencia_fornecedor values (default, '" + fornecedor_nome.Text.FormatToDB() + "', '" + fornecedor_description.Text.FormatToDB() + "', '" + fornecedor_telefone.Text.FormatToDB() + "', '" + fornecedor_celular.Text.FormatToDB() + "', '" + fornecedor_email.Text.FormatToDB() + "', default );");
 
             var cod =  Comercio.GerenciaEmpresa.Instance.CarregarFornecedoresBanco("select * from laripaos.gerencia_fornecedor where CODIGO = (select MAX(CODIGO) from laripaos.gerencia_fornecedor)").FirstOrDefault().Codigo; ;
 
-            var novoFornecedor = new Comercio.Fornecedor(cod, fornecedor_nome.Text, fornecedor_description.Text, new Comercio.Contato(fornecedor_telefone.Text, fornecedor_celular.Text, fornecedor_email.Text));
+            var novoFornecedor = new Comercio.Fornecedor(cod, fornecedor_nome.Text.FormatToDB(), fornecedor_description.Text.FormatToDB(), new Comercio.Contato(fornecedor_telefone.Text.FormatToDB(), fornecedor_celular.Text.FormatToDB(), fornecedor_email.Text.FormatToDB()));
 
             Comercio.GerenciaEmpresa.Instance.AdicionarFornecedor(novoFornecedor);
 

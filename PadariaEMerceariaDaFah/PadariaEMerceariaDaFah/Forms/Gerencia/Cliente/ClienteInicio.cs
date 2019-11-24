@@ -1,10 +1,10 @@
-﻿using System;
+﻿using PadariaEMerceariaDaFah.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -107,18 +107,18 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Cliente
         {
             if (list_cliente.SelectedItem != null)
             {
-                var docExistente = Comercio.GerenciaEmpresa.Instance.CarregarClientesBanco("SELECT * FROM CLIENTE WHERE DOCUMENTO = '" + cliente_documento.Text + "';");
+                var docExistente = Comercio.GerenciaEmpresa.Instance.CarregarClientesBanco("SELECT * FROM CLIENTE WHERE DOCUMENTO = '" + cliente_documento.Text.FormatToDB() + "';");
 
                 if (!docExistente.Any())
                 {
                     var selectedcliente = Convert.ToInt32(list_cliente.SelectedItem.ToString().Split('|').First());
                     var cliente = Comercio.GerenciaEmpresa.Instance.Clientes.FirstOrDefault(x => x.Codigo == selectedcliente);
 
-                    cliente.Nome = cliente_nome.Text;
-                    cliente.Documento = cliente_documento.Text;
-                    cliente.Contato.Celular = cliente_celular.Text;
-                    cliente.Contato.Telefone = cliente_telefone.Text;
-                    cliente.Contato.Email = cliente_email.Text;
+                    cliente.Nome = cliente_nome.Text.FormatToDB();
+                    cliente.Documento = cliente_documento.Text.FormatToDB();
+                    cliente.Contato.Celular = cliente_celular.Text.FormatToDB();
+                    cliente.Contato.Telefone = cliente_telefone.Text.FormatToDB();
+                    cliente.Contato.Email = cliente_email.Text.FormatToDB();
 
                     Comercio.GerenciaEmpresa.Instance.Banco.Update("update cliente set nome = '" + cliente.Nome + "', documento = '" +
                         cliente.Documento + "', telefone = '" + cliente.Contato.Telefone + "', celular = '" + cliente.Contato.Celular +

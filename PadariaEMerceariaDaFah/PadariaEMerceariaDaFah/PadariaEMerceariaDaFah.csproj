@@ -69,6 +69,7 @@
     <Compile Include="Classes\Contato.cs" />
     <Compile Include="Classes\Endereco.cs" />
     <Compile Include="Classes\Estoque.cs" />
+    <Compile Include="Classes\Extensao.cs" />
     <Compile Include="Classes\Fornecedor.cs" />
     <Compile Include="Classes\Funcionario.cs" />
     <Compile Include="Classes\RelacaoProdutoUtilizaIngrediente .cs" />

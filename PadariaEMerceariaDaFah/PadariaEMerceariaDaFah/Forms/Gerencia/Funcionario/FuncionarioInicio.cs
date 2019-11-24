@@ -1,4 +1,5 @@
-﻿using PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.AddFuncinario;
+﻿using PadariaEMerceariaDaFah.Classes;
+using PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.AddFuncinario;
 using PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario.RemoveFuncionario;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -108,19 +108,19 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
                 var selectedFunc = Convert.ToInt32(list_func.SelectedItem.ToString().Split('|').First());
                 var func = Comercio.GerenciaEmpresa.Instance.Funcionarios.FirstOrDefault(x => x.Codigo == selectedFunc);
 
-                func.Nome = func_nome.Text;
-                func.Funcao = func_funcao.Text;
-                func.CPF = func_cpf.Text;
-                func.Contato.Celular = func_celular.Text;
-                func.Contato.Telefone = func_telefone.Text;
-                func.Contato.Email = func_email.Text;
+                func.Nome = func_nome.Text.FormatToDB();
+                func.Funcao = func_funcao.Text.FormatToDB();
+                func.CPF = func_cpf.Text.FormatToDB();
+                func.Contato.Celular = func_celular.Text.FormatToDB();
+                func.Contato.Telefone = func_telefone.Text.FormatToDB();
+                func.Contato.Email = func_email.Text.FormatToDB();
 
-                func.Endereco.Pais = func_pais.Text;
-                func.Endereco.Estado = func_estado.Text;
-                func.Endereco.Cidade = func_cidade.Text;
-                func.Endereco.Rua = func_rua.Text;
-                func.Endereco.Numero = func_numero.Text;
-                func.Endereco.CEP = func_cep.Text;
+                func.Endereco.Pais = func_pais.Text.FormatToDB();
+                func.Endereco.Estado = func_estado.Text.FormatToDB();
+                func.Endereco.Cidade = func_cidade.Text.FormatToDB();
+                func.Endereco.Rua = func_rua.Text.FormatToDB();
+                func.Endereco.Numero = func_numero.Text.FormatToDB();
+                func.Endereco.CEP = func_cep.Text.FormatToDB();
 
                 Comercio.GerenciaEmpresa.Instance.Banco.Insert("update gerencia_funcionario set cpf = '" + func.CPF + "' ,name= '" + func.Nome + "',funcao= '" + func.Funcao + "',telefone= '" + func.Contato.Telefone + "',celular= '" + func.Contato.Celular + "',email= '" + func.Contato.Email + "', rua= '" + func.Endereco.Rua + "',cidade= '" + func.Endereco.Cidade + "',estado= '" + func.Endereco.Estado + "',pais= '" + func.Endereco.Pais + "',numero= '" + func.Endereco.Numero + "', cep= '" + func.Endereco.CEP + "' where codigo = '"+func.Codigo+"' ;");
 

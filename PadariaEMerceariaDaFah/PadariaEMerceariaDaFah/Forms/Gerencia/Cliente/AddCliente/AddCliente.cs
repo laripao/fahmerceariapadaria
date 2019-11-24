@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PadariaEMerceariaDaFah.Classes;
 
 namespace PadariaEMerceariaDaFah.Forms.Gerencia.Cliente.AddCliente
 {
@@ -24,15 +24,15 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Cliente.AddCliente
 
         private void add_cliente_salvar_Click(object sender, EventArgs e)
         {
-            var docExistente = Comercio.GerenciaEmpresa.Instance.CarregarClientesBanco("SELECT * FROM CLIENTE WHERE DOCUMENTO = '"+cliente_documento.Text+"';");
+            var docExistente = Comercio.GerenciaEmpresa.Instance.CarregarClientesBanco("SELECT * FROM CLIENTE WHERE DOCUMENTO = '"+cliente_documento.Text.FormatToDB()+"';");
 
             if (!docExistente.Any())
             {
-                Comercio.GerenciaEmpresa.Instance.Banco.Insert("insert into cliente values (default, '" + cliente_nome.Text + "', '" + cliente_documento.Text + "', '" + cliente_telefone.Text + "', '" + cliente_celular.Text + "', '" + cliente_email.Text + "' );");
+                Comercio.GerenciaEmpresa.Instance.Banco.Insert("insert into cliente values (default, '" + cliente_nome.Text.FormatToDB() + "', '" + cliente_documento.Text.FormatToDB() + "', '" + cliente_telefone.Text.FormatToDB() + "', '" + cliente_celular.Text.FormatToDB() + "', '" + cliente_email.Text.FormatToDB() + "' );");
 
                 var cod = Comercio.GerenciaEmpresa.Instance.CarregarClientesBanco("select * from laripaos.cliente where CODIGO = (select MAX(CODIGO) from laripaos.cliente);").FirstOrDefault().Codigo; ;
 
-                var novocliente = new Comercio.Cliente(cod, cliente_nome.Text, cliente_documento.Text, new Comercio.Contato(cliente_telefone.Text, cliente_celular.Text, cliente_email.Text));
+                var novocliente = new Comercio.Cliente(cod, cliente_nome.Text.FormatToDB(), cliente_documento.Text.FormatToDB(), new Comercio.Contato(cliente_telefone.Text.FormatToDB(), cliente_celular.Text.FormatToDB(), cliente_email.Text.FormatToDB()));
 
                 Comercio.GerenciaEmpresa.Instance.AdicionarCliente(novocliente);
 
@@ -44,6 +44,11 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Cliente.AddCliente
             {
                 MessageBox.Show("Documento Já Cadastrado!");
             }
+        }
+
+        private void AddCliente_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
