@@ -104,5 +104,10 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente
 
             this.Close();
         }
+
+        private void AddIngrediente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

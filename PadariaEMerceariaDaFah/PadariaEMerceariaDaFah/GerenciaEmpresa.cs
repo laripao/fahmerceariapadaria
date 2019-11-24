@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Arquivos;
+using Formulario;
+using PadariaEMerceariaDaFah.Classes;
+using PadariaEMerceariaDaFah.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Arquivos;
-using Formulario;
-using PadariaEMerceariaDaFah.Enums;
 
 namespace Comercio
 {
@@ -18,6 +17,7 @@ namespace Comercio
         public List<Venda> Vendas;
         public List<Fornecedor> Fornecedores;
         public List<Ingrediente> Ingredientes;
+        public List<EstoqueItem> EstoqueItens;
         public List<RelacaoForneceIngrediente> RelacaoForneceIngredientes;
         public List<RelacaoProdutoUtilizaIngrediente> RelacaoProdutoUtilizaIngredientes;
         public List<RelacaoForneceProduto> RelacaoForneceProdutos;
@@ -33,6 +33,7 @@ namespace Comercio
             Vendas = new List<Venda>();
             Fornecedores = new List<Fornecedor>();
             Ingredientes = new List<Ingrediente>();
+            EstoqueItens = new List<EstoqueItem>();
             RelacaoForneceIngredientes = new List<RelacaoForneceIngrediente>();
             RelacaoProdutoUtilizaIngredientes = new List<RelacaoProdutoUtilizaIngrediente>();
             RelacaoForneceProdutos = new List<RelacaoForneceProduto>();
@@ -64,6 +65,10 @@ namespace Comercio
         {
             Ingredientes.Add(Novo);
         }
+        public void AdicionarEstoqueItens(EstoqueItem Novo)
+        {
+            EstoqueItens.Add(Novo);
+        }
         public void AdicionarRelacaoForneceIngredientes(RelacaoForneceIngrediente Novo)
         {
             RelacaoForneceIngredientes.Add(Novo);
@@ -83,6 +88,10 @@ namespace Comercio
         public void RemoverIngrediente(Ingrediente Item)
         {
             Ingredientes.Remove(Ingredientes.Find(x => x.Codigo == Item.Codigo));
+        }
+        public void RemoverEstoqueItens(EstoqueItem Item)
+        {
+            EstoqueItens.Remove(EstoqueItens.Find(x => x.Codigo == Item.Codigo));
         }
         public void RemoverProduto(Produto Item)
         {
@@ -122,6 +131,10 @@ namespace Comercio
         {
             Ingredientes.FirstOrDefault(x => x.Codigo == Item.Codigo).AtualizarIngrediente(Item);
         }
+        public void AtualizarEstoqueItens(EstoqueItem Item)
+        {
+            EstoqueItens.FirstOrDefault(x => x.Codigo == Item.Codigo).AtualizarEstoque(Item);
+        }
         public void AtualizarProduto(Produto Item)
         {
             Produtos.FirstOrDefault(x => x.Codigo == Item.Codigo).AtualizarProduto(Item);
@@ -159,6 +172,10 @@ namespace Comercio
         {
             SalvarEEscrever.SaveBinFile<List<Ingrediente>>("Ingredientes", Item);
         }
+        public void SalvarEstoqueItens(List<EstoqueItem> Item)
+        {
+            SalvarEEscrever.SaveBinFile<List<EstoqueItem>>("EstoqueItem", Item);
+        }
         public void SalvarProdutos(List<Produto> Item)
         {
             SalvarEEscrever.SaveBinFile<List<Produto>>("Produtos", Item);
@@ -194,6 +211,10 @@ namespace Comercio
         public List<Ingrediente> CarregarIngredientes()
         {
             return SalvarEEscrever.ReadBinFile<List<Ingrediente>>("Ingredientes");
+        }
+        public List<EstoqueItem> CarregarEstoqueItens()
+        {
+            return SalvarEEscrever.ReadBinFile<List<EstoqueItem>>("EstoqueItem");
         }
         public List<Produto> CarregarProdutos()
         {
@@ -293,6 +314,24 @@ namespace Comercio
             }
             return lisFuncionarios;
         }
+
+        public List<EstoqueItem> CarregarEstoqueItensBanco(string query)
+        {
+            var itens = Banco.Select(query);
+
+            var listItens = new List<EstoqueItem>();
+
+            for (int i = 0; i < itens.Rows.Count; i++)
+            {
+                listItens.Add(new EstoqueItem(Convert.ToInt32(itens.Rows[i].ItemArray[0]),
+                                              Convert.ToInt32(itens.Rows[i].ItemArray[1]),
+                                              Convert.ToDateTime(itens.Rows[i].ItemArray[2]),
+                                              Convert.ToInt32(itens.Rows[i].ItemArray[3])));
+            }
+
+            return listItens;
+        }
+
         public List<Ingrediente> CarregarIngredientesBanco(string query)
         {
             var ingredientes = Banco.Select(query);

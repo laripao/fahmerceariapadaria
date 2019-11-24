@@ -211,6 +211,7 @@
             this.Controls.Add(this.add_ingrediente_cancel);
             this.Name = "AddIngrediente";
             this.Text = "AddIngrediente";
+            this.Load += new System.EventHandler(this.AddIngrediente_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

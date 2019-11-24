@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FornecedorInicio));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.remove_fornecedor = new System.Windows.Forms.Button();
             this.habilitar_edicao = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.fornecedor_nome = new System.Windows.Forms.TextBox();
@@ -44,9 +45,8 @@
             this.fornecedor_celular = new System.Windows.Forms.TextBox();
             this.fornecedor_description = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.list_fornecedor = new System.Windows.Forms.ListBox();
-            this.remove_fornecedor = new System.Windows.Forms.Button();
             this.save_edit_fornecedor = new System.Windows.Forms.Button();
+            this.list_fornecedor = new System.Windows.Forms.ListBox();
             this.add_fornecedor = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -60,7 +60,7 @@
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.add_fornecedor);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 11);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -85,6 +85,20 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fornecedores Existentes";
+            // 
+            // remove_fornecedor
+            // 
+            this.remove_fornecedor.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
+            this.remove_fornecedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.remove_fornecedor.Location = new System.Drawing.Point(559, 362);
+            this.remove_fornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.remove_fornecedor.Name = "remove_fornecedor";
+            this.remove_fornecedor.Size = new System.Drawing.Size(248, 62);
+            this.remove_fornecedor.TabIndex = 8;
+            this.remove_fornecedor.Text = "Remover Fornecedor";
+            this.remove_fornecedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.remove_fornecedor.UseVisualStyleBackColor = true;
+            this.remove_fornecedor.Click += new System.EventHandler(this.remove_fornecedor_Click);
             // 
             // habilitar_edicao
             // 
@@ -218,31 +232,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Descrição:";
             // 
-            // list_fornecedor
-            // 
-            this.list_fornecedor.FormattingEnabled = true;
-            this.list_fornecedor.ItemHeight = 21;
-            this.list_fornecedor.Location = new System.Drawing.Point(12, 21);
-            this.list_fornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.list_fornecedor.Name = "list_fornecedor";
-            this.list_fornecedor.Size = new System.Drawing.Size(215, 382);
-            this.list_fornecedor.TabIndex = 1;
-            this.list_fornecedor.SelectedValueChanged += new System.EventHandler(this.list_fornecedor_SelectedValueChanged);
-            // 
-            // remove_fornecedor
-            // 
-            this.remove_fornecedor.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
-            this.remove_fornecedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.remove_fornecedor.Location = new System.Drawing.Point(559, 362);
-            this.remove_fornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.remove_fornecedor.Name = "remove_fornecedor";
-            this.remove_fornecedor.Size = new System.Drawing.Size(248, 62);
-            this.remove_fornecedor.TabIndex = 8;
-            this.remove_fornecedor.Text = "Remover Fornecedor";
-            this.remove_fornecedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.remove_fornecedor.UseVisualStyleBackColor = true;
-            this.remove_fornecedor.Click += new System.EventHandler(this.remove_fornecedor_Click);
-            // 
             // save_edit_fornecedor
             // 
             this.save_edit_fornecedor.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
@@ -256,6 +245,17 @@
             this.save_edit_fornecedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.save_edit_fornecedor.UseVisualStyleBackColor = true;
             this.save_edit_fornecedor.Click += new System.EventHandler(this.save_edit_fornecedor_Click);
+            // 
+            // list_fornecedor
+            // 
+            this.list_fornecedor.FormattingEnabled = true;
+            this.list_fornecedor.ItemHeight = 21;
+            this.list_fornecedor.Location = new System.Drawing.Point(12, 21);
+            this.list_fornecedor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.list_fornecedor.Name = "list_fornecedor";
+            this.list_fornecedor.Size = new System.Drawing.Size(215, 382);
+            this.list_fornecedor.TabIndex = 1;
+            this.list_fornecedor.SelectedValueChanged += new System.EventHandler(this.list_fornecedor_SelectedValueChanged);
             // 
             // add_fornecedor
             // 
