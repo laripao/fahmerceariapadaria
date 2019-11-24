@@ -109,6 +109,12 @@
     <Compile Include="Forms\Estoque\Produtos\AdicionarProduto\ListaFornecedores\FornecedoresList.Designer.cs">
       <DependentUpon>FornecedoresList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Estoque\Produtos\AdicionarProduto\ListaFuncionarios\FuncionariosList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Estoque\Produtos\AdicionarProduto\ListaFuncionarios\FuncionariosList.Designer.cs">
+      <DependentUpon>FuncionariosList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Estoque\Produtos\AdicionarProduto\ListaIngredientes\IngredientesList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Estoque\Produtos\AdicionarProduto\ListaFornecedores\FornecedoresList.resx">
       <DependentUpon>FornecedoresList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Estoque\Produtos\AdicionarProduto\ListaFuncionarios\FuncionariosList.resx">
+      <DependentUpon>FuncionariosList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Estoque\Produtos\AdicionarProduto\ListaIngredientes\IngredientesList.resx">
       <DependentUpon>IngredientesList.cs</DependentUpon>

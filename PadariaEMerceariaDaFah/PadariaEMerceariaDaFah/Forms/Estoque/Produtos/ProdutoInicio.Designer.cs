@@ -34,6 +34,8 @@
             this.habilitar_edicao = new System.Windows.Forms.CheckBox();
             this.group_edit_produto = new System.Windows.Forms.GroupBox();
             this.group_ingredientes = new System.Windows.Forms.GroupBox();
+            this.remove_ingredientes = new System.Windows.Forms.Button();
+            this.add_ingredientes = new System.Windows.Forms.Button();
             this.lista_ingredientes = new System.Windows.Forms.ListBox();
             this.valor_text = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,8 +52,9 @@
             this.remove_produto = new System.Windows.Forms.Button();
             this.save_edit_produto = new System.Windows.Forms.Button();
             this.add_produto = new System.Windows.Forms.Button();
-            this.remove_ingredientes = new System.Windows.Forms.Button();
-            this.add_ingredientes = new System.Windows.Forms.Button();
+            this.linkFuncionario = new System.Windows.Forms.LinkLabel();
+            this.QuemFabricou = new System.Windows.Forms.TextBox();
+            this.fabricado_funcionario = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.group_edit_produto.SuspendLayout();
@@ -68,7 +71,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(935, 641);
+            this.groupBox2.Size = new System.Drawing.Size(935, 701);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Produtos";
@@ -76,16 +79,16 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.groupBox1.Controls.Add(this.habilitar_edicao);
-            this.groupBox1.Controls.Add(this.group_edit_produto);
             this.groupBox1.Controls.Add(this.remove_produto);
             this.groupBox1.Controls.Add(this.save_edit_produto);
+            this.groupBox1.Controls.Add(this.habilitar_edicao);
+            this.groupBox1.Controls.Add(this.group_edit_produto);
             this.groupBox1.Controls.Add(this.list_produto);
             this.groupBox1.Location = new System.Drawing.Point(0, 73);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(935, 567);
+            this.groupBox1.Size = new System.Drawing.Size(935, 628);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Produtos Existentes";
@@ -106,6 +109,9 @@
             // group_edit_produto
             // 
             this.group_edit_produto.BackColor = System.Drawing.Color.White;
+            this.group_edit_produto.Controls.Add(this.linkFuncionario);
+            this.group_edit_produto.Controls.Add(this.QuemFabricou);
+            this.group_edit_produto.Controls.Add(this.fabricado_funcionario);
             this.group_edit_produto.Controls.Add(this.group_ingredientes);
             this.group_edit_produto.Controls.Add(this.valor_text);
             this.group_edit_produto.Controls.Add(this.label3);
@@ -122,7 +128,7 @@
             this.group_edit_produto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.group_edit_produto.Name = "group_edit_produto";
             this.group_edit_produto.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.group_edit_produto.Size = new System.Drawing.Size(673, 448);
+            this.group_edit_produto.Size = new System.Drawing.Size(673, 511);
             this.group_edit_produto.TabIndex = 8;
             this.group_edit_produto.TabStop = false;
             this.group_edit_produto.Text = "Produto";
@@ -140,6 +146,28 @@
             this.group_ingredientes.TabIndex = 20;
             this.group_ingredientes.TabStop = false;
             this.group_ingredientes.Text = "Ingredientes";
+            // 
+            // remove_ingredientes
+            // 
+            this.remove_ingredientes.Location = new System.Drawing.Point(393, 120);
+            this.remove_ingredientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.remove_ingredientes.Name = "remove_ingredientes";
+            this.remove_ingredientes.Size = new System.Drawing.Size(139, 31);
+            this.remove_ingredientes.TabIndex = 5;
+            this.remove_ingredientes.Text = "Retirar";
+            this.remove_ingredientes.UseVisualStyleBackColor = true;
+            this.remove_ingredientes.Click += new System.EventHandler(this.remove_ingredientes_Click);
+            // 
+            // add_ingredientes
+            // 
+            this.add_ingredientes.Location = new System.Drawing.Point(64, 120);
+            this.add_ingredientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add_ingredientes.Name = "add_ingredientes";
+            this.add_ingredientes.Size = new System.Drawing.Size(113, 31);
+            this.add_ingredientes.TabIndex = 4;
+            this.add_ingredientes.Text = "Adicionar";
+            this.add_ingredientes.UseVisualStyleBackColor = true;
+            this.add_ingredientes.Click += new System.EventHandler(this.add_ingredientes_Click_1);
             // 
             // lista_ingredientes
             // 
@@ -277,7 +305,7 @@
             // 
             this.remove_produto.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
             this.remove_produto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.remove_produto.Location = new System.Drawing.Point(579, 512);
+            this.remove_produto.Location = new System.Drawing.Point(579, 574);
             this.remove_produto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.remove_produto.Name = "remove_produto";
             this.remove_produto.Size = new System.Drawing.Size(215, 50);
@@ -291,7 +319,7 @@
             // 
             this.save_edit_produto.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
             this.save_edit_produto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.save_edit_produto.Location = new System.Drawing.Point(260, 512);
+            this.save_edit_produto.Location = new System.Drawing.Point(260, 574);
             this.save_edit_produto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.save_edit_produto.Name = "save_edit_produto";
             this.save_edit_produto.Size = new System.Drawing.Size(183, 50);
@@ -315,34 +343,41 @@
             this.add_produto.UseVisualStyleBackColor = true;
             this.add_produto.Click += new System.EventHandler(this.add_produto_Click);
             // 
-            // remove_ingredientes
+            // linkFuncionario
             // 
-            this.remove_ingredientes.Location = new System.Drawing.Point(393, 120);
-            this.remove_ingredientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.remove_ingredientes.Name = "remove_ingredientes";
-            this.remove_ingredientes.Size = new System.Drawing.Size(139, 31);
-            this.remove_ingredientes.TabIndex = 5;
-            this.remove_ingredientes.Text = "Retirar";
-            this.remove_ingredientes.UseVisualStyleBackColor = true;
-            this.remove_ingredientes.Click += new System.EventHandler(this.remove_ingredientes_Click);
+            this.linkFuncionario.AutoSize = true;
+            this.linkFuncionario.Location = new System.Drawing.Point(263, 468);
+            this.linkFuncionario.Name = "linkFuncionario";
+            this.linkFuncionario.Size = new System.Drawing.Size(215, 21);
+            this.linkFuncionario.TabIndex = 23;
+            this.linkFuncionario.TabStop = true;
+            this.linkFuncionario.Text = "Selecione um funcionário";
+            this.linkFuncionario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFuncionario_LinkClicked);
             // 
-            // add_ingredientes
+            // QuemFabricou
             // 
-            this.add_ingredientes.Location = new System.Drawing.Point(64, 120);
-            this.add_ingredientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.add_ingredientes.Name = "add_ingredientes";
-            this.add_ingredientes.Size = new System.Drawing.Size(113, 31);
-            this.add_ingredientes.TabIndex = 4;
-            this.add_ingredientes.Text = "Adicionar";
-            this.add_ingredientes.UseVisualStyleBackColor = true;
-            this.add_ingredientes.Click += new System.EventHandler(this.add_ingredientes_Click_1);
+            this.QuemFabricou.Enabled = false;
+            this.QuemFabricou.Location = new System.Drawing.Point(148, 439);
+            this.QuemFabricou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QuemFabricou.Name = "QuemFabricou";
+            this.QuemFabricou.Size = new System.Drawing.Size(501, 27);
+            this.QuemFabricou.TabIndex = 22;
+            // 
+            // fabricado_funcionario
+            // 
+            this.fabricado_funcionario.AutoSize = true;
+            this.fabricado_funcionario.Location = new System.Drawing.Point(4, 442);
+            this.fabricado_funcionario.Name = "fabricado_funcionario";
+            this.fabricado_funcionario.Size = new System.Drawing.Size(134, 21);
+            this.fabricado_funcionario.TabIndex = 21;
+            this.fabricado_funcionario.Text = "Fabricado por:";
             // 
             // ProdutoInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(957, 673);
+            this.ClientSize = new System.Drawing.Size(957, 719);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -385,5 +420,8 @@
         private System.Windows.Forms.RadioButton revendido;
         private System.Windows.Forms.Button remove_ingredientes;
         private System.Windows.Forms.Button add_ingredientes;
+        private System.Windows.Forms.LinkLabel linkFuncionario;
+        private System.Windows.Forms.TextBox QuemFabricou;
+        private System.Windows.Forms.Label fabricado_funcionario;
     }
 }
