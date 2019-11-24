@@ -120,4 +120,8 @@ C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerce
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Cliente.AddCliente.AddCliente.resources
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Cliente.ClienteInicio.resources
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Gerencia.Cliente.RemoveCliente.RemoverCliente.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente.AddIngrediente.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.IngredientesInicio.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.RemoveIngrediente.RemoveIngrediente.resources
+C:\kevin.santos\Padaria\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaProdutos.IngredientesList.resources
 C:\Users\laris\OneDrive\Área de Trabalho\Prjt_Integrado\fahmerceariapadaria\PadariaEMerceariaDaFah\PadariaEMerceariaDaFah\obj\Debug\PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFuncionarios.FuncionariosList.resources
