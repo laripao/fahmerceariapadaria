@@ -344,8 +344,8 @@ namespace Comercio
 
                 listIngredientes.Add(new Ingrediente(Convert.ToInt32(ingredientes.Rows[i].ItemArray[0]),
                                                      ingredientes.Rows[i].ItemArray[1].ToString(),
-                                                     Convert.ToDouble(ingredientes.Rows[i].ItemArray[3]),
                                                      Convert.ToDateTime(ingredientes.Rows[i].ItemArray[2].ToString().Split(' ')[0]),
+                                                     Convert.ToDouble(ingredientes.Rows[i].ItemArray[3]),
                                                      Convert.ToInt32(ingredientes.Rows[i].ItemArray[4]),
                                                      Convert.ToBoolean(ingredientes.Rows[i].ItemArray[5])));
             }

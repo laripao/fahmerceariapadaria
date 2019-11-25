@@ -70,39 +70,54 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente
 
         private void add_ingrediente_salvar_Click(object sender, EventArgs e)
         {
-            var ingrediente = Comercio.GerenciaEmpresa.Instance.Ingredientes;
-            
-            Comercio.GerenciaEmpresa.Instance.Banco.Insert("INSERT INTO ESTOQUE_INGREDIENTE VALUES( default," +
-                " '" + nome_ingrediente.Text + "', " +
-                " STR_TO_DATE('" + data_validade.Value.Date + "','%d/%m/%Y'), " +
-                " '" + Convert.ToDouble(valor_text.Text) + "', " +
-                " '" + Convert.ToInt32(quantidade_text.Text) + "', " +
-                " default);");
+            if (quantidade_text.Text == null)
+            {
+                MessageBox.Show("Insira valor de quantidade.");
+            }
+            if (valor_text.Text == null)
+            {
+                MessageBox.Show("Insira um valor.");
+            }
+            if (nome_ingrediente.Text == null)
+            {
+                MessageBox.Show("Ïnsira um nome.");
+            }
+            else
+            {
+                var ingrediente = Comercio.GerenciaEmpresa.Instance.Ingredientes;
 
-            var cod = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM laripaos.ESTOQUE_INGREDIENTE WHERE CODIGO = (SELECT MAX(CODIGO) FROM laripaos.ESTOQUE_INGREDIENTE);").FirstOrDefault().Codigo;
+                Comercio.GerenciaEmpresa.Instance.Banco.Insert("INSERT INTO ESTOQUE_INGREDIENTE VALUES( default," +
+                    " '" + nome_ingrediente.Text + "', " +
+                    " STR_TO_DATE('" + data_validade.Value.Date + "','%d/%m/%Y'), " +
+                    " '" + Convert.ToDouble(valor_text.Text) + "', " +
+                    " '" + Convert.ToInt32(quantidade_text.Text) + "', " +
+                    " default);");
 
-            var codRelacaoUltima = Comercio.GerenciaEmpresa.Instance.CarregarRelacaoForneceIngredienteBanco("SELECT * FROM laripaos.FORNECE WHERE CODIGO = (SELECT MAX(CODIGO) FROM laripaos.FORNECE);").FirstOrDefault();
+                var cod = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM laripaos.ESTOQUE_INGREDIENTE WHERE CODIGO = (SELECT MAX(CODIGO) FROM laripaos.ESTOQUE_INGREDIENTE);").FirstOrDefault().Codigo;
 
-            int codRelacao = codRelacaoUltima == null ? 1 : codRelacaoUltima.Codigo; 
-            
+                var codRelacaoUltima = Comercio.GerenciaEmpresa.Instance.CarregarRelacaoForneceIngredienteBanco("SELECT * FROM laripaos.FORNECE WHERE CODIGO = (SELECT MAX(CODIGO) FROM laripaos.FORNECE);").FirstOrDefault();
 
-            Comercio.GerenciaEmpresa.Instance.Banco.Insert("INSERT INTO FORNECE VALUES( default," +
-                "'" + codFornecedor + "'," +
-                "'" + cod + "');");
+                int codRelacao = codRelacaoUltima == null ? 1 : codRelacaoUltima.Codigo;
 
-            var novaRelacao = new Comercio.RelacaoForneceIngrediente(codRelacao, codFornecedor, cod);
 
-            Comercio.GerenciaEmpresa.Instance.AdicionarRelacaoForneceIngredientes(novaRelacao);
+                Comercio.GerenciaEmpresa.Instance.Banco.Insert("INSERT INTO FORNECE VALUES( default," +
+                    "'" + codFornecedor + "'," +
+                    "'" + cod + "');");
 
-            Comercio.GerenciaEmpresa.Instance.SalvarRelacaoForneceIngredientes(Comercio.GerenciaEmpresa.Instance.RelacaoForneceIngredientes);
+                var novaRelacao = new Comercio.RelacaoForneceIngrediente(codRelacao, codFornecedor, cod);
 
-            var novoIngrediente = new Comercio.Ingrediente(cod, nome_ingrediente.Text, Convert.ToDouble(valor_text.Text), Convert.ToDateTime(data_validade.Value), Convert.ToInt32(quantidade_text.Text), true);
+                Comercio.GerenciaEmpresa.Instance.AdicionarRelacaoForneceIngredientes(novaRelacao);
 
-            Comercio.GerenciaEmpresa.Instance.AdicionarIngrediente(novoIngrediente);
+                Comercio.GerenciaEmpresa.Instance.SalvarRelacaoForneceIngredientes(Comercio.GerenciaEmpresa.Instance.RelacaoForneceIngredientes);
 
-            Comercio.GerenciaEmpresa.Instance.SalvarIngredientes(Comercio.GerenciaEmpresa.Instance.Ingredientes);
+                var novoIngrediente = new Comercio.Ingrediente(cod, nome_ingrediente.Text, Convert.ToDateTime(data_validade.Value), Convert.ToDouble(valor_text.Text), Convert.ToInt32(quantidade_text.Text), true);
 
-            this.Close();
+                Comercio.GerenciaEmpresa.Instance.AdicionarIngrediente(novoIngrediente);
+
+                Comercio.GerenciaEmpresa.Instance.SalvarIngredientes(Comercio.GerenciaEmpresa.Instance.Ingredientes);
+
+                this.Close();
+            }
         }
 
         private void AddIngrediente_Load(object sender, EventArgs e)

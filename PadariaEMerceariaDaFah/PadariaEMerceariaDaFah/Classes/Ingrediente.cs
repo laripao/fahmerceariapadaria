@@ -11,7 +11,7 @@ namespace Comercio
         public double Valor;
         public int Quantidade;
         public bool Ativo;
-        public Ingrediente(int codigo, string nome,double valor, DateTime validade, int quantidade, bool ativo = true)
+        public Ingrediente(int codigo, string nome, DateTime validade, double valor, int quantidade, bool ativo = true)
         {
             Codigo = codigo;
             Nome = nome;

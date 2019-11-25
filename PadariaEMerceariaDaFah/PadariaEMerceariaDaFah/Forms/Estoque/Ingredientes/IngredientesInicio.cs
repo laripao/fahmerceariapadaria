@@ -50,7 +50,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes
         {
             list_Ingrediente.Items.Clear();
 
-            var ingredientes = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("");
+            var ingredientes = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM laripaos.ESTOQUE_INGREDIENTE WHERE ATIVO = 1;");
 
             foreach(var item in ingredientes)
             {
