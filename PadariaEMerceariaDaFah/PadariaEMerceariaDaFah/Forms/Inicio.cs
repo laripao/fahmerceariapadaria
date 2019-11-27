@@ -12,6 +12,13 @@ using System.Collections.Generic;
 using System.Linq;
 using PadariaEMerceariaDaFah.Classes;
 
+using PdfSharp;
+using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
+using PdfSharp.Pdf.Annotations;
+using PdfSharp.Drawing;
+using PdfSharp.Drawing.Layout;
+
 namespace PadariaEMerceariaDaFah
 {
     public partial class Inicio : Form
@@ -114,6 +121,7 @@ namespace PadariaEMerceariaDaFah
             string tabelaSelecionada;
 
             groupBox1.Controls.Clear();
+            groupResultados.Controls.Clear();
 
             switch (tabela.SelectedItem.ToString())
             {
@@ -314,5 +322,81 @@ namespace PadariaEMerceariaDaFah
             return select;
         }
 
+        private void print_button_Click(object sender, EventArgs e)
+        {
+            string dir;
+
+            int tamFonte = 10;
+            List<Label> labels = new List<Label>();
+            for (int i = 0; i< groupResultados.Controls.Count; i++)
+            {
+                if (groupResultados.Controls[i].AccessibilityObject.Role == AccessibleRole.StaticText)
+                    labels.Add(new Label() { Text = groupResultados.Controls[i].Text, BackColor = groupResultados.Controls[i].BackColor });
+            }
+
+            if (!labels.Any())
+            {
+                return;
+            }
+            folderBrowserDialog1.Description = "Selecione a pasta para salvar o Relatório.";
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                dir = folderBrowserDialog1.SelectedPath;
+            }
+            else
+            {
+                return;
+            }
+
+            var colunas = labels.Count(x => x.BackColor == Color.Gray);
+
+            PdfDocument document = new PdfDocument(); //cria um documento pdf
+            document.Info.Title = tabela.SelectedItem.ToString(); //título do pdf(meio obvio)
+            PdfPage page = document.AddPage(); //cria uma página no pdf
+            XGraphics gfx = XGraphics.FromPdfPage(page); //permite desenhar coisas no pdf
+            XFont font = new XFont("Consolas", tamFonte, XFontStyle.Italic); //permite definir fonte, tamanho de fonte e estilo de fonte
+
+            XTextFormatter tf = new XTextFormatter(gfx);
+
+            var tamanho = page.Width.Point-40;
+            var tamColuna = Math.Ceiling(tamanho / colunas);
+
+            var altura = page.Height.Point-40;
+            var paginas = Math.Ceiling(((labels.Count/colunas)* tamFonte) /(altura));
+
+            int pageAtual = 0;
+
+            for (int i = 0; i < labels.Count / colunas; i++)
+            {
+                for (int j = 0; j < colunas; j++)
+                {
+                    if(paginas > 1 && (20+(i * tamFonte) + tamFonte - (pageAtual * altura)) > altura  )
+                    {
+                        page = document.AddPage();
+                        gfx = XGraphics.FromPdfPage(page);
+                        tf = new XTextFormatter(gfx);
+                        pageAtual++;
+                        paginas--;
+                    }
+                    XRect rect = new XRect(20+(tamColuna * j), (20+(i * tamFonte)-(pageAtual*altura))>0? (20+(i * tamFonte) - (pageAtual * altura)) : 0, tamColuna, tamFonte);
+                    var brush = new XSolidBrush(new XColor() {A=1, R = labels[(i * colunas) + j].BackColor.R, G = labels[(i * colunas) + j].BackColor.G, B = labels[(i * colunas) + j].BackColor.B });
+                    gfx.DrawRectangle(brush, rect);
+                    tf.Alignment = XParagraphAlignment.Left;
+                    tf.DrawString(labels[(i * colunas) + j].Text, font, XBrushes.Black, rect, XStringFormats.TopLeft);
+                    
+                }
+            }
+
+            string filename = dir+"\\"+tabela.SelectedItem.ToString() +"-"+ DateTime.Now.ToString("dd-MM-yyyy-HH-mm-ss")+".pdf";
+            document.Save(filename);
+
+
+        }
+
+        private void folderBrowserDialog2_HelpRequest(object sender, EventArgs e)
+        {
+
+        }
     }
 }
