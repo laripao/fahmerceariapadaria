@@ -21,7 +21,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque
         {
             list_estoque.Items.Clear();
 
-            var itens = Comercio.GerenciaEmpresa.Instance.CarregarEstoqueItensBanco("SELECT * FROM ITEM_ESTOQUE;");
+            var itens = Comercio.GerenciaEmpresa.Instance.CarregarEstoqueItensBanco("SELECT * FROM laripaos.ITEM_ESTOQUE;");
 
             foreach (var item in itens)
             {

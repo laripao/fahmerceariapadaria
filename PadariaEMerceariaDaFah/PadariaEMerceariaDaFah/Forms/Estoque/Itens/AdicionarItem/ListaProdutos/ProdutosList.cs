@@ -38,7 +38,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Itens.AdicionarItem.ListaProdutos
         {
             list_produtos.Items.Clear();
 
-            var produtos = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM ESTOQUE_PRODUTO;");
+            var produtos = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM ESTOQUE_PRODUTO WHERE ATIVO = 1;");
 
             foreach(var item in produtos)
             {
@@ -50,7 +50,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Itens.AdicionarItem.ListaProdutos
         {
             list_produtos.Items.Clear();
 
-            var produtos = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM ESTOQUE_PRODUTO;");
+            var produtos = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM ESTOQUE_PRODUTO WHERE ATIVO = 1;");
 
             foreach (var item in produtos)
             {

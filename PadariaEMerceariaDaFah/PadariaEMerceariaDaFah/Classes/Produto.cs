@@ -11,8 +11,9 @@ namespace Comercio
         public Produto_tipo Tipo;
         public double Valor;
         public int? codFuncionario;
+        public bool Ativo;
 
-        public Produto(int codigo, string nome, string descricao, Produto_tipo tipo,double valor, int? funcionario)
+        public Produto(int codigo, string nome, string descricao, Produto_tipo tipo,double valor, int? funcionario, bool ativo = true)
         {
             Codigo = codigo;
             Nome = nome;
@@ -20,6 +21,7 @@ namespace Comercio
             Valor = valor;
             codFuncionario = funcionario;
             Tipo = tipo;
+            Ativo = ativo;
 
         }
         public void AtualizarProduto(Produto Item)
@@ -30,6 +32,7 @@ namespace Comercio
             this.Valor = Item.Valor;
             this.codFuncionario = Item.codFuncionario;
             this.Tipo = Item.Tipo;
+            this.Ativo = Item.Ativo;
         }
     }
 }

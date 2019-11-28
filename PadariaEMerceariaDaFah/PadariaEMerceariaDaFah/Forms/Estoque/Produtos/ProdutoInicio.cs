@@ -30,7 +30,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
         {
             list_produto.Items.Clear();
 
-            var produtos = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM ESTOQUE_PRODUTO;");
+            var produtos = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM ESTOQUE_PRODUTO WHERE ATIVO = 1;");
 
             foreach (var item in produtos)
             {
@@ -99,10 +99,15 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                     var relacaoProduto = Comercio.GerenciaEmpresa.Instance.CarregarRelacaoProdutoUtilizaIngredientesBanco("SELECT * FROM UTILIZA WHERE COD_PRODUTO = '" + produto.Codigo + "';").FirstOrDefault();
                     int relacaoIngrediente = relacaoProduto == null ? 0 : relacaoProduto.CodIngrediente;
                     var ingrediente = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM ESTOQUE_INGREDIENTE WHERE CODIGO = '" + relacaoIngrediente + "';");
+                    var func = Comercio.GerenciaEmpresa.Instance.Funcionarios.FirstOrDefault(x => x.Codigo == produto.codFuncionario);
 
+                    QuemFabricou.Text = func.Nome;
+                    codFuncionario = func.Codigo;
+
+                    lista_ingredientes.Items.Clear();
                     foreach (var item in ingrediente)
                     {
-                        lista_ingredientes.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
+                        lista_ingredientes.Items.Add(item.Codigo.ToString() + "|" + item.Nome + "|" + item.Quantidade);
                     }
                 }
             }
@@ -110,7 +115,8 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
         private void ProdutoInicio_Load(object sender, EventArgs e)
         {
-            foreach (var item in Comercio.GerenciaEmpresa.Instance.Produtos)
+            var produtos = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM ESTOQUE_PRODUTO WHERE ATIVO = 1;");
+            foreach (var item in produtos)
             {
                 list_produto.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
             }
@@ -125,9 +131,6 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                 var remove = new RemoverProduto.RemoverProduto(selectedFunc);
                 remove.ShowDialog();
                 UpdateForm(selectedFunc);
-
-                var query = "DELETE FROM ESTOQUE_PRODUTO WHERE CODIGO = '" + selectedFunc + "'";
-                Comercio.GerenciaEmpresa.Instance.Banco.Delete(query);
             }
         }
 
@@ -173,11 +176,11 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                         {
                             string[] aux = item.ToString().Split('|');
                             int cod_ingrediente = Convert.ToInt32(aux[0].Trim());
-                            double qtd_ingrediente = Convert.ToDouble(aux[1].Trim());
+                            string qtd_ingrediente = aux[1].ToString();
 
                             var queryItens = ("INSERT INTO UTILIZA VALUES( default,"
                                 + " '" + produto.Codigo + "', "
-                                + " '" + cod_ingrediente + "'" +
+                                + " '" + cod_ingrediente + "'," +
                                 " '" + qtd_ingrediente + "');");
 
                             Comercio.GerenciaEmpresa.Instance.Banco.Insert(queryItens);
@@ -298,7 +301,17 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
         private void remove_ingredientes_Click(object sender, EventArgs e)
         {
-            lista_ingredientes.Items.RemoveAt(lista_ingredientes.SelectedIndex);
+            if(lista_ingredientes.SelectedItem != null)
+            {
+                var codProduto = list_produto.SelectedItem.ToString().Split('|');
+                var codIngrediente = lista_ingredientes.SelectedItem.ToString().Split('|');
+                Comercio.GerenciaEmpresa.Instance.Banco.Delete("DELETE FROM UTILIZA WHERE COD_PRODUTO =" + codProduto[0] + "AND COD_INGREDIENTE =" + codIngrediente[0] +";");
+                lista_ingredientes.Items.RemoveAt(lista_ingredientes.SelectedIndex);
+            }
+            else
+            {
+                MessageBox.Show("Selecione um ingrediente antes de remove-lo.");
+            }
         }
 
         private void add_ingredientes_Click_1(object sender, EventArgs e)

@@ -278,7 +278,8 @@ namespace Comercio
                                                             produtos.Rows[i].ItemArray[2].ToString(),
                                                             (Convert.ToInt32(produtos.Rows[i].ItemArray[3]) == 1 ? Produto_tipo.revendido : Produto_tipo.fabricado),
                                                             Convert.ToDouble(produtos.Rows[i].ItemArray[4]),
-                                                            Convert.ToInt32(produtos.Rows[i].ItemArray[5])));
+                                                            Convert.ToInt32(produtos.Rows[i].ItemArray[5]),
+                                                            Convert.ToBoolean(produtos.Rows[i].ItemArray[6])));
             }
 
             return listProduto;

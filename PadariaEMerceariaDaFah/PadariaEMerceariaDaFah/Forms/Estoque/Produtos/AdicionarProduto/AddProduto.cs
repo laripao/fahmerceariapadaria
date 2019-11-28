@@ -95,7 +95,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
                             + " '" + des_text.Text + "' " + ","
                             + (fabricado.Checked ? 0 : 1) + ", "
                             + Convert.ToDouble(valor_text.Text) + ", " +
-                            "'" + codFuncionario + "');";
+                            "'" + codFuncionario + "', default);";
 
                 Comercio.GerenciaEmpresa.Instance.Banco.Insert(query);
 
