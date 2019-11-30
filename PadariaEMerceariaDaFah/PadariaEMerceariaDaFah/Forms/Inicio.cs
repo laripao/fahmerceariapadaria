@@ -167,22 +167,59 @@ namespace PadariaEMerceariaDaFah
                 var checkBox = new CheckBox();
                 checkBox.Checked = true;
                 checkBox.Location = new Point(10+(120 * i), 25);
-                var combo = new ComboBox();
-                combo.Width = 110;
-                combo.DropDownStyle = ComboBoxStyle.DropDown;
-                combo.AutoCompleteMode = AutoCompleteMode.Suggest;
-                
+                checkBox.Name = label.Text;
+
+                var listBox = new ListBox();
+                listBox.Width = 110;
+                listBox.Height = 100;
+                listBox.Visible = false;
+                listBox.Name = label.Text;
+                listBox.SelectionMode = SelectionMode.MultiSimple;
+                listBox.MouseLeave += (s, element ) => {
+
+                    var listBoxSender = (ListBox)s; listBoxSender.Visible = false;
+                    groupBox1.Height -= listBoxSender.Height;
+                    groupResultados.Location = new Point(groupResultados.Location.X, groupResultados.Location.Y - listBoxSender.Height);
+
+
+                };
+
+                var button = new Button();
+                button.Text = "Selecionar";
+                button.Name = label.Text;
+                button.Width = 110;
+                button.Click += (s, element) => {
+
+                    var buttonSender = (Button)s;
+                    var listBoxes = new List<ListBox>();
+
+                    for (int k = 0; k < groupBox1.Controls.Count; k++)
+                    {
+                        if (groupBox1.Controls[k].AccessibilityObject.Role == AccessibleRole.List)
+                            listBoxes.Add((ListBox)groupBox1.Controls[k]);
+                    }
+
+                    var listBoxSelected = listBoxes.FirstOrDefault(x => x.Name == buttonSender.Name);
+                    listBoxSelected.Visible = true;
+                    groupResultados.Location = new Point(groupResultados.Location.X, groupResultados.Location.Y + listBoxSelected.Height);
+                    groupBox1.Height += listBoxSelected.Height;
+                    groupBox1.Controls.SetChildIndex(listBoxSelected, 0);
+
+
+                };
 
                 var valores = Comercio.GerenciaEmpresa.Instance.Banco.Select("SELECT DISTINCT(" + campos[0, i] + ") from " + tabelaSelecionada).Rows;
                 for (int j = 0; j < valores.Count; j++)
                 {
-                    combo.Items.Add(valores[j].ItemArray[0].ToString());
+                    listBox.Items.Add(valores[j].ItemArray[0].ToString());
                 }
-                
-                combo.Location = new Point(10 + (120 * i), 50);
+
+                listBox.Location = new Point(10 + (120 * i), 50);
+                button.Location = new Point(10 + (120 * i), 50);
 
                 groupBox1.Controls.Add(label);
-                groupBox1.Controls.Add(combo);
+                groupBox1.Controls.Add(button);
+                groupBox1.Controls.Add(listBox);
                 groupBox1.Controls.Add(checkBox);
 
             }
@@ -229,12 +266,12 @@ namespace PadariaEMerceariaDaFah
             }
 
             string query;
-            List<ComboBox> Combos = new List<ComboBox>();
+            List<ListBox> Combos = new List<ListBox>();
             List<CheckBox> checkBoxes = new List<CheckBox>();
             for (int i =0; i< controles.Count; i++)
             {
-                if(controles[i].AccessibilityObject.Role == AccessibleRole.ComboBox)
-                    Combos.Add((ComboBox)controles[i]);
+                if(controles[i].AccessibilityObject.Role == AccessibleRole.List)
+                    Combos.Add((ListBox)controles[i]);
                 if (controles[i].AccessibilityObject.Role == AccessibleRole.CheckButton)
                     checkBoxes.Add((CheckBox)controles[i]);
             }
@@ -242,19 +279,21 @@ namespace PadariaEMerceariaDaFah
             var camposSelecionados = CamposSelecionados(tabelaSelecionada, checkBoxes, campos);
 
             query = "SELECT "+camposSelecionados+" FROM " + tabelaSelecionada;
-            if (Combos.Any(x => x.SelectedItem != null && !string.IsNullOrWhiteSpace(x.SelectedItem.ToString().FormatToDB())))
+            if (Combos.Any(x => x.SelectedItems.Count > 0 ))
             {
                 query = query + " WHERE ";
                 var and = false;
                 for(int i = 0; i< numCampos; i++)
-                {                    
-                    if (Combos[i].SelectedItem != null)
+                {
+                    var comboSelecionado = Combos.FirstOrDefault(x => x.Name == checkBoxes[i].Name);
+
+                    if (comboSelecionado.SelectedItems.Count > 0)
                     {
                         if (and)
                         {
                             query = query + " AND ";
                         }
-                        query = query + campos[i] + " = '" + Combos[i].SelectedItem.ToString().FormatToDB() + "' ";
+                        query = query + campos[i] + " in ( " + ClausulaIn(comboSelecionado) + ") ";
                         and = true;
                         
                     } 
@@ -321,6 +360,30 @@ namespace PadariaEMerceariaDaFah
             }
 
             return select;
+        }
+
+        public string ClausulaIn(ListBox lista)
+        {
+            string result = "";
+            if (lista.SelectedItems.Count > 0)
+            {
+                result = "";
+                bool virgula = false;
+                foreach (var item in lista.SelectedItems)
+                {
+                    if (virgula)
+                        result += " , ";
+
+                    if (item.ToString()!= null)
+                    {
+                        result +=  "'"+ item.ToString() + "'";
+                        virgula = true;
+                    }
+
+                }
+            }
+
+            return result;
         }
 
         private void print_button_Click(object sender, EventArgs e)
