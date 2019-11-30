@@ -190,7 +190,7 @@
             // 
             // groupResultados
             // 
-            this.groupResultados.Location = new System.Drawing.Point(16, 159);
+            this.groupResultados.Location = new System.Drawing.Point(16, 189);
             this.groupResultados.Name = "groupResultados";
             this.groupResultados.Size = new System.Drawing.Size(829, 100);
             this.groupResultados.TabIndex = 6;
@@ -211,7 +211,7 @@
             // 
             this.groupBox1.Location = new System.Drawing.Point(16, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(829, 100);
+            this.groupBox1.Size = new System.Drawing.Size(829, 130);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Campos";

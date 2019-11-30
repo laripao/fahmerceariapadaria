@@ -16,5 +16,31 @@ namespace PadariaEMerceariaDaFah.Classes
                                 .Replace($"\\", "");
             return result;
         }
+
+        public static string Agregacao(this string data)
+        {
+            string result = "";
+
+            switch (data)
+            {
+                case "Maior":
+                    result = "MAX";
+                    break;
+                case "Menor":
+                    result = "MIN";
+                    break;
+                case "Média":
+                    result = "AVG";
+                    break;
+                case "Contar":
+                    result = "Count";
+                    break;
+                case "Somar":
+                    result = "SUM";
+                    break;
+            }
+
+            return result;
+        }
     }
 }

@@ -117,11 +117,13 @@ namespace PadariaEMerceariaDaFah
 
         private void tabela_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            string tabelaSelecionada;
-
+            #region Limpando GroupBox
             groupBox1.Controls.Clear();
             groupResultados.Controls.Clear();
+            #endregion
+
+            #region Tabela Selecionada e Campos
+            string tabelaSelecionada;
 
             switch (tabela.SelectedItem.ToString())
             {
@@ -146,12 +148,15 @@ namespace PadariaEMerceariaDaFah
             var maxLinhas = Convert.ToInt32(Comercio.GerenciaEmpresa.Instance.Banco.Select("SELECT COUNT(*) FROM " + tabelaSelecionada).Rows[0].ItemArray[0].ToString());
             var numCampos = desc.Rows.Count;
 
-            string[,] campos = new string[maxLinhas + 1, numCampos];
+            string[,] campos = new string[2, numCampos];
 
             for (int i = 0; i < numCampos; i++)
             {
                 campos[0, i] = desc.Rows[i].ItemArray[0].ToString();
+                campos[1, i] = desc.Rows[i].ItemArray[1].ToString();
             }
+
+            #endregion
 
             this.WindowState = FormWindowState.Maximized;
             groupBox1.Width = Width = 15 + (130 * numCampos);
@@ -159,16 +164,71 @@ namespace PadariaEMerceariaDaFah
 
             for (int i = 0; i < numCampos; i++)
             {
+                #region Titulo Dos Campos
                 var label = new Label();
                 label.Text = campos[0, i].ToUpper().Replace("COD_", "");
                 label.Width = 90;
                 label.Location = new Point(25 + (120 * i), 25);
                 label.TextAlign = ContentAlignment.MiddleCenter;
+                #endregion
+
+                #region Selecionar Filtros
                 var checkBox = new CheckBox();
                 checkBox.Checked = true;
                 checkBox.Location = new Point(10+(120 * i), 25);
                 checkBox.Name = label.Text;
+                #endregion
 
+                #region Funcao de Agregacao
+                var comboBox = new ComboBox();
+                comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+                comboBox.Width = 90;
+                comboBox.Name = label.Text;
+                comboBox.Location = new Point(10 + (120 * i), 75);
+                comboBox.SelectedIndexChanged += (s, element) => {
+
+                    var checkBoxesExistentes = new List<CheckBox>();
+
+                    var comboBoxesExistentes = new List<ComboBox>();
+
+                    for (int k = 0; k< groupBox1.Controls.Count; k++)
+                    {
+                        if (groupBox1.Controls[k].AccessibilityObject.Role == AccessibleRole.ComboBox)
+                            comboBoxesExistentes.Add((ComboBox)groupBox1.Controls[k]);
+                        if (groupBox1.Controls[k].AccessibilityObject.Role == AccessibleRole.CheckButton)
+                            checkBoxesExistentes.Add((CheckBox)groupBox1.Controls[k]);
+                    }
+
+                    for (int k = 0; k < checkBoxesExistentes.Count; k++)
+                    {
+                        if (comboBoxesExistentes[k].SelectedItem == null || string.IsNullOrEmpty(comboBoxesExistentes[k].SelectedItem.ToString()))
+                            checkBoxesExistentes[k].Checked = false;
+                    }
+
+                };
+
+                if ((campos[1, i].Contains("int") && !campos[1, i].Contains("tinyint")) || campos[1, i].Contains("double") || campos[1, i].Contains("float"))
+                {
+                    comboBox.Items.Add("Maior");
+                    comboBox.Items.Add("Menor");
+                    comboBox.Items.Add("Média");
+                    comboBox.Items.Add("Contar");
+                    comboBox.Items.Add("Somar");
+                }
+                else if (campos[1, i].Contains("tinyint"))
+                {
+                    comboBox.Items.Add("Contar");
+                }
+                else                
+                {
+                    comboBox.Items.Add("Maior");
+                    comboBox.Items.Add("Menor");
+                    comboBox.Items.Add("Contar");
+                }
+
+                #endregion
+
+                #region Botao e Lista do DropDownMultiSelect
                 var listBox = new ListBox();
                 listBox.Width = 110;
                 listBox.Height = 100;
@@ -178,8 +238,8 @@ namespace PadariaEMerceariaDaFah
                 listBox.MouseLeave += (s, element ) => {
 
                     var listBoxSender = (ListBox)s; listBoxSender.Visible = false;
-                    groupBox1.Height -= listBoxSender.Height;
-                    groupResultados.Location = new Point(groupResultados.Location.X, groupResultados.Location.Y - listBoxSender.Height);
+                    groupBox1.Height -= 30;
+                    groupResultados.Location = new Point(groupResultados.Location.X, groupResultados.Location.Y - (30));
 
 
                 };
@@ -201,12 +261,14 @@ namespace PadariaEMerceariaDaFah
 
                     var listBoxSelected = listBoxes.FirstOrDefault(x => x.Name == buttonSender.Name);
                     listBoxSelected.Visible = true;
-                    groupResultados.Location = new Point(groupResultados.Location.X, groupResultados.Location.Y + listBoxSelected.Height);
-                    groupBox1.Height += listBoxSelected.Height;
+                    groupResultados.Location = new Point(groupResultados.Location.X, groupResultados.Location.Y + (30));
+                    groupBox1.Height += 30;
                     groupBox1.Controls.SetChildIndex(listBoxSelected, 0);
 
 
                 };
+
+                #endregion
 
                 var valores = Comercio.GerenciaEmpresa.Instance.Banco.Select("SELECT DISTINCT(" + campos[0, i] + ") from " + tabelaSelecionada).Rows;
                 for (int j = 0; j < valores.Count; j++)
@@ -221,6 +283,7 @@ namespace PadariaEMerceariaDaFah
                 groupBox1.Controls.Add(button);
                 groupBox1.Controls.Add(listBox);
                 groupBox1.Controls.Add(checkBox);
+                groupBox1.Controls.Add(comboBox);
 
             }
 
@@ -228,6 +291,7 @@ namespace PadariaEMerceariaDaFah
 
         private void btn_pesquisar_Click(object sender, EventArgs e)
         {
+            #region Inicialização, Tabela Selecionada E Campos
             if (tabela.SelectedItem == null)
                 return;
             var controles = groupBox1.Controls;
@@ -258,42 +322,52 @@ namespace PadariaEMerceariaDaFah
             var maxLinhas = Convert.ToInt32(GerenciaEmpresa.Instance.Banco.Select("SELECT COUNT(*) FROM " + tabelaSelecionada).Rows[0].ItemArray[0].ToString());
             var numCampos = desc.Rows.Count;
 
-            string[] campos = new string[numCampos];
+            string[,] campos = new string[2,numCampos];
 
             for (int i = 0; i < numCampos; i++)
             {
-                campos[i] = desc.Rows[i].ItemArray[0].ToString();
+                campos[0,i] = desc.Rows[i].ItemArray[0].ToString();
+                campos[1, i] = desc.Rows[i].ItemArray[1].ToString();
             }
 
+            #endregion
+
             string query;
-            List<ListBox> Combos = new List<ListBox>();
+
+            #region Listas, CheckBoxes e ComboBoxes
+            List<ListBox> Listas = new List<ListBox>();
             List<CheckBox> checkBoxes = new List<CheckBox>();
+            List<ComboBox> comboBoxes = new List<ComboBox>();
             for (int i =0; i< controles.Count; i++)
             {
                 if(controles[i].AccessibilityObject.Role == AccessibleRole.List)
-                    Combos.Add((ListBox)controles[i]);
+                    Listas.Add((ListBox)controles[i]);
                 if (controles[i].AccessibilityObject.Role == AccessibleRole.CheckButton)
                     checkBoxes.Add((CheckBox)controles[i]);
+                if (controles[i].AccessibilityObject.Role == AccessibleRole.ComboBox)
+                    comboBoxes.Add((ComboBox)controles[i]);
             }
+            #endregion
 
-            var camposSelecionados = CamposSelecionados(tabelaSelecionada, checkBoxes, campos);
+            var camposSelecionados = CamposSelecionados(tabelaSelecionada, checkBoxes, campos, comboBoxes);
 
+            #region Query
             query = "SELECT "+camposSelecionados+" FROM " + tabelaSelecionada;
-            if (Combos.Any(x => x.SelectedItems.Count > 0 ))
+            if (Listas.Any(x => x.SelectedItems.Count > 0 ))
             {
                 query = query + " WHERE ";
                 var and = false;
                 for(int i = 0; i< numCampos; i++)
                 {
-                    var comboSelecionado = Combos.FirstOrDefault(x => x.Name == checkBoxes[i].Name);
+                    var listaSelecionado = Listas.FirstOrDefault(x => x.Name == checkBoxes[i].Name);
 
-                    if (comboSelecionado.SelectedItems.Count > 0)
+                    if (listaSelecionado.SelectedItems.Count > 0)
                     {
                         if (and)
                         {
                             query = query + " AND ";
                         }
-                        query = query + campos[i] + " in ( " + ClausulaIn(comboSelecionado) + ") ";
+                        query = query + campos[0,i] + " in ( " + ClausulaIn(listaSelecionado) + ") ";
                         and = true;
                         
                     } 
@@ -301,11 +375,14 @@ namespace PadariaEMerceariaDaFah
                 }
             }
 
-           var dados = GerenciaEmpresa.Instance.Banco.Select(query);
+            #endregion
 
+            var dados = GerenciaEmpresa.Instance.Banco.Select(query);
+
+            #region Exibicao dos Dados
             groupResultados.Height = 100 + (dados.Rows.Count * 25);
             var count = 0;
-            for (int i = 0; i < campos.Length; i++)
+            for (int i = 0; i < campos.Length/2; i++)
             {
                 if (checkBoxes[i].Checked)
                 {
@@ -313,7 +390,7 @@ namespace PadariaEMerceariaDaFah
                     label.Width = 110;
                     label.Location = new Point(10 + (120 * count), 20);
                     label.BackColor = Color.Gray;
-                    label.Text = campos[i];
+                    label.Text = campos[0,i];
                     groupResultados.Controls.Add(label);
                     count++;
                 }
@@ -335,9 +412,11 @@ namespace PadariaEMerceariaDaFah
                 
             }
 
+            #endregion
+
         }
 
-        public string CamposSelecionados(string table, List<CheckBox> checkBoxes, string[] campos)
+        public string CamposSelecionados(string table, List<CheckBox> checkBoxes, string[,] campos, List<ComboBox> combos)
         {
             string select = "";
             if (!checkBoxes.Any(x => x.Checked))
@@ -354,7 +433,10 @@ namespace PadariaEMerceariaDaFah
                         {
                             select += ", ";
                         }
-                        select += table + "." + campos[i]+" ";
+                        if(combos[i].SelectedItem != null && !string.IsNullOrEmpty(combos[i].SelectedItem.ToString()))
+                            select += combos[i].SelectedItem.ToString().Agregacao() + "(" + table + "." + campos[0, i] + ") ";
+                        else
+                            select += table + "."+ campos[0,i]+" ";
                     }
                 }
             }
