@@ -19,6 +19,7 @@ namespace Comercio
         public List<Ingrediente> Ingredientes;
         public List<EstoqueItem> EstoqueItens;
         public List<RelacaoForneceIngrediente> RelacaoForneceIngredientes;
+        public List<RelacaoVendaProduto> RelacaoVendaProdutos;
         public List<RelacaoProdutoUtilizaIngrediente> RelacaoProdutoUtilizaIngredientes;
         public List<RelacaoForneceProduto> RelacaoForneceProdutos;
         public DB Banco;
@@ -34,6 +35,7 @@ namespace Comercio
             Fornecedores = new List<Fornecedor>();
             Ingredientes = new List<Ingrediente>();
             EstoqueItens = new List<EstoqueItem>();
+            RelacaoVendaProdutos = new List<RelacaoVendaProduto>();
             RelacaoForneceIngredientes = new List<RelacaoForneceIngrediente>();
             RelacaoProdutoUtilizaIngredientes = new List<RelacaoProdutoUtilizaIngrediente>();
             RelacaoForneceProdutos = new List<RelacaoForneceProduto>();
@@ -77,6 +79,10 @@ namespace Comercio
         {
             RelacaoProdutoUtilizaIngredientes.Add(Novo);
         }
+        public void AdicionarRelacaoVendaProduto(RelacaoVendaProduto Novo)
+        {
+            RelacaoVendaProdutos.Add(Novo);
+        }
         public void AdicionarRelacaoForneceProdutos(RelacaoForneceProduto Novo)
         {
             RelacaoForneceProdutos.Add(Novo);
@@ -117,6 +123,10 @@ namespace Comercio
         public void RemoverRelacaoProdutoUtilizaIngredientes(RelacaoProdutoUtilizaIngrediente Item)
         {
             RelacaoProdutoUtilizaIngredientes.Remove(RelacaoProdutoUtilizaIngredientes.Find(x => x.Codigo == Item.Codigo));
+        }
+        public void RemoverRelacaoVendaProduto(RelacaoVendaProduto Item)
+        {
+            RelacaoVendaProdutos.Remove(RelacaoVendaProdutos.Find(x => x.Codigo == Item.Codigo));
         }
         public void RemoverRelacaoForneceProdutos(RelacaoForneceProduto Item)
         {
@@ -159,6 +169,10 @@ namespace Comercio
         public void AtualizarRelacaoProdutoUtilizaIngredientes(RelacaoProdutoUtilizaIngrediente Item)
         {
             RelacaoProdutoUtilizaIngredientes.FirstOrDefault(x => x.Codigo == Item.Codigo).AtualizarRelacaoProdutoUtilizaIngrediente(Item);
+        }
+        public void AtualizarRelacaoVendaProduto(RelacaoVendaProduto Item)
+        {
+            RelacaoVendaProdutos.FirstOrDefault(x => x.Codigo == Item.Codigo).AtualizarRelacaoVendaProduto(Item);
         }
         public void AtualizarRelacaoForneceProdutos(RelacaoForneceProduto Item)
         {
@@ -204,6 +218,10 @@ namespace Comercio
         {
             SalvarEEscrever.SaveBinFile<List<RelacaoProdutoUtilizaIngrediente>>("RelacaoProdutoUtilizaIngredientes", Item);
         }
+        public void SalvarRelacaoVendaProduto(List<RelacaoVendaProduto> Item)
+        {
+            SalvarEEscrever.SaveBinFile<List<RelacaoVendaProduto>>("RelacaoVendaProdutos", Item);
+        }
         public List<Funcionario> CarregarFuncionarios()
         {
             return SalvarEEscrever.ReadBinFile<List<Funcionario>>("Funcionarios");
@@ -240,6 +258,10 @@ namespace Comercio
         {
             return SalvarEEscrever.ReadBinFile<List<RelacaoProdutoUtilizaIngrediente>>("RelacaoProdutoUtilizaIngredientes");
         }
+        public List<RelacaoVendaProduto> CarregarRelacaoVendaProdutos()
+        {
+            return SalvarEEscrever.ReadBinFile<List<RelacaoVendaProduto>>("RelacaoVendaProdutos");
+        }
         public List<RelacaoForneceProduto> CarregarRelacaoForneceProdutos()
         {
             return SalvarEEscrever.ReadBinFile<List<RelacaoForneceProduto>>("RelacaoForneceProdutos");
@@ -263,6 +285,39 @@ namespace Comercio
             }
             
            return listFornecedores;
+        }
+
+        public List<Venda> CarregarVendasBanco(string query)
+        {
+            var vendas = Banco.Select(query);
+
+            var listVendas = new List<Venda>();
+
+            for (int i = 0; i < vendas.Rows.Count; i++)
+            {
+                listVendas.Add(new Venda(Convert.ToInt32(vendas.Rows[i].ItemArray[0]),
+                                                        Convert.ToDateTime(vendas.Rows[i].ItemArray[1]),
+                                                        Convert.ToInt32(vendas.Rows[i].ItemArray[2]),
+                                                        Convert.ToInt32(vendas.Rows[i].ItemArray[3])));
+            }
+
+            return listVendas;
+        }
+        public List<RelacaoVendaProduto> CarregarRelacaoVendaProdutosBanco(string query)
+        {
+            var relacao = Banco.Select(query);
+
+            var listRelacoes = new List<RelacaoVendaProduto>();
+
+            for (int i = 0; i < relacao.Rows.Count; i++)
+            {
+                listRelacoes.Add(new RelacaoVendaProduto(Convert.ToInt32(relacao.Rows[i].ItemArray[0]),
+                                                    Convert.ToInt32(relacao.Rows[i].ItemArray[1]),
+                                                    Convert.ToInt32(relacao.Rows[i].ItemArray[2]),
+                                                    Convert.ToInt32(relacao.Rows[i].ItemArray[3])));
+            }
+
+            return listRelacoes;
         }
 
         public List<Produto> CarregarProdutoBanco(string query)

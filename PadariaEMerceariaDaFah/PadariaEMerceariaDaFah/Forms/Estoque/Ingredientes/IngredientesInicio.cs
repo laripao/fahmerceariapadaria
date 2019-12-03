@@ -24,6 +24,8 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes
 
         private void IngredientesInicio_Load(object sender, EventArgs e)
         {
+            data_validade.Value = DateTime.Now;
+
             list_Ingrediente.Items.Clear();
             var ingrediente = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM ESTOQUE_INGREDIENTE WHERE ATIVO = '" + 1 + "';");
 

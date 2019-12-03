@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.add_cliente_cancel = new System.Windows.Forms.Button();
-            this.add_cliente_salvar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cliente_documento = new System.Windows.Forms.TextBox();
             this.cliente_nome = new System.Windows.Forms.TextBox();
@@ -42,39 +40,11 @@
             this.cliente_telefone = new System.Windows.Forms.TextBox();
             this.cliente_celular = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.add_cliente_cancel = new System.Windows.Forms.Button();
+            this.add_cliente_salvar = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // add_cliente_cancel
-            // 
-            this.add_cliente_cancel.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_edit_delete_icon;
-            this.add_cliente_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.add_cliente_cancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_cliente_cancel.Location = new System.Drawing.Point(432, 356);
-            this.add_cliente_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.add_cliente_cancel.Name = "add_cliente_cancel";
-            this.add_cliente_cancel.Size = new System.Drawing.Size(144, 49);
-            this.add_cliente_cancel.TabIndex = 13;
-            this.add_cliente_cancel.Text = "Cancelar";
-            this.add_cliente_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.add_cliente_cancel.UseVisualStyleBackColor = true;
-            this.add_cliente_cancel.Click += new System.EventHandler(this.add_cliente_cancel_Click);
-            // 
-            // add_cliente_salvar
-            // 
-            this.add_cliente_salvar.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_dialog_ok_apply_icon;
-            this.add_cliente_salvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.add_cliente_salvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_cliente_salvar.Location = new System.Drawing.Point(156, 356);
-            this.add_cliente_salvar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.add_cliente_salvar.Name = "add_cliente_salvar";
-            this.add_cliente_salvar.Size = new System.Drawing.Size(144, 49);
-            this.add_cliente_salvar.TabIndex = 14;
-            this.add_cliente_salvar.Text = "Salvar";
-            this.add_cliente_salvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.add_cliente_salvar.UseVisualStyleBackColor = true;
-            this.add_cliente_salvar.Click += new System.EventHandler(this.add_cliente_salvar_Click);
             // 
             // groupBox3
             // 
@@ -196,12 +166,42 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Documento:";
             // 
+            // add_cliente_cancel
+            // 
+            this.add_cliente_cancel.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_edit_delete_icon;
+            this.add_cliente_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.add_cliente_cancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_cliente_cancel.Location = new System.Drawing.Point(432, 356);
+            this.add_cliente_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add_cliente_cancel.Name = "add_cliente_cancel";
+            this.add_cliente_cancel.Size = new System.Drawing.Size(144, 49);
+            this.add_cliente_cancel.TabIndex = 13;
+            this.add_cliente_cancel.Text = "Cancelar";
+            this.add_cliente_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.add_cliente_cancel.UseVisualStyleBackColor = true;
+            this.add_cliente_cancel.Click += new System.EventHandler(this.add_cliente_cancel_Click);
+            // 
+            // add_cliente_salvar
+            // 
+            this.add_cliente_salvar.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_dialog_ok_apply_icon;
+            this.add_cliente_salvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.add_cliente_salvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_cliente_salvar.Location = new System.Drawing.Point(156, 356);
+            this.add_cliente_salvar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add_cliente_salvar.Name = "add_cliente_salvar";
+            this.add_cliente_salvar.Size = new System.Drawing.Size(144, 49);
+            this.add_cliente_salvar.TabIndex = 14;
+            this.add_cliente_salvar.Text = "Salvar";
+            this.add_cliente_salvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.add_cliente_salvar.UseVisualStyleBackColor = true;
+            this.add_cliente_salvar.Click += new System.EventHandler(this.add_cliente_salvar_Click);
+            // 
             // AddCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(827, 443);
+            this.ClientSize = new System.Drawing.Size(827, 415);
             this.Controls.Add(this.add_cliente_cancel);
             this.Controls.Add(this.add_cliente_salvar);
             this.Controls.Add(this.groupBox3);

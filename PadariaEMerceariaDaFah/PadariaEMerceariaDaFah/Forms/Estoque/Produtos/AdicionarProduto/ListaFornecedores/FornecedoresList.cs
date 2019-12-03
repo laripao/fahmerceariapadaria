@@ -44,14 +44,14 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFo
 
             foreach (var item in fornecedores)
             {
-                list_fornecedor.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
+                list_fornecedor.Items.Add(item.Codigo.ToString() + "|" + item.Nome);
             }
             if (Selected != 0)
             {
                 var fornecedoreSelected = Comercio.GerenciaEmpresa.Instance.Fornecedores.FirstOrDefault(x => x.Codigo == Selected);
                 if (fornecedoreSelected != null)
                 {
-                    var index = list_fornecedor.Items.IndexOf(fornecedoreSelected.Codigo.ToString() + " | " + fornecedoreSelected.Nome);
+                    var index = list_fornecedor.Items.IndexOf(fornecedoreSelected.Codigo.ToString() + "|" + fornecedoreSelected.Nome);
                     list_fornecedor.SetSelected(index, true);
                 }
             }

@@ -30,8 +30,6 @@
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.habilitar_edicao = new System.Windows.Forms.CheckBox();
-            this.list_cliente = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cliente_documento = new System.Windows.Forms.TextBox();
             this.cliente_nome = new System.Windows.Forms.TextBox();
@@ -44,6 +42,8 @@
             this.cliente_telefone = new System.Windows.Forms.TextBox();
             this.cliente_celular = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.habilitar_edicao = new System.Windows.Forms.CheckBox();
+            this.list_cliente = new System.Windows.Forms.ListBox();
             this.remove_cliente = new System.Windows.Forms.Button();
             this.save_edit_cliente = new System.Windows.Forms.Button();
             this.add_cliente = new System.Windows.Forms.Button();
@@ -83,29 +83,6 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Clientes Existentes";
-            // 
-            // habilitar_edicao
-            // 
-            this.habilitar_edicao.AutoSize = true;
-            this.habilitar_edicao.Location = new System.Drawing.Point(245, 32);
-            this.habilitar_edicao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.habilitar_edicao.Name = "habilitar_edicao";
-            this.habilitar_edicao.Size = new System.Drawing.Size(164, 25);
-            this.habilitar_edicao.TabIndex = 10;
-            this.habilitar_edicao.Text = "Habilitar Edição";
-            this.habilitar_edicao.UseVisualStyleBackColor = true;
-            this.habilitar_edicao.CheckedChanged += new System.EventHandler(this.habilitar_edicao_CheckedChanged);
-            // 
-            // list_cliente
-            // 
-            this.list_cliente.FormattingEnabled = true;
-            this.list_cliente.ItemHeight = 21;
-            this.list_cliente.Location = new System.Drawing.Point(12, 21);
-            this.list_cliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.list_cliente.Name = "list_cliente";
-            this.list_cliente.Size = new System.Drawing.Size(215, 382);
-            this.list_cliente.TabIndex = 1;
-            this.list_cliente.SelectedIndexChanged += new System.EventHandler(this.list_cliente_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -226,6 +203,29 @@
             this.label2.Size = new System.Drawing.Size(114, 21);
             this.label2.TabIndex = 3;
             this.label2.Text = "Documento:";
+            // 
+            // habilitar_edicao
+            // 
+            this.habilitar_edicao.AutoSize = true;
+            this.habilitar_edicao.Location = new System.Drawing.Point(245, 32);
+            this.habilitar_edicao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.habilitar_edicao.Name = "habilitar_edicao";
+            this.habilitar_edicao.Size = new System.Drawing.Size(164, 25);
+            this.habilitar_edicao.TabIndex = 10;
+            this.habilitar_edicao.Text = "Habilitar Edição";
+            this.habilitar_edicao.UseVisualStyleBackColor = true;
+            this.habilitar_edicao.CheckedChanged += new System.EventHandler(this.habilitar_edicao_CheckedChanged);
+            // 
+            // list_cliente
+            // 
+            this.list_cliente.FormattingEnabled = true;
+            this.list_cliente.ItemHeight = 21;
+            this.list_cliente.Location = new System.Drawing.Point(12, 21);
+            this.list_cliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.list_cliente.Name = "list_cliente";
+            this.list_cliente.Size = new System.Drawing.Size(215, 382);
+            this.list_cliente.TabIndex = 1;
+            this.list_cliente.SelectedIndexChanged += new System.EventHandler(this.list_cliente_SelectedIndexChanged);
             // 
             // remove_cliente
             // 
