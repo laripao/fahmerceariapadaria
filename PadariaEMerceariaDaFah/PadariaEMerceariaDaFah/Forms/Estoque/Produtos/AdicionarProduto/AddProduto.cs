@@ -86,7 +86,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
             {
                 MessageBox.Show("Insira um valor.");
             }
-            else
+            if(nome_produto.Text != "" && valor_text.Text != "")
             {
                 var produtos = Comercio.GerenciaEmpresa.Instance.Produtos;
 

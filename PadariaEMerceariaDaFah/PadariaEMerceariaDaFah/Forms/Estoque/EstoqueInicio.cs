@@ -151,11 +151,9 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque
 
         private void list_estoque_SelectedValueChanged(object sender, EventArgs e)
         {
-            int selectedItem;
-
             if(list_estoque.SelectedItem != null)
             {
-                selectedItem = Convert.ToInt32(list_estoque.SelectedItem.ToString().Split('|').First());
+                var selectedItem = Convert.ToInt32(list_estoque.SelectedItem.ToString().Split('|')[0]);
                 var item = Comercio.GerenciaEmpresa.Instance.EstoqueItens.FirstOrDefault(x => x.Codigo == selectedItem);
                 var produto = Comercio.GerenciaEmpresa.Instance.Produtos.FirstOrDefault(x => x.Codigo == item.CodProduto);
 

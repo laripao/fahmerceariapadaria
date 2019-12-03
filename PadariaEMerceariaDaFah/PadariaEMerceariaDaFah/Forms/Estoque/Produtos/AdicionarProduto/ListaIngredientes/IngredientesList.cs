@@ -60,7 +60,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaPr
                 var ingredienteSelected = Comercio.GerenciaEmpresa.Instance.Ingredientes.FirstOrDefault(x => x.Codigo == Selected);
                 if (ingredienteSelected != null)
                 {
-                    var index = list_ingrediente.Items.IndexOf(ingredienteSelected.Codigo.ToString() + " | " + ingredienteSelected.Nome);
+                    var index = list_ingrediente.Items.IndexOf(ingredienteSelected.Codigo.ToString() + "|" + ingredienteSelected.Nome);
                     list_ingrediente.SetSelected(index, true);
                 }
             }
@@ -81,7 +81,6 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaPr
 
                 qtdIngrediente = Convert.ToDouble(quantidade_text.Text);
                 codIngrediente = Convert.ToInt32(aux[0].Trim());
-                Close();
                 this.Close();
             }
         }

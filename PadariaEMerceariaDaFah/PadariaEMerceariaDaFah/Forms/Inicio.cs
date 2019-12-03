@@ -18,6 +18,7 @@ using PdfSharp.Pdf.IO;
 using PdfSharp.Pdf.Annotations;
 using PdfSharp.Drawing;
 using PdfSharp.Drawing.Layout;
+using PadariaEMerceariaDaFah.Forms.Vendas;
 
 namespace PadariaEMerceariaDaFah
 {
@@ -26,6 +27,7 @@ namespace PadariaEMerceariaDaFah
         public Inicio()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
         }
 
 
@@ -40,6 +42,16 @@ namespace PadariaEMerceariaDaFah
 
             panel_produto.Controls.Add(est);
             est.Show();
+
+            Form vend = new VendasInicio
+            {
+                TopLevel = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill
+            };
+
+            panel_vendas.Controls.Add(vend);
+            vend.Show();
 
             var gerenciaEmpresa = new GerenciaEmpresa();
 
@@ -153,7 +165,7 @@ namespace PadariaEMerceariaDaFah
                 campos[0, i] = desc.Rows[i].ItemArray[0].ToString();
             }
 
-            this.WindowState = FormWindowState.Maximized;
+            
             groupBox1.Width = Width = 15 + (130 * numCampos);
             groupResultados.Width = 15 + (130 * numCampos);
 

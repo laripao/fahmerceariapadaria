@@ -122,7 +122,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente
 
         private void AddIngrediente_Load(object sender, EventArgs e)
         {
-
+            data_validade.Value = DateTime.Now;
         }
     }
 }

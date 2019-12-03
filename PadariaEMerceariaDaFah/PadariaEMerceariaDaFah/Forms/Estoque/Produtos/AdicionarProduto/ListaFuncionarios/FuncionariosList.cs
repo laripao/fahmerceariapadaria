@@ -18,10 +18,13 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFu
 
         private void FuncionariosList_Load(object sender, EventArgs e)
         {
+            cod_funcionario = 0;
+            nome_funcionario = "";
+
             list_funcionario.Items.Clear();
             foreach (var item in Comercio.GerenciaEmpresa.Instance.Funcionarios)
             {
-                list_funcionario.Items.Add(item.Codigo.ToString() + " | " + item.Nome);
+                list_funcionario.Items.Add(item.Codigo.ToString() + "|" + item.Nome);
             }
         }
 

@@ -78,6 +78,7 @@
     <Compile Include="Classes\EstoqueItem.cs" />
     <Compile Include="Classes\Fornecedor.cs" />
     <Compile Include="Classes\Funcionario.cs" />
+    <Compile Include="Classes\RelacaoVendaProdutos.cs" />
     <Compile Include="Classes\RelacaoProdutoUtilizaIngrediente .cs" />
     <Compile Include="Classes\RelacaoForneceProduto.cs" />
     <Compile Include="Classes\RelacaoForneceIngrediente.cs" />
@@ -224,6 +225,36 @@
     <Compile Include="Forms\Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Vendas\AddVenda\AddVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\AddVenda\AddVenda.Designer.cs">
+      <DependentUpon>AddVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\AddVenda\ListaClientes\ClienteList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\AddVenda\ListaClientes\ClienteList.Designer.cs">
+      <DependentUpon>ClienteList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\AddVenda\ListaEstoque\EstoqueList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\AddVenda\ListaEstoque\EstoqueList.Designer.cs">
+      <DependentUpon>EstoqueList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\RemoveVenda\RemoveVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\RemoveVenda\RemoveVenda.Designer.cs">
+      <DependentUpon>RemoveVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\VendasInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\VendasInicio.Designer.cs">
+      <DependentUpon>VendasInicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="GerenciaEmpresa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -296,6 +327,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\AddVenda\AddVenda.resx">
+      <DependentUpon>AddVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\AddVenda\ListaClientes\ClienteList.resx">
+      <DependentUpon>ClienteList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\AddVenda\ListaEstoque\EstoqueList.resx">
+      <DependentUpon>EstoqueList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\RemoveVenda\RemoveVenda.resx">
+      <DependentUpon>RemoveVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\VendasInicio.resx">
+      <DependentUpon>VendasInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
