@@ -368,6 +368,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Preppy-icon.png" />
+    <None Include="Resources\Administrator-icon.png" />
+    <None Include="Resources\Clients-icon4.png" />
+    <None Include="Resources\Clients-icon3.png" />
     <None Include="Resources\Clients-icon2.png" />
     <None Include="Resources\Clients-icon1.png" />
     <None Include="Resources\Clients-icon.png" />

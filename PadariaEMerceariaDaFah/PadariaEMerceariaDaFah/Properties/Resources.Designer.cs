@@ -153,6 +153,16 @@ namespace PadariaEMerceariaDaFah.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Administrator_icon {
+            get {
+                object obj = ResourceManager.GetObject("Administrator-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buy {
             get {
                 object obj = ResourceManager.GetObject("buy", resourceCulture);
@@ -213,6 +223,26 @@ namespace PadariaEMerceariaDaFah.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Clients_icon3 {
+            get {
+                object obj = ResourceManager.GetObject("Clients-icon3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Clients_icon4 {
+            get {
+                object obj = ResourceManager.GetObject("Clients-icon4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_validated_icon {
             get {
                 object obj = ResourceManager.GetObject("edit-validated-icon", resourceCulture);
@@ -246,6 +276,16 @@ namespace PadariaEMerceariaDaFah.Properties {
         internal static System.Drawing.Bitmap icons8_procurar_estoque_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-procurar-estoque-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Preppy_icon {
+            get {
+                object obj = ResourceManager.GetObject("Preppy-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

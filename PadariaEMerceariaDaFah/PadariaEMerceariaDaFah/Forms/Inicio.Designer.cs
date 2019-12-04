@@ -38,8 +38,6 @@
             this.tabVendas = new System.Windows.Forms.TabPage();
             this.panel_vendas = new System.Windows.Forms.Panel();
             this.tabGerencia = new System.Windows.Forms.TabPage();
-            this.TabGo_Fornecedor = new System.Windows.Forms.Button();
-            this.TabGoFuncionario = new System.Windows.Forms.Button();
             this.tabPesquisa = new System.Windows.Forms.TabPage();
             this.print_button = new System.Windows.Forms.Button();
             this.groupResultados = new System.Windows.Forms.GroupBox();
@@ -48,19 +46,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabela = new System.Windows.Forms.ComboBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.TabGoCliente = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.TabGo_Fornecedor = new System.Windows.Forms.Button();
+            this.TabGoFuncionario = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabLogo.SuspendLayout();
             this.tabEstoque.SuspendLayout();
             this.tabVendas.SuspendLayout();
             this.tabGerencia.SuspendLayout();
             this.tabPesquisa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -156,9 +150,6 @@
             // 
             // tabGerencia
             // 
-            this.tabGerencia.Controls.Add(this.pictureBox3);
-            this.tabGerencia.Controls.Add(this.pictureBox2);
-            this.tabGerencia.Controls.Add(this.pictureBox1);
             this.tabGerencia.Controls.Add(this.TabGoCliente);
             this.tabGerencia.Controls.Add(this.TabGo_Fornecedor);
             this.tabGerencia.Controls.Add(this.TabGoFuncionario);
@@ -168,28 +159,6 @@
             this.tabGerencia.TabIndex = 2;
             this.tabGerencia.Text = "Gerência";
             this.tabGerencia.UseVisualStyleBackColor = true;
-            // 
-            // TabGo_Fornecedor
-            // 
-            this.TabGo_Fornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TabGo_Fornecedor.Location = new System.Drawing.Point(797, 1);
-            this.TabGo_Fornecedor.Name = "TabGo_Fornecedor";
-            this.TabGo_Fornecedor.Size = new System.Drawing.Size(452, 141);
-            this.TabGo_Fornecedor.TabIndex = 2;
-            this.TabGo_Fornecedor.Text = "Fornecedor";
-            this.TabGo_Fornecedor.UseVisualStyleBackColor = true;
-            this.TabGo_Fornecedor.Click += new System.EventHandler(this.TabGo_Fornecedor_Click);
-            // 
-            // TabGoFuncionario
-            // 
-            this.TabGoFuncionario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TabGoFuncionario.Location = new System.Drawing.Point(406, 0);
-            this.TabGoFuncionario.Name = "TabGoFuncionario";
-            this.TabGoFuncionario.Size = new System.Drawing.Size(408, 142);
-            this.TabGoFuncionario.TabIndex = 1;
-            this.TabGoFuncionario.Text = "Funcionário";
-            this.TabGoFuncionario.UseVisualStyleBackColor = true;
-            this.TabGoFuncionario.Click += new System.EventHandler(this.TabGoFuncionario_Click);
             // 
             // tabPesquisa
             // 
@@ -273,50 +242,50 @@
             this.tabela.TabIndex = 3;
             this.tabela.SelectedIndexChanged += new System.EventHandler(this.tabela_SelectedIndexChanged);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(797, 148);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(452, 597);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 5;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(406, 148);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(408, 597);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
-            // 
             // TabGoCliente
             // 
-            this.TabGoCliente.Location = new System.Drawing.Point(3, 0);
+            this.TabGoCliente.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Clients_icon4;
+            this.TabGoCliente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.TabGoCliente.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabGoCliente.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.TabGoCliente.Location = new System.Drawing.Point(3, 281);
             this.TabGoCliente.Name = "TabGoCliente";
-            this.TabGoCliente.Size = new System.Drawing.Size(419, 142);
+            this.TabGoCliente.Size = new System.Drawing.Size(397, 258);
             this.TabGoCliente.TabIndex = 0;
             this.TabGoCliente.Text = "Cliente";
+            this.TabGoCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.TabGoCliente.UseVisualStyleBackColor = true;
             this.TabGoCliente.Click += new System.EventHandler(this.TabGoCliente_Click);
             // 
-            // pictureBox1
+            // TabGo_Fornecedor
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(4, 149);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(418, 597);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.TabGo_Fornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TabGo_Fornecedor.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Preppy_icon;
+            this.TabGo_Fornecedor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.TabGo_Fornecedor.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabGo_Fornecedor.Location = new System.Drawing.Point(820, 281);
+            this.TabGo_Fornecedor.Name = "TabGo_Fornecedor";
+            this.TabGo_Fornecedor.Size = new System.Drawing.Size(429, 257);
+            this.TabGo_Fornecedor.TabIndex = 2;
+            this.TabGo_Fornecedor.Text = "Fornecedor";
+            this.TabGo_Fornecedor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TabGo_Fornecedor.UseVisualStyleBackColor = true;
+            this.TabGo_Fornecedor.Click += new System.EventHandler(this.TabGo_Fornecedor_Click);
+            // 
+            // TabGoFuncionario
+            // 
+            this.TabGoFuncionario.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TabGoFuncionario.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Administrator_icon;
+            this.TabGoFuncionario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.TabGoFuncionario.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TabGoFuncionario.Location = new System.Drawing.Point(406, 281);
+            this.TabGoFuncionario.Name = "TabGoFuncionario";
+            this.TabGoFuncionario.Size = new System.Drawing.Size(408, 258);
+            this.TabGoFuncionario.TabIndex = 1;
+            this.TabGoFuncionario.Text = "Funcionário";
+            this.TabGoFuncionario.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.TabGoFuncionario.UseVisualStyleBackColor = true;
+            this.TabGoFuncionario.Click += new System.EventHandler(this.TabGoFuncionario_Click);
             // 
             // Inicio
             // 
@@ -335,9 +304,6 @@
             this.tabGerencia.ResumeLayout(false);
             this.tabPesquisa.ResumeLayout(false);
             this.tabPesquisa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -366,9 +332,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.TabPage tabVendas;
         private System.Windows.Forms.Panel panel_vendas;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
