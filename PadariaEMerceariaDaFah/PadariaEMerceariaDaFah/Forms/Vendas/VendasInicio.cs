@@ -13,6 +13,7 @@ namespace PadariaEMerceariaDaFah.Forms.Vendas
         public int codFuncionario = 0;
         public int codCLiente = 0;
         public double valorTotal = 0;
+        public int Code = 0;
         public VendasInicio()
         {
             InitializeComponent();
@@ -131,6 +132,23 @@ namespace PadariaEMerceariaDaFah.Forms.Vendas
                 lista_produtos.Items.Add(produto.codItem + "|" + produto.nomeItem + "|" + produto.quantidade);
 
                 Valor.Text = "R$ " + valorTotal.ToString();
+
+                Comercio.GerenciaEmpresa.Instance.Banco.Insert("INSERT INTO VENDA_ITEM VALUES(DEFAULT, " +
+                                                                    produto.codItem + ", " +
+                                                                    Code + ", " +
+                                                                    produto.quantidade + ");");
+                
+                var produtos = Comercio.GerenciaEmpresa.Instance.CarregarEstoqueItensBanco("SELECT * FROM ITEM_ESTOQUE WHERE COD_ITEM = " + produto.codItem + ";").FirstOrDefault();
+
+                int quantidade_atualizada = produtos.Quantidade - Convert.ToInt32(produto.quantidade);
+
+                Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE ITEM_ESTOQUE SET QUANTIDADE_PRODUTO = " + quantidade_atualizada + " WHERE COD_ITEM = " + produtos.Codigo + ";");
+
+                var cod = Comercio.GerenciaEmpresa.Instance.CarregarRelacaoForneceProdutosBanco("SELECT * FROM VENDA_ITEM WHERE CODIGO = (SELECT MAX(CODIGO) FROM VENDA_ITEM);").FirstOrDefault();
+
+                Comercio.GerenciaEmpresa.Instance.AdicionarRelacaoVendaProduto(new Comercio.RelacaoVendaProduto(cod.Codigo, cod.CodProduto, 1, Convert.ToInt32(produto.quantidade)));
+
+                Comercio.GerenciaEmpresa.Instance.SalvarRelacaoVendaProduto(Comercio.GerenciaEmpresa.Instance.RelacaoVendaProdutos);
             }
         }
 
@@ -194,6 +212,8 @@ namespace PadariaEMerceariaDaFah.Forms.Vendas
             if(list_vendas.SelectedItem != null)
             {
                 selectecVenda = Convert.ToInt32(list_vendas.SelectedItem.ToString().Split('|').First());
+
+                Code = selectecVenda;
 
                 var funcionario = Comercio.GerenciaEmpresa.Instance.CarregarFuncionariosBanco("SELECT GF.* FROM GERENCIA_FUNCIONARIO GF INNER JOIN VENDAS VD ON VD.COD_FUNCIONARIO = GF.CODIGO WHERE VD.CODIGO = "+ selectecVenda +";").FirstOrDefault();
                 var cliente = Comercio.GerenciaEmpresa.Instance.CarregarClientesBanco("SELECT CL.* FROM CLIENTE CL INNER JOIN VENDAS VD ON VD.COD_CLIENTE = CL.CODIGO WHERE VD.CODIGO = "+ selectecVenda +";").FirstOrDefault();

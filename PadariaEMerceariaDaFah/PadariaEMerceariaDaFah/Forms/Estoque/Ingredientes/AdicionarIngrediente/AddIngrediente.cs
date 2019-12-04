@@ -1,4 +1,5 @@
-﻿using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
+﻿using PadariaEMerceariaDaFah.Classes;
+using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -87,7 +88,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente
                 var ingrediente = Comercio.GerenciaEmpresa.Instance.Ingredientes;
 
                 Comercio.GerenciaEmpresa.Instance.Banco.Insert("INSERT INTO ESTOQUE_INGREDIENTE VALUES( default," +
-                    " '" + nome_ingrediente.Text + "', " +
+                    " '" + nome_ingrediente.Text.FormatToDB() + "', " +
                     " STR_TO_DATE('" + data_validade.Value.Date + "','%d/%m/%Y'), " +
                     " '" + Convert.ToDouble(valor_text.Text) + "', " +
                     " '" + Convert.ToInt32(quantidade_text.Text) + "', " +
