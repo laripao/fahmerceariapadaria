@@ -403,7 +403,7 @@ namespace PadariaEMerceariaDaFah
                         {
                             query = query + " AND ";
                         }
-                        query = query + campos[0,i] + " in ( " + ClausulaIn(listaSelecionado) + ") ";
+                        query = query + campos[0,i] + " in ( " + ClausulaIn(listaSelecionado, campos[1,i]) + ") ";
                         and = true;
                         
                     } 
@@ -480,7 +480,7 @@ namespace PadariaEMerceariaDaFah
             return select;
         }
 
-        public string ClausulaIn(ListBox lista)
+        public string ClausulaIn(ListBox lista, string tipo)
         {
             string result = "";
             if (lista.SelectedItems.Count > 0)
@@ -494,7 +494,18 @@ namespace PadariaEMerceariaDaFah
 
                     if (item.ToString()!= null)
                     {
-                        result +=  "'"+ item.ToString() + "'";
+                        if (tipo == "date")
+                        {
+                            result += "'" + Convert.ToDateTime(item.ToString()).ToString("yyy-MM-dd") + "'";
+                        }
+                        else if (tipo == "datetime")
+                        {
+                            result += "'" + Convert.ToDateTime(item.ToString()).ToString("yyy-MM-dd HH:mm:ss") + "'";
+                        }
+                        else
+                        {
+                            result += "'" + item.ToString() + "'";
+                        }
                         virgula = true;
                     }
 
