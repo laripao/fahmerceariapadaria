@@ -80,7 +80,7 @@
             this.tabLogo.BackColor = System.Drawing.Color.Transparent;
             this.tabLogo.Controls.Add(this.label1);
             this.tabLogo.Controls.Add(this.list_vencimento);
-            this.tabLogo.Location = new System.Drawing.Point(4, 26);
+            this.tabLogo.Location = new System.Drawing.Point(4, 30);
             this.tabLogo.Name = "tabLogo";
             this.tabLogo.Padding = new System.Windows.Forms.Padding(3);
             this.tabLogo.Size = new System.Drawing.Size(1252, 749);
@@ -94,7 +94,7 @@
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(2, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(319, 23);
+            this.label1.Size = new System.Drawing.Size(402, 28);
             this.label1.TabIndex = 1;
             this.label1.Text = "Produtos que vencerão em 5 dias";
             // 
@@ -104,7 +104,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.list_vencimento.FormattingEnabled = true;
-            this.list_vencimento.ItemHeight = 17;
+            this.list_vencimento.ItemHeight = 21;
             this.list_vencimento.Location = new System.Drawing.Point(6, 31);
             this.list_vencimento.Name = "list_vencimento";
             this.list_vencimento.Size = new System.Drawing.Size(1240, 684);
@@ -114,7 +114,7 @@
             // 
             this.tabEstoque.BackColor = System.Drawing.Color.SkyBlue;
             this.tabEstoque.Controls.Add(this.panel_produto);
-            this.tabEstoque.Location = new System.Drawing.Point(4, 26);
+            this.tabEstoque.Location = new System.Drawing.Point(4, 30);
             this.tabEstoque.Name = "tabEstoque";
             this.tabEstoque.Padding = new System.Windows.Forms.Padding(3);
             this.tabEstoque.Size = new System.Drawing.Size(1252, 749);
@@ -135,7 +135,7 @@
             // 
             this.tabVendas.BackColor = System.Drawing.Color.SkyBlue;
             this.tabVendas.Controls.Add(this.panel_vendas);
-            this.tabVendas.Location = new System.Drawing.Point(4, 26);
+            this.tabVendas.Location = new System.Drawing.Point(4, 30);
             this.tabVendas.Name = "tabVendas";
             this.tabVendas.Size = new System.Drawing.Size(1252, 749);
             this.tabVendas.TabIndex = 4;
@@ -153,12 +153,46 @@
             this.tabGerencia.Controls.Add(this.TabGoCliente);
             this.tabGerencia.Controls.Add(this.TabGo_Fornecedor);
             this.tabGerencia.Controls.Add(this.TabGoFuncionario);
-            this.tabGerencia.Location = new System.Drawing.Point(4, 26);
+            this.tabGerencia.Location = new System.Drawing.Point(4, 30);
             this.tabGerencia.Name = "tabGerencia";
             this.tabGerencia.Size = new System.Drawing.Size(1252, 749);
             this.tabGerencia.TabIndex = 2;
             this.tabGerencia.Text = "Gerência";
             this.tabGerencia.UseVisualStyleBackColor = true;
+            // 
+            
+            // 
+            // TabGoCliente
+            // 
+            this.TabGoCliente.Location = new System.Drawing.Point(3, 0);
+            this.TabGoCliente.Name = "TabGoCliente";
+            this.TabGoCliente.Size = new System.Drawing.Size(419, 142);
+            this.TabGoCliente.TabIndex = 0;
+            this.TabGoCliente.Text = "Cliente";
+            this.TabGoCliente.UseVisualStyleBackColor = true;
+            this.TabGoCliente.Click += new System.EventHandler(this.TabGoCliente_Click);
+            // 
+            // TabGo_Fornecedor
+            // 
+            this.TabGo_Fornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TabGo_Fornecedor.Location = new System.Drawing.Point(797, 1);
+            this.TabGo_Fornecedor.Name = "TabGo_Fornecedor";
+            this.TabGo_Fornecedor.Size = new System.Drawing.Size(452, 141);
+            this.TabGo_Fornecedor.TabIndex = 2;
+            this.TabGo_Fornecedor.Text = "Fornecedor";
+            this.TabGo_Fornecedor.UseVisualStyleBackColor = true;
+            this.TabGo_Fornecedor.Click += new System.EventHandler(this.TabGo_Fornecedor_Click);
+            // 
+            // TabGoFuncionario
+            // 
+            this.TabGoFuncionario.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.TabGoFuncionario.Location = new System.Drawing.Point(406, 0);
+            this.TabGoFuncionario.Name = "TabGoFuncionario";
+            this.TabGoFuncionario.Size = new System.Drawing.Size(408, 142);
+            this.TabGoFuncionario.TabIndex = 1;
+            this.TabGoFuncionario.Text = "Funcionário";
+            this.TabGoFuncionario.UseVisualStyleBackColor = true;
+            this.TabGoFuncionario.Click += new System.EventHandler(this.TabGoFuncionario_Click);
             // 
             // tabPesquisa
             // 
@@ -169,7 +203,7 @@
             this.tabPesquisa.Controls.Add(this.groupBox1);
             this.tabPesquisa.Controls.Add(this.label2);
             this.tabPesquisa.Controls.Add(this.tabela);
-            this.tabPesquisa.Location = new System.Drawing.Point(4, 26);
+            this.tabPesquisa.Location = new System.Drawing.Point(4, 30);
             this.tabPesquisa.Name = "tabPesquisa";
             this.tabPesquisa.Size = new System.Drawing.Size(1252, 749);
             this.tabPesquisa.TabIndex = 3;
@@ -221,7 +255,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(16, 14);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.Size = new System.Drawing.Size(70, 21);
             this.label2.TabIndex = 4;
             this.label2.Text = "Buscar:";
             // 
@@ -238,7 +272,7 @@
             "Ingrediente"});
             this.tabela.Location = new System.Drawing.Point(92, 14);
             this.tabela.Name = "tabela";
-            this.tabela.Size = new System.Drawing.Size(161, 25);
+            this.tabela.Size = new System.Drawing.Size(161, 29);
             this.tabela.TabIndex = 3;
             this.tabela.SelectedIndexChanged += new System.EventHandler(this.tabela_SelectedIndexChanged);
             // 

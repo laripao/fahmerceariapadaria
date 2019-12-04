@@ -69,5 +69,10 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Itens
                 this.Close();
             }
         }
+
+        private void add_ingrediente_cancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

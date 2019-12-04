@@ -132,7 +132,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
                     {
                         string[] aux = item.ToString().Split('|');
                         int cod_ingrediente = Convert.ToInt32(aux[0].Trim());
-                        double qtd_ingrediente = Convert.ToDouble(aux[1].Trim());
+                        double qtd_ingrediente = Convert.ToDouble(aux[2].Trim());
 
                         var queryItens = ("INSERT INTO UTILIZA VALUES( default,"
                             + " '" + cod + "', "
