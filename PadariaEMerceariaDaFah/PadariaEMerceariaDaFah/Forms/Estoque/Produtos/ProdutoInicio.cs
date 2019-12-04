@@ -1,4 +1,5 @@
-﻿using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
+﻿using PadariaEMerceariaDaFah.Classes;
+using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFuncionarios;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaProdutos;
 using System;
@@ -143,16 +144,16 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
                 int mudou = produto.Tipo == Enums.Produto_tipo.revendido && revendido.Checked == true ? 0 : 1;
 
-                produto.Nome = nome_produto.Text;
+                produto.Nome = nome_produto.Text.FormatToDB();
                 produto.Valor = Convert.ToDouble(valor_text.Text);
-                produto.Descricao = des_text.Text;
+                produto.Descricao = des_text.Text.FormatToDB();
                 produto.Tipo = revendido.Checked == true ? Enums.Produto_tipo.revendido : Enums.Produto_tipo.fabricado;
 
                 Comercio.GerenciaEmpresa.Instance.AtualizarProduto(produto);
 
                 MessageBox.Show("Salvo com sucesso.");
 
-                var query = "UPDATE ESTOQUE_PRODUTO SET name = '" + nome_produto.Text + "', description = '" + des_text.Text + "', tipo =" + (fabricado.Checked ? 0 : 1) + ", valor = " + Convert.ToDouble(valor_text.Text) + ", COD_FUNCIONARIO = '" + codFuncionario + "' WHERE CODIGO = '" + produto.Codigo + "';";
+                var query = "UPDATE ESTOQUE_PRODUTO SET name = '" + nome_produto.Text.FormatToDB() + "', description = '" + des_text.Text.FormatToDB() + "', tipo =" + (fabricado.Checked ? 0 : 1) + ", valor = " + Convert.ToDouble(valor_text.Text) + ", COD_FUNCIONARIO = '" + codFuncionario + "' WHERE CODIGO = '" + produto.Codigo + "';";
 
                 Comercio.GerenciaEmpresa.Instance.Banco.Update(query);
 

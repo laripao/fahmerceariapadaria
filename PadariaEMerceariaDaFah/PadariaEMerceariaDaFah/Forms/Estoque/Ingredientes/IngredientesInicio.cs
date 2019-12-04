@@ -1,4 +1,5 @@
-﻿using PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente;
+﻿using PadariaEMerceariaDaFah.Classes;
+using PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
 using System;
 using System.Linq;
@@ -127,7 +128,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes
                 var relacao = Comercio.GerenciaEmpresa.Instance.RelacaoForneceIngredientes.FirstOrDefault(x => x.CodIngrediente == ingrediente.Codigo);
 
                 relacao.CodFornecedor = codFornecedor;
-                ingrediente.Nome = nome_ingrediente.Text;
+                ingrediente.Nome = nome_ingrediente.Text.FormatToDB();
                 ingrediente.Valor = Convert.ToDouble(valor_text.Text);
                 ingrediente.Quantidade = Convert.ToInt32(quantidade_text.Text);
                 ingrediente.Validade = data_validade.Value;

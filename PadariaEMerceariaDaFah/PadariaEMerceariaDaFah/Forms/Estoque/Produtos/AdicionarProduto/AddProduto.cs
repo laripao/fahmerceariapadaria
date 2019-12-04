@@ -1,4 +1,5 @@
-﻿using PadariaEMerceariaDaFah.Enums;
+﻿using PadariaEMerceariaDaFah.Classes;
+using PadariaEMerceariaDaFah.Enums;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFornecedores;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaFuncionarios;
 using PadariaEMerceariaDaFah.Forms.Estoque.Produtos.AdicionarProduto.ListaProdutos;
@@ -91,8 +92,8 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
                 var produtos = Comercio.GerenciaEmpresa.Instance.Produtos;
 
                 var query = "INSERT INTO ESTOQUE_PRODUTO VALUES(default" + ","
-                            + " '" + nome_produto.Text + "' " + ","
-                            + " '" + des_text.Text + "' " + ","
+                            + " '" + nome_produto.Text.FormatToDB() + "' " + ","
+                            + " '" + des_text.Text.FormatToDB() + "' " + ","
                             + (fabricado.Checked ? 0 : 1) + ", "
                             + Convert.ToDouble(valor_text.Text) + ", " +
                             "'" + codFuncionario + "', default);";

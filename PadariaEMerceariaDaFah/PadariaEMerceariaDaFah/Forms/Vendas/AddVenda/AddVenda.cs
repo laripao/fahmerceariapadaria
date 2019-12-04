@@ -69,7 +69,6 @@ namespace PadariaEMerceariaDaFah.Forms.Vendas.AddVenda
             {
                 lista_produtos.Items.RemoveAt(lista_produtos.SelectedIndex);
                 var aux = lista_produtos.Items.ToString().Split('|')[0];
-                Comercio.GerenciaEmpresa.Instance.Banco.Delete("DELETE FROM VENDA_ITEM WHERE COD_ITEM = " + aux + ";");
             }
         }
 
