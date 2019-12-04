@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstoqueList));
             this.list_estoque = new System.Windows.Forms.ListBox();
             this.ok_button_qtd = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,11 +45,11 @@
             this.list_estoque.Enabled = false;
             this.list_estoque.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.list_estoque.FormattingEnabled = true;
-            this.list_estoque.ItemHeight = 21;
-            this.list_estoque.Location = new System.Drawing.Point(12, 96);
-            this.list_estoque.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.list_estoque.ItemHeight = 17;
+            this.list_estoque.Location = new System.Drawing.Point(9, 78);
+            this.list_estoque.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.list_estoque.Name = "list_estoque";
-            this.list_estoque.Size = new System.Drawing.Size(689, 256);
+            this.list_estoque.Size = new System.Drawing.Size(518, 208);
             this.list_estoque.TabIndex = 22;
             this.list_estoque.DoubleClick += new System.EventHandler(this.list_estoque_DoubleClick);
             // 
@@ -56,10 +57,10 @@
             // 
             this.ok_button_qtd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ok_button_qtd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ok_button_qtd.Location = new System.Drawing.Point(508, 11);
-            this.ok_button_qtd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ok_button_qtd.Location = new System.Drawing.Point(381, 9);
+            this.ok_button_qtd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ok_button_qtd.Name = "ok_button_qtd";
-            this.ok_button_qtd.Size = new System.Drawing.Size(48, 32);
+            this.ok_button_qtd.Size = new System.Drawing.Size(36, 26);
             this.ok_button_qtd.TabIndex = 30;
             this.ok_button_qtd.Text = "Ok!";
             this.ok_button_qtd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -70,18 +71,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(368, 11);
+            this.label2.Location = new System.Drawing.Point(276, 9);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 29);
+            this.label2.Size = new System.Drawing.Size(106, 23);
             this.label2.TabIndex = 29;
             this.label2.Text = "unidades.";
             // 
             // quantidade_text
             // 
-            this.quantidade_text.Location = new System.Drawing.Point(278, 11);
+            this.quantidade_text.Location = new System.Drawing.Point(208, 9);
+            this.quantidade_text.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.quantidade_text.Multiline = true;
             this.quantidade_text.Name = "quantidade_text";
-            this.quantidade_text.Size = new System.Drawing.Size(84, 32);
+            this.quantidade_text.Size = new System.Drawing.Size(64, 27);
             this.quantidade_text.TabIndex = 28;
             this.quantidade_text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantidade_text_KeyPress);
             // 
@@ -89,9 +92,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Location = new System.Drawing.Point(2, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(277, 29);
+            this.label1.Size = new System.Drawing.Size(219, 23);
             this.label1.TabIndex = 27;
             this.label1.Text = "Quantidade vendida:";
             // 
@@ -99,9 +103,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 65);
+            this.label6.Location = new System.Drawing.Point(2, 53);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(615, 29);
+            this.label6.Size = new System.Drawing.Size(497, 23);
             this.label6.TabIndex = 26;
             this.label6.Text = "Clique duas vezes em um item para selecioná-lo.";
             // 
@@ -110,10 +115,10 @@
             this.add_estoque_cancel.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_edit_delete_icon;
             this.add_estoque_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_estoque_cancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_estoque_cancel.Location = new System.Drawing.Point(562, 356);
-            this.add_estoque_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add_estoque_cancel.Location = new System.Drawing.Point(422, 289);
+            this.add_estoque_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.add_estoque_cancel.Name = "add_estoque_cancel";
-            this.add_estoque_cancel.Size = new System.Drawing.Size(139, 55);
+            this.add_estoque_cancel.Size = new System.Drawing.Size(104, 45);
             this.add_estoque_cancel.TabIndex = 25;
             this.add_estoque_cancel.Text = "Cancelar";
             this.add_estoque_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -122,13 +127,13 @@
             // 
             // go_addEstoque
             // 
-            this.go_addEstoque.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.func_Add;
+            this.go_addEstoque.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_add_icon32;
             this.go_addEstoque.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.go_addEstoque.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.go_addEstoque.Location = new System.Drawing.Point(252, 356);
-            this.go_addEstoque.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.go_addEstoque.Location = new System.Drawing.Point(189, 289);
+            this.go_addEstoque.Margin = new System.Windows.Forms.Padding(2);
             this.go_addEstoque.Name = "go_addEstoque";
-            this.go_addEstoque.Size = new System.Drawing.Size(304, 55);
+            this.go_addEstoque.Size = new System.Drawing.Size(228, 45);
             this.go_addEstoque.TabIndex = 24;
             this.go_addEstoque.Text = "Adicionar um novo item";
             this.go_addEstoque.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -137,13 +142,13 @@
             // 
             // go_estoque_Click
             // 
-            this.go_estoque_Click.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Editfunc;
+            this.go_estoque_Click.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_draw_freehand_icon;
             this.go_estoque_Click.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.go_estoque_Click.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.go_estoque_Click.Location = new System.Drawing.Point(12, 356);
-            this.go_estoque_Click.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.go_estoque_Click.Location = new System.Drawing.Point(9, 289);
+            this.go_estoque_Click.Margin = new System.Windows.Forms.Padding(2);
             this.go_estoque_Click.Name = "go_estoque_Click";
-            this.go_estoque_Click.Size = new System.Drawing.Size(234, 55);
+            this.go_estoque_Click.Size = new System.Drawing.Size(176, 45);
             this.go_estoque_Click.TabIndex = 23;
             this.go_estoque_Click.Text = "Editar um item";
             this.go_estoque_Click.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -152,9 +157,10 @@
             // 
             // EstoqueList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 425);
+            this.BackColor = System.Drawing.Color.SkyBlue;
+            this.ClientSize = new System.Drawing.Size(532, 345);
             this.Controls.Add(this.ok_button_qtd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.quantidade_text);
@@ -164,8 +170,11 @@
             this.Controls.Add(this.go_addEstoque);
             this.Controls.Add(this.go_estoque_Click);
             this.Controls.Add(this.list_estoque);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "EstoqueList";
-            this.Text = "EstoqueList";
+            this.Text = "Lista Estoque";
             this.Load += new System.EventHandler(this.EstoqueList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

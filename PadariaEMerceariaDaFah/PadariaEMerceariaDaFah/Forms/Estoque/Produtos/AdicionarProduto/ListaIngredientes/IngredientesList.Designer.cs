@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngredientesList));
             this.add_produto_cancel = new System.Windows.Forms.Button();
             this.go_addIngrediente = new System.Windows.Forms.Button();
             this.go_ingrediente_Click = new System.Windows.Forms.Button();
@@ -44,10 +45,10 @@
             this.add_produto_cancel.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_edit_delete_icon;
             this.add_produto_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_produto_cancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_produto_cancel.Location = new System.Drawing.Point(562, 444);
-            this.add_produto_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add_produto_cancel.Location = new System.Drawing.Point(422, 361);
+            this.add_produto_cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.add_produto_cancel.Name = "add_produto_cancel";
-            this.add_produto_cancel.Size = new System.Drawing.Size(125, 55);
+            this.add_produto_cancel.Size = new System.Drawing.Size(94, 45);
             this.add_produto_cancel.TabIndex = 17;
             this.add_produto_cancel.Text = "Cancelar";
             this.add_produto_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -59,10 +60,10 @@
             this.go_addIngrediente.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.buy;
             this.go_addIngrediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.go_addIngrediente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.go_addIngrediente.Location = new System.Drawing.Point(252, 444);
-            this.go_addIngrediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.go_addIngrediente.Location = new System.Drawing.Point(189, 361);
+            this.go_addIngrediente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.go_addIngrediente.Name = "go_addIngrediente";
-            this.go_addIngrediente.Size = new System.Drawing.Size(304, 55);
+            this.go_addIngrediente.Size = new System.Drawing.Size(228, 45);
             this.go_addIngrediente.TabIndex = 16;
             this.go_addIngrediente.Text = "Adicionar um novo ingrediente";
             this.go_addIngrediente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -74,10 +75,10 @@
             this.go_ingrediente_Click.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
             this.go_ingrediente_Click.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.go_ingrediente_Click.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.go_ingrediente_Click.Location = new System.Drawing.Point(12, 444);
-            this.go_ingrediente_Click.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.go_ingrediente_Click.Location = new System.Drawing.Point(9, 361);
+            this.go_ingrediente_Click.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.go_ingrediente_Click.Name = "go_ingrediente_Click";
-            this.go_ingrediente_Click.Size = new System.Drawing.Size(234, 55);
+            this.go_ingrediente_Click.Size = new System.Drawing.Size(176, 45);
             this.go_ingrediente_Click.TabIndex = 15;
             this.go_ingrediente_Click.Text = "Editar um ingrediente";
             this.go_ingrediente_Click.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -89,11 +90,11 @@
             this.list_ingrediente.Enabled = false;
             this.list_ingrediente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.list_ingrediente.FormattingEnabled = true;
-            this.list_ingrediente.ItemHeight = 21;
-            this.list_ingrediente.Location = new System.Drawing.Point(12, 100);
-            this.list_ingrediente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.list_ingrediente.ItemHeight = 17;
+            this.list_ingrediente.Location = new System.Drawing.Point(9, 81);
+            this.list_ingrediente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.list_ingrediente.Name = "list_ingrediente";
-            this.list_ingrediente.Size = new System.Drawing.Size(675, 340);
+            this.list_ingrediente.Size = new System.Drawing.Size(507, 276);
             this.list_ingrediente.TabIndex = 18;
             this.list_ingrediente.DoubleClick += new System.EventHandler(this.list_ingrediente_DoubleClick);
             // 
@@ -101,9 +102,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 69);
+            this.label6.Location = new System.Drawing.Point(9, 56);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(615, 29);
+            this.label6.Size = new System.Drawing.Size(497, 23);
             this.label6.TabIndex = 19;
             this.label6.Text = "Clique duas vezes em um item para selecioná-lo.";
             // 
@@ -111,17 +113,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(9, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(252, 29);
+            this.label1.Size = new System.Drawing.Size(199, 23);
             this.label1.TabIndex = 20;
             this.label1.Text = "Quantidade usada:";
             // 
             // quantidade_text
             // 
-            this.quantidade_text.Location = new System.Drawing.Point(271, 21);
+            this.quantidade_text.Location = new System.Drawing.Point(203, 17);
+            this.quantidade_text.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.quantidade_text.Name = "quantidade_text";
-            this.quantidade_text.Size = new System.Drawing.Size(100, 22);
+            this.quantidade_text.Size = new System.Drawing.Size(76, 20);
             this.quantidade_text.TabIndex = 21;
             this.quantidade_text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantidade_text_KeyPress);
             // 
@@ -129,9 +133,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(377, 15);
+            this.label2.Location = new System.Drawing.Point(283, 12);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 29);
+            this.label2.Size = new System.Drawing.Size(106, 23);
             this.label2.TabIndex = 22;
             this.label2.Text = "unidades.";
             // 
@@ -139,10 +144,10 @@
             // 
             this.ok_button_qtd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ok_button_qtd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ok_button_qtd.Location = new System.Drawing.Point(517, 15);
-            this.ok_button_qtd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ok_button_qtd.Location = new System.Drawing.Point(388, 12);
+            this.ok_button_qtd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ok_button_qtd.Name = "ok_button_qtd";
-            this.ok_button_qtd.Size = new System.Drawing.Size(48, 32);
+            this.ok_button_qtd.Size = new System.Drawing.Size(36, 26);
             this.ok_button_qtd.TabIndex = 23;
             this.ok_button_qtd.Text = "Ok!";
             this.ok_button_qtd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -151,10 +156,10 @@
             // 
             // IngredientesList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(693, 510);
+            this.ClientSize = new System.Drawing.Size(520, 414);
             this.Controls.Add(this.ok_button_qtd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.quantidade_text);
@@ -164,8 +169,11 @@
             this.Controls.Add(this.add_produto_cancel);
             this.Controls.Add(this.go_addIngrediente);
             this.Controls.Add(this.go_ingrediente_Click);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "IngredientesList";
-            this.Text = "IngredientesList";
+            this.Text = "Lista de Ingredientes";
             this.Load += new System.EventHandler(this.IngredientesList_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

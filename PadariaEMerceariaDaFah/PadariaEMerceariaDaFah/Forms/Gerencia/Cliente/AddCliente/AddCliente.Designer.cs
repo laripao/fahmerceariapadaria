@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddCliente));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cliente_documento = new System.Windows.Forms.TextBox();
             this.cliente_nome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cliente_email = new System.Windows.Forms.MaskedTextBox();
+            this.cliente_telefone = new System.Windows.Forms.MaskedTextBox();
+            this.cliente_celular = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.add_cliente_cancel = new System.Windows.Forms.Button();
             this.add_cliente_salvar = new System.Windows.Forms.Button();
-            this.cliente_celular = new System.Windows.Forms.MaskedTextBox();
-            this.cliente_telefone = new System.Windows.Forms.MaskedTextBox();
-            this.cliente_email = new System.Windows.Forms.MaskedTextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
@@ -56,9 +57,9 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(10, 31);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(600, 254);
             this.groupBox3.TabIndex = 12;
             this.groupBox3.TabStop = false;
@@ -67,7 +68,7 @@
             // cliente_documento
             // 
             this.cliente_documento.Location = new System.Drawing.Point(98, 55);
-            this.cliente_documento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cliente_documento.Margin = new System.Windows.Forms.Padding(2);
             this.cliente_documento.Name = "cliente_documento";
             this.cliente_documento.Size = new System.Drawing.Size(495, 23);
             this.cliente_documento.TabIndex = 1;
@@ -75,7 +76,7 @@
             // cliente_nome
             // 
             this.cliente_nome.Location = new System.Drawing.Point(85, 28);
-            this.cliente_nome.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cliente_nome.Margin = new System.Windows.Forms.Padding(2);
             this.cliente_nome.Name = "cliente_nome";
             this.cliente_nome.Size = new System.Drawing.Size(508, 23);
             this.cliente_nome.TabIndex = 0;
@@ -99,13 +100,36 @@
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Location = new System.Drawing.Point(26, 109);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(558, 134);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Contato";
+            // 
+            // cliente_email
+            // 
+            this.cliente_email.Location = new System.Drawing.Point(81, 82);
+            this.cliente_email.Name = "cliente_email";
+            this.cliente_email.Size = new System.Drawing.Size(221, 23);
+            this.cliente_email.TabIndex = 4;
+            // 
+            // cliente_telefone
+            // 
+            this.cliente_telefone.Location = new System.Drawing.Point(81, 51);
+            this.cliente_telefone.Mask = "(00) 0000-0000";
+            this.cliente_telefone.Name = "cliente_telefone";
+            this.cliente_telefone.Size = new System.Drawing.Size(221, 23);
+            this.cliente_telefone.TabIndex = 3;
+            // 
+            // cliente_celular
+            // 
+            this.cliente_celular.Location = new System.Drawing.Point(81, 24);
+            this.cliente_celular.Mask = "(00) 90000-0000";
+            this.cliente_celular.Name = "cliente_celular";
+            this.cliente_celular.Size = new System.Drawing.Size(221, 23);
+            this.cliente_celular.TabIndex = 2;
             // 
             // label5
             // 
@@ -153,7 +177,7 @@
             this.add_cliente_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_cliente_cancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_cliente_cancel.Location = new System.Drawing.Point(324, 289);
-            this.add_cliente_cancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.add_cliente_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.add_cliente_cancel.Name = "add_cliente_cancel";
             this.add_cliente_cancel.Size = new System.Drawing.Size(108, 40);
             this.add_cliente_cancel.TabIndex = 6;
@@ -168,7 +192,7 @@
             this.add_cliente_salvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_cliente_salvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.add_cliente_salvar.Location = new System.Drawing.Point(117, 289);
-            this.add_cliente_salvar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.add_cliente_salvar.Margin = new System.Windows.Forms.Padding(2);
             this.add_cliente_salvar.Name = "add_cliente_salvar";
             this.add_cliente_salvar.Size = new System.Drawing.Size(108, 40);
             this.add_cliente_salvar.TabIndex = 5;
@@ -176,29 +200,6 @@
             this.add_cliente_salvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.add_cliente_salvar.UseVisualStyleBackColor = true;
             this.add_cliente_salvar.Click += new System.EventHandler(this.add_cliente_salvar_Click);
-            // 
-            // cliente_celular
-            // 
-            this.cliente_celular.Location = new System.Drawing.Point(81, 24);
-            this.cliente_celular.Mask = "(00) 90000-0000";
-            this.cliente_celular.Name = "cliente_celular";
-            this.cliente_celular.Size = new System.Drawing.Size(221, 23);
-            this.cliente_celular.TabIndex = 2;
-            // 
-            // cliente_telefone
-            // 
-            this.cliente_telefone.Location = new System.Drawing.Point(81, 51);
-            this.cliente_telefone.Mask = "(00) 0000-0000";
-            this.cliente_telefone.Name = "cliente_telefone";
-            this.cliente_telefone.Size = new System.Drawing.Size(221, 23);
-            this.cliente_telefone.TabIndex = 3;
-            // 
-            // cliente_email
-            // 
-            this.cliente_email.Location = new System.Drawing.Point(81, 82);
-            this.cliente_email.Name = "cliente_email";
-            this.cliente_email.Size = new System.Drawing.Size(221, 23);
-            this.cliente_email.TabIndex = 4;
             // 
             // AddCliente
             // 
@@ -209,9 +210,11 @@
             this.Controls.Add(this.add_cliente_cancel);
             this.Controls.Add(this.add_cliente_salvar);
             this.Controls.Add(this.groupBox3);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "AddCliente";
-            this.Text = "AddCliente";
+            this.Text = "Adicionar Cliente";
             this.Load += new System.EventHandler(this.AddCliente_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();

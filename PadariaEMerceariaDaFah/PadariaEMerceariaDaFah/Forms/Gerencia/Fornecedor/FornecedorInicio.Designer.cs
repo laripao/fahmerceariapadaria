@@ -287,7 +287,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FornecedorInicio";
-            this.Text = "Fornecedor Inicio";
+            this.Text = "Fornecedor";
             this.Load += new System.EventHandler(this.FornecedorInicio_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

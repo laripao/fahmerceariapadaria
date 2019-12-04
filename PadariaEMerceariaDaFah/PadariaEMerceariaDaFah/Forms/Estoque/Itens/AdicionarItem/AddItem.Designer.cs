@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Itens));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.qtd_text = new System.Windows.Forms.TextBox();
@@ -55,11 +56,11 @@
             this.groupBox1.Controls.Add(this.produtos_label);
             this.groupBox1.Controls.Add(this.produto_nome);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 11);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(9, 9);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(719, 158);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(539, 128);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Item";
@@ -67,44 +68,48 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(510, 100);
+            this.label3.Location = new System.Drawing.Point(382, 81);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 21);
+            this.label3.Size = new System.Drawing.Size(91, 17);
             this.label3.TabIndex = 27;
             this.label3.Text = "Quantidade:";
             // 
             // qtd_text
             // 
-            this.qtd_text.Location = new System.Drawing.Point(635, 97);
-            this.qtd_text.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.qtd_text.Location = new System.Drawing.Point(476, 79);
+            this.qtd_text.Margin = new System.Windows.Forms.Padding(2);
             this.qtd_text.Name = "qtd_text";
-            this.qtd_text.Size = new System.Drawing.Size(61, 27);
+            this.qtd_text.Size = new System.Drawing.Size(47, 23);
             this.qtd_text.TabIndex = 26;
             this.qtd_text.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.qtd_text_KeyPress);
             // 
             // data_validade
             // 
-            this.data_validade.Location = new System.Drawing.Point(121, 97);
+            this.data_validade.Location = new System.Drawing.Point(91, 79);
+            this.data_validade.Margin = new System.Windows.Forms.Padding(2);
             this.data_validade.Name = "data_validade";
-            this.data_validade.Size = new System.Drawing.Size(364, 27);
+            this.data_validade.Size = new System.Drawing.Size(274, 23);
             this.data_validade.TabIndex = 25;
             this.data_validade.Value = new System.DateTime(2019, 11, 16, 20, 13, 20, 0);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(2, 102);
+            this.label2.Location = new System.Drawing.Point(2, 83);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 21);
+            this.label2.Size = new System.Drawing.Size(71, 17);
             this.label2.TabIndex = 24;
             this.label2.Text = "Validade:";
             // 
             // linkProdutos
             // 
             this.linkProdutos.AutoSize = true;
-            this.linkProdutos.Location = new System.Drawing.Point(293, 53);
+            this.linkProdutos.Location = new System.Drawing.Point(220, 43);
+            this.linkProdutos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.linkProdutos.Name = "linkProdutos";
-            this.linkProdutos.Size = new System.Drawing.Size(192, 21);
+            this.linkProdutos.Size = new System.Drawing.Size(151, 17);
             this.linkProdutos.TabIndex = 20;
             this.linkProdutos.TabStop = true;
             this.linkProdutos.Text = "Selecione um produto";
@@ -113,19 +118,20 @@
             // produtos_label
             // 
             this.produtos_label.AutoSize = true;
-            this.produtos_label.Location = new System.Drawing.Point(2, 27);
+            this.produtos_label.Location = new System.Drawing.Point(2, 22);
+            this.produtos_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.produtos_label.Name = "produtos_label";
-            this.produtos_label.Size = new System.Drawing.Size(81, 21);
+            this.produtos_label.Size = new System.Drawing.Size(64, 17);
             this.produtos_label.TabIndex = 19;
             this.produtos_label.Text = "Produto:";
             // 
             // produto_nome
             // 
             this.produto_nome.Enabled = false;
-            this.produto_nome.Location = new System.Drawing.Point(121, 24);
-            this.produto_nome.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.produto_nome.Location = new System.Drawing.Point(91, 20);
+            this.produto_nome.Margin = new System.Windows.Forms.Padding(2);
             this.produto_nome.Name = "produto_nome";
-            this.produto_nome.Size = new System.Drawing.Size(575, 27);
+            this.produto_nome.Size = new System.Drawing.Size(432, 23);
             this.produto_nome.TabIndex = 18;
             // 
             // add_ingrediente_salvar
@@ -133,10 +139,10 @@
             this.add_ingrediente_salvar.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_dialog_ok_apply_icon;
             this.add_ingrediente_salvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_ingrediente_salvar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_ingrediente_salvar.Location = new System.Drawing.Point(185, 173);
-            this.add_ingrediente_salvar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add_ingrediente_salvar.Location = new System.Drawing.Point(139, 141);
+            this.add_ingrediente_salvar.Margin = new System.Windows.Forms.Padding(2);
             this.add_ingrediente_salvar.Name = "add_ingrediente_salvar";
-            this.add_ingrediente_salvar.Size = new System.Drawing.Size(113, 49);
+            this.add_ingrediente_salvar.Size = new System.Drawing.Size(85, 40);
             this.add_ingrediente_salvar.TabIndex = 18;
             this.add_ingrediente_salvar.Text = "Salvar";
             this.add_ingrediente_salvar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -148,10 +154,10 @@
             this.add_ingrediente_cancel.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_edit_delete_icon;
             this.add_ingrediente_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_ingrediente_cancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_ingrediente_cancel.Location = new System.Drawing.Point(418, 173);
-            this.add_ingrediente_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add_ingrediente_cancel.Location = new System.Drawing.Point(314, 141);
+            this.add_ingrediente_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.add_ingrediente_cancel.Name = "add_ingrediente_cancel";
-            this.add_ingrediente_cancel.Size = new System.Drawing.Size(139, 49);
+            this.add_ingrediente_cancel.Size = new System.Drawing.Size(104, 40);
             this.add_ingrediente_cancel.TabIndex = 17;
             this.add_ingrediente_cancel.Text = "Cancelar";
             this.add_ingrediente_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -159,15 +165,18 @@
             // 
             // Itens
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(743, 232);
+            this.ClientSize = new System.Drawing.Size(557, 188);
             this.Controls.Add(this.add_ingrediente_salvar);
             this.Controls.Add(this.add_ingrediente_cancel);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Itens";
-            this.Text = "Itens";
+            this.Text = "Adicionar Novo Item";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

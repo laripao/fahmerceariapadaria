@@ -33,9 +33,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.habilitar_edicao = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.func_cpf = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.func_nome = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.func_cep = new System.Windows.Forms.MaskedTextBox();
+            this.func_numero = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.func_estado = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -48,6 +51,8 @@
             this.func_rua = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.func_telefone = new System.Windows.Forms.MaskedTextBox();
+            this.func_celular = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -58,11 +63,6 @@
             this.remove_func = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.add_funcionario = new System.Windows.Forms.Button();
-            this.func_cpf = new System.Windows.Forms.MaskedTextBox();
-            this.func_celular = new System.Windows.Forms.MaskedTextBox();
-            this.func_telefone = new System.Windows.Forms.MaskedTextBox();
-            this.func_numero = new System.Windows.Forms.MaskedTextBox();
-            this.func_cep = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -129,6 +129,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Funcionário";
             // 
+            // func_cpf
+            // 
+            this.func_cpf.Location = new System.Drawing.Point(92, 73);
+            this.func_cpf.Mask = "000.000.000-00";
+            this.func_cpf.Name = "func_cpf";
+            this.func_cpf.Size = new System.Drawing.Size(384, 23);
+            this.func_cpf.TabIndex = 3;
+            this.func_cpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.func_cpf_MaskInputRejected);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -169,6 +178,23 @@
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Endereço:";
+            // 
+            // func_cep
+            // 
+            this.func_cep.Location = new System.Drawing.Point(77, 150);
+            this.func_cep.Mask = "00.000-000";
+            this.func_cep.Name = "func_cep";
+            this.func_cep.Size = new System.Drawing.Size(363, 23);
+            this.func_cep.TabIndex = 12;
+            // 
+            // func_numero
+            // 
+            this.func_numero.Location = new System.Drawing.Point(77, 123);
+            this.func_numero.Mask = "000000000000";
+            this.func_numero.Name = "func_numero";
+            this.func_numero.Size = new System.Drawing.Size(363, 23);
+            this.func_numero.TabIndex = 11;
+            this.func_numero.ValidatingType = typeof(int);
             // 
             // label11
             // 
@@ -290,6 +316,22 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Contato";
             // 
+            // func_telefone
+            // 
+            this.func_telefone.Location = new System.Drawing.Point(76, 41);
+            this.func_telefone.Mask = "(00) 0000-0000";
+            this.func_telefone.Name = "func_telefone";
+            this.func_telefone.Size = new System.Drawing.Size(221, 23);
+            this.func_telefone.TabIndex = 5;
+            // 
+            // func_celular
+            // 
+            this.func_celular.Location = new System.Drawing.Point(76, 12);
+            this.func_celular.Mask = "(00) 90000-0000";
+            this.func_celular.Name = "func_celular";
+            this.func_celular.Size = new System.Drawing.Size(221, 23);
+            this.func_celular.TabIndex = 4;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -405,48 +447,6 @@
             this.add_funcionario.UseVisualStyleBackColor = true;
             this.add_funcionario.Click += new System.EventHandler(this.add_funcionario_Click);
             // 
-            // func_cpf
-            // 
-            this.func_cpf.Location = new System.Drawing.Point(92, 73);
-            this.func_cpf.Mask = "000.000.000-00";
-            this.func_cpf.Name = "func_cpf";
-            this.func_cpf.Size = new System.Drawing.Size(384, 23);
-            this.func_cpf.TabIndex = 3;
-            this.func_cpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.func_cpf_MaskInputRejected);
-            // 
-            // func_celular
-            // 
-            this.func_celular.Location = new System.Drawing.Point(76, 12);
-            this.func_celular.Mask = "(00) 90000-0000";
-            this.func_celular.Name = "func_celular";
-            this.func_celular.Size = new System.Drawing.Size(221, 23);
-            this.func_celular.TabIndex = 4;
-            // 
-            // func_telefone
-            // 
-            this.func_telefone.Location = new System.Drawing.Point(76, 41);
-            this.func_telefone.Mask = "(00) 0000-0000";
-            this.func_telefone.Name = "func_telefone";
-            this.func_telefone.Size = new System.Drawing.Size(221, 23);
-            this.func_telefone.TabIndex = 5;
-            // 
-            // func_numero
-            // 
-            this.func_numero.Location = new System.Drawing.Point(77, 123);
-            this.func_numero.Mask = "000000000000";
-            this.func_numero.Name = "func_numero";
-            this.func_numero.Size = new System.Drawing.Size(363, 23);
-            this.func_numero.TabIndex = 11;
-            this.func_numero.ValidatingType = typeof(int);
-            // 
-            // func_cep
-            // 
-            this.func_cep.Location = new System.Drawing.Point(77, 150);
-            this.func_cep.Mask = "00.000-000";
-            this.func_cep.Name = "func_cep";
-            this.func_cep.Size = new System.Drawing.Size(363, 23);
-            this.func_cep.TabIndex = 12;
-            // 
             // FuncionarioInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,7 +458,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FuncionarioInicio";
-            this.Text = "Funcionário Início";
+            this.Text = "Funcionário";
             this.Load += new System.EventHandler(this.FuncionarioInicio_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
