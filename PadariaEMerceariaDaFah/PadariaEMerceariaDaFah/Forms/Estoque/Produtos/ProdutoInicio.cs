@@ -102,8 +102,8 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
                     var ingrediente = Comercio.GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM ESTOQUE_INGREDIENTE WHERE CODIGO = '" + relacaoIngrediente + "';");
                     var func = Comercio.GerenciaEmpresa.Instance.Funcionarios.FirstOrDefault(x => x.Codigo == produto.codFuncionario);
 
-                    QuemFabricou.Text = func.Nome;
-                    codFuncionario = func.Codigo;
+                    QuemFabricou.Text = func.Nome == null? "" : func.Nome;
+                    codFuncionario = func.Codigo == null ? 0 : func.Codigo;
 
                     lista_ingredientes.Items.Clear();
                     foreach (var item in ingrediente)
