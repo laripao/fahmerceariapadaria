@@ -156,6 +156,7 @@
             this.add_ingrediente_cancel.Text = "Cancelar";
             this.add_ingrediente_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.add_ingrediente_cancel.UseVisualStyleBackColor = true;
+            this.add_ingrediente_cancel.Click += new System.EventHandler(this.add_ingrediente_cancel_Click);
             // 
             // Itens
             // 
