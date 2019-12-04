@@ -140,7 +140,7 @@ namespace PadariaEMerceariaDaFah
             switch (tabela.SelectedItem.ToString())
             {
                 case "Produto":
-                    tabelaSelecionada = "estoque_produto";
+                    tabelaSelecionada = "item_produto";
                     break;
                 case "Funcionario":
                     tabelaSelecionada = "gerencia_funcionario";
@@ -150,6 +150,12 @@ namespace PadariaEMerceariaDaFah
                     break;
                 case "Cliente":
                     tabelaSelecionada = "cliente";
+                    break;
+                case "Venda":
+                    tabelaSelecionada = "vendas";
+                    break;
+                case "Ingrediente":
+                    tabelaSelecionada = "estoque_ingrediente";
                     break;
                 default:
                     tabelaSelecionada = "SEM TABELA";
@@ -314,7 +320,7 @@ namespace PadariaEMerceariaDaFah
             switch (tabela.SelectedItem.ToString())
             {
                 case "Produto":
-                    tabelaSelecionada = "estoque_produto";
+                    tabelaSelecionada = "item_produto";
                     break;
                 case "Funcionario":
                     tabelaSelecionada = "gerencia_funcionario";
@@ -324,6 +330,12 @@ namespace PadariaEMerceariaDaFah
                     break;
                 case "Cliente":
                     tabelaSelecionada = "cliente";
+                    break;
+                case "Venda":
+                    tabelaSelecionada = "vendas";
+                    break;
+                case "Ingrediente":
+                    tabelaSelecionada = "estoque_ingrediente";
                     break;
                 default:
                     tabelaSelecionada = "SEM TABELA";

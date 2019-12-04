@@ -34,17 +34,12 @@
             this.habilitar_edicao = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.func_cpf = new System.Windows.Forms.TextBox();
-            this.remove_func = new System.Windows.Forms.Button();
-            this.save_edit_func = new System.Windows.Forms.Button();
             this.func_nome = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label11 = new System.Windows.Forms.Label();
             this.func_estado = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.func_numero = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.func_cep = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -57,12 +52,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.func_email = new System.Windows.Forms.TextBox();
-            this.func_telefone = new System.Windows.Forms.TextBox();
-            this.func_celular = new System.Windows.Forms.TextBox();
             this.func_funcao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.save_edit_func = new System.Windows.Forms.Button();
+            this.remove_func = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.add_funcionario = new System.Windows.Forms.Button();
+            this.func_cpf = new System.Windows.Forms.MaskedTextBox();
+            this.func_celular = new System.Windows.Forms.MaskedTextBox();
+            this.func_telefone = new System.Windows.Forms.MaskedTextBox();
+            this.func_numero = new System.Windows.Forms.MaskedTextBox();
+            this.func_cep = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -104,7 +104,7 @@
             this.habilitar_edicao.Margin = new System.Windows.Forms.Padding(2);
             this.habilitar_edicao.Name = "habilitar_edicao";
             this.habilitar_edicao.Size = new System.Drawing.Size(130, 21);
-            this.habilitar_edicao.TabIndex = 10;
+            this.habilitar_edicao.TabIndex = 15;
             this.habilitar_edicao.Text = "Habilitar Edição";
             this.habilitar_edicao.UseVisualStyleBackColor = true;
             this.habilitar_edicao.CheckedChanged += new System.EventHandler(this.habilitar_edicao_CheckedChanged_1);
@@ -112,8 +112,8 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.White;
-            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.func_cpf);
+            this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.func_nome);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.label1);
@@ -139,59 +139,22 @@
             this.label12.TabIndex = 10;
             this.label12.Text = "CPF:";
             // 
-            // func_cpf
-            // 
-            this.func_cpf.Location = new System.Drawing.Point(92, 70);
-            this.func_cpf.Margin = new System.Windows.Forms.Padding(2);
-            this.func_cpf.Name = "func_cpf";
-            this.func_cpf.Size = new System.Drawing.Size(384, 23);
-            this.func_cpf.TabIndex = 9;
-            // 
-            // remove_func
-            // 
-            this.remove_func.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
-            this.remove_func.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.remove_func.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.remove_func.Location = new System.Drawing.Point(474, 456);
-            this.remove_func.Margin = new System.Windows.Forms.Padding(2);
-            this.remove_func.Name = "remove_func";
-            this.remove_func.Size = new System.Drawing.Size(186, 41);
-            this.remove_func.TabIndex = 8;
-            this.remove_func.Text = "Remover Funcionário";
-            this.remove_func.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.remove_func.UseVisualStyleBackColor = true;
-            this.remove_func.Click += new System.EventHandler(this.remove_func_Click);
-            // 
-            // save_edit_func
-            // 
-            this.save_edit_func.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
-            this.save_edit_func.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.save_edit_func.Location = new System.Drawing.Point(204, 456);
-            this.save_edit_func.Margin = new System.Windows.Forms.Padding(2);
-            this.save_edit_func.Name = "save_edit_func";
-            this.save_edit_func.Size = new System.Drawing.Size(133, 41);
-            this.save_edit_func.TabIndex = 7;
-            this.save_edit_func.Text = "Salvar Edição";
-            this.save_edit_func.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.save_edit_func.UseVisualStyleBackColor = true;
-            this.save_edit_func.Click += new System.EventHandler(this.save_edit_func_Click);
-            // 
             // func_nome
             // 
-            this.func_nome.Location = new System.Drawing.Point(92, 18);
+            this.func_nome.Location = new System.Drawing.Point(92, 15);
             this.func_nome.Margin = new System.Windows.Forms.Padding(2);
             this.func_nome.Name = "func_nome";
             this.func_nome.Size = new System.Drawing.Size(384, 23);
-            this.func_nome.TabIndex = 0;
+            this.func_nome.TabIndex = 1;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.func_cep);
+            this.groupBox4.Controls.Add(this.func_numero);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.func_estado);
             this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.func_numero);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.func_cep);
             this.groupBox4.Controls.Add(this.label6);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.label8);
@@ -223,7 +186,7 @@
             this.func_estado.Margin = new System.Windows.Forms.Padding(2);
             this.func_estado.Name = "func_estado";
             this.func_estado.Size = new System.Drawing.Size(363, 23);
-            this.func_estado.TabIndex = 10;
+            this.func_estado.TabIndex = 8;
             // 
             // label10
             // 
@@ -235,14 +198,6 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "Número:";
             // 
-            // func_numero
-            // 
-            this.func_numero.Location = new System.Drawing.Point(77, 126);
-            this.func_numero.Margin = new System.Windows.Forms.Padding(2);
-            this.func_numero.Name = "func_numero";
-            this.func_numero.Size = new System.Drawing.Size(363, 23);
-            this.func_numero.TabIndex = 8;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -252,14 +207,6 @@
             this.label9.Size = new System.Drawing.Size(38, 17);
             this.label9.TabIndex = 7;
             this.label9.Text = "CEP:";
-            // 
-            // func_cep
-            // 
-            this.func_cep.Location = new System.Drawing.Point(77, 153);
-            this.func_cep.Margin = new System.Windows.Forms.Padding(2);
-            this.func_cep.Name = "func_cep";
-            this.func_cep.Size = new System.Drawing.Size(363, 23);
-            this.func_cep.TabIndex = 6;
             // 
             // label6
             // 
@@ -297,7 +244,7 @@
             this.func_pais.Margin = new System.Windows.Forms.Padding(2);
             this.func_pais.Name = "func_pais";
             this.func_pais.Size = new System.Drawing.Size(363, 23);
-            this.func_pais.TabIndex = 2;
+            this.func_pais.TabIndex = 7;
             // 
             // func_cidade
             // 
@@ -305,7 +252,7 @@
             this.func_cidade.Margin = new System.Windows.Forms.Padding(2);
             this.func_cidade.Name = "func_cidade";
             this.func_cidade.Size = new System.Drawing.Size(363, 23);
-            this.func_cidade.TabIndex = 1;
+            this.func_cidade.TabIndex = 9;
             // 
             // func_rua
             // 
@@ -313,7 +260,7 @@
             this.func_rua.Margin = new System.Windows.Forms.Padding(2);
             this.func_rua.Name = "func_rua";
             this.func_rua.Size = new System.Drawing.Size(363, 23);
-            this.func_rua.TabIndex = 0;
+            this.func_rua.TabIndex = 10;
             // 
             // label1
             // 
@@ -328,12 +275,12 @@
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.White;
+            this.groupBox5.Controls.Add(this.func_telefone);
+            this.groupBox5.Controls.Add(this.func_celular);
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.label3);
             this.groupBox5.Controls.Add(this.func_email);
-            this.groupBox5.Controls.Add(this.func_telefone);
-            this.groupBox5.Controls.Add(this.func_celular);
             this.groupBox5.Location = new System.Drawing.Point(20, 102);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
@@ -375,27 +322,11 @@
             // 
             // func_email
             // 
-            this.func_email.Location = new System.Drawing.Point(77, 73);
+            this.func_email.Location = new System.Drawing.Point(76, 70);
             this.func_email.Margin = new System.Windows.Forms.Padding(2);
             this.func_email.Name = "func_email";
             this.func_email.Size = new System.Drawing.Size(221, 23);
-            this.func_email.TabIndex = 2;
-            // 
-            // func_telefone
-            // 
-            this.func_telefone.Location = new System.Drawing.Point(77, 44);
-            this.func_telefone.Margin = new System.Windows.Forms.Padding(2);
-            this.func_telefone.Name = "func_telefone";
-            this.func_telefone.Size = new System.Drawing.Size(221, 23);
-            this.func_telefone.TabIndex = 1;
-            // 
-            // func_celular
-            // 
-            this.func_celular.Location = new System.Drawing.Point(77, 18);
-            this.func_celular.Margin = new System.Windows.Forms.Padding(2);
-            this.func_celular.Name = "func_celular";
-            this.func_celular.Size = new System.Drawing.Size(221, 23);
-            this.func_celular.TabIndex = 0;
+            this.func_email.TabIndex = 6;
             // 
             // func_funcao
             // 
@@ -414,6 +345,35 @@
             this.label2.Size = new System.Drawing.Size(60, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Função:";
+            // 
+            // save_edit_func
+            // 
+            this.save_edit_func.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
+            this.save_edit_func.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.save_edit_func.Location = new System.Drawing.Point(204, 456);
+            this.save_edit_func.Margin = new System.Windows.Forms.Padding(2);
+            this.save_edit_func.Name = "save_edit_func";
+            this.save_edit_func.Size = new System.Drawing.Size(133, 41);
+            this.save_edit_func.TabIndex = 13;
+            this.save_edit_func.Text = "Salvar Edição";
+            this.save_edit_func.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.save_edit_func.UseVisualStyleBackColor = true;
+            this.save_edit_func.Click += new System.EventHandler(this.save_edit_func_Click);
+            // 
+            // remove_func
+            // 
+            this.remove_func.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
+            this.remove_func.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.remove_func.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.remove_func.Location = new System.Drawing.Point(474, 456);
+            this.remove_func.Margin = new System.Windows.Forms.Padding(2);
+            this.remove_func.Name = "remove_func";
+            this.remove_func.Size = new System.Drawing.Size(186, 41);
+            this.remove_func.TabIndex = 14;
+            this.remove_func.Text = "Remover Funcionário";
+            this.remove_func.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.remove_func.UseVisualStyleBackColor = true;
+            this.remove_func.Click += new System.EventHandler(this.remove_func_Click);
             // 
             // groupBox2
             // 
@@ -444,6 +404,48 @@
             this.add_funcionario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.add_funcionario.UseVisualStyleBackColor = true;
             this.add_funcionario.Click += new System.EventHandler(this.add_funcionario_Click);
+            // 
+            // func_cpf
+            // 
+            this.func_cpf.Location = new System.Drawing.Point(92, 73);
+            this.func_cpf.Mask = "000.000.000-00";
+            this.func_cpf.Name = "func_cpf";
+            this.func_cpf.Size = new System.Drawing.Size(384, 23);
+            this.func_cpf.TabIndex = 3;
+            this.func_cpf.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.func_cpf_MaskInputRejected);
+            // 
+            // func_celular
+            // 
+            this.func_celular.Location = new System.Drawing.Point(76, 12);
+            this.func_celular.Mask = "(00) 90000-0000";
+            this.func_celular.Name = "func_celular";
+            this.func_celular.Size = new System.Drawing.Size(221, 23);
+            this.func_celular.TabIndex = 4;
+            // 
+            // func_telefone
+            // 
+            this.func_telefone.Location = new System.Drawing.Point(76, 41);
+            this.func_telefone.Mask = "(00) 0000-0000";
+            this.func_telefone.Name = "func_telefone";
+            this.func_telefone.Size = new System.Drawing.Size(221, 23);
+            this.func_telefone.TabIndex = 5;
+            // 
+            // func_numero
+            // 
+            this.func_numero.Location = new System.Drawing.Point(77, 123);
+            this.func_numero.Mask = "000000000000";
+            this.func_numero.Name = "func_numero";
+            this.func_numero.Size = new System.Drawing.Size(363, 23);
+            this.func_numero.TabIndex = 11;
+            this.func_numero.ValidatingType = typeof(int);
+            // 
+            // func_cep
+            // 
+            this.func_cep.Location = new System.Drawing.Point(77, 150);
+            this.func_cep.Mask = "00.000-000";
+            this.func_cep.Name = "func_cep";
+            this.func_cep.Size = new System.Drawing.Size(363, 23);
+            this.func_cep.TabIndex = 12;
             // 
             // FuncionarioInicio
             // 
@@ -486,26 +488,26 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox func_email;
-        private System.Windows.Forms.TextBox func_telefone;
-        private System.Windows.Forms.TextBox func_celular;
         private System.Windows.Forms.TextBox func_funcao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button remove_func;
         private System.Windows.Forms.CheckBox habilitar_edicao;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox func_cpf;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox func_estado;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox func_numero;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox func_cep;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox func_pais;
         private System.Windows.Forms.TextBox func_cidade;
         private System.Windows.Forms.TextBox func_rua;
+        private System.Windows.Forms.MaskedTextBox func_cpf;
+        private System.Windows.Forms.MaskedTextBox func_celular;
+        private System.Windows.Forms.MaskedTextBox func_cep;
+        private System.Windows.Forms.MaskedTextBox func_numero;
+        private System.Windows.Forms.MaskedTextBox func_telefone;
     }
 }

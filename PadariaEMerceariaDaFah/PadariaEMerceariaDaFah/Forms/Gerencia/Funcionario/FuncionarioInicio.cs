@@ -177,5 +177,10 @@ namespace PadariaEMerceariaDaFah.Forms.Gerencia.Funcionario
         {
 
         }
+
+        private void func_cpf_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }
