@@ -33,10 +33,8 @@
             this.groupVendas = new System.Windows.Forms.GroupBox();
             this.Valor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.linkCliente = new System.Windows.Forms.LinkLabel();
             this.QuemComprou = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.linkFuncionario = new System.Windows.Forms.LinkLabel();
             this.QuemVendeu = new System.Windows.Forms.TextBox();
             this.vendido_funcionario = new System.Windows.Forms.Label();
             this.data_venda = new System.Windows.Forms.DateTimePicker();
@@ -66,7 +64,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(1051, 683);
+            this.groupBox2.Size = new System.Drawing.Size(1051, 730);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vendas";
@@ -82,7 +80,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1047, 610);
+            this.groupBox1.Size = new System.Drawing.Size(1047, 658);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vendas Realizadas";
@@ -92,10 +90,8 @@
             this.groupVendas.BackColor = System.Drawing.Color.White;
             this.groupVendas.Controls.Add(this.Valor);
             this.groupVendas.Controls.Add(this.label3);
-            this.groupVendas.Controls.Add(this.linkCliente);
             this.groupVendas.Controls.Add(this.QuemComprou);
             this.groupVendas.Controls.Add(this.label1);
-            this.groupVendas.Controls.Add(this.linkFuncionario);
             this.groupVendas.Controls.Add(this.QuemVendeu);
             this.groupVendas.Controls.Add(this.vendido_funcionario);
             this.groupVendas.Controls.Add(this.data_venda);
@@ -129,17 +125,6 @@
             this.label3.TabIndex = 34;
             this.label3.Text = "Valor total da compra:";
             // 
-            // linkCliente
-            // 
-            this.linkCliente.AutoSize = true;
-            this.linkCliente.Location = new System.Drawing.Point(403, 201);
-            this.linkCliente.Name = "linkCliente";
-            this.linkCliente.Size = new System.Drawing.Size(180, 21);
-            this.linkCliente.TabIndex = 33;
-            this.linkCliente.TabStop = true;
-            this.linkCliente.Text = "Selecione um cliente";
-            this.linkCliente.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkCliente_LinkClicked);
-            // 
             // QuemComprou
             // 
             this.QuemComprou.Enabled = false;
@@ -157,17 +142,6 @@
             this.label1.Size = new System.Drawing.Size(196, 21);
             this.label1.TabIndex = 31;
             this.label1.Text = "Venda para o cliente:";
-            // 
-            // linkFuncionario
-            // 
-            this.linkFuncionario.AutoSize = true;
-            this.linkFuncionario.Location = new System.Drawing.Point(392, 127);
-            this.linkFuncionario.Name = "linkFuncionario";
-            this.linkFuncionario.Size = new System.Drawing.Size(215, 21);
-            this.linkFuncionario.TabIndex = 30;
-            this.linkFuncionario.TabStop = true;
-            this.linkFuncionario.Text = "Selecione um funcionário";
-            this.linkFuncionario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFuncionario_LinkClicked);
             // 
             // QuemVendeu
             // 
@@ -320,7 +294,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(1072, 710);
+            this.ClientSize = new System.Drawing.Size(1072, 744);
             this.Controls.Add(this.groupBox2);
             this.Name = "VendasInicio";
             this.Text = "VendasInicio";
@@ -347,10 +321,8 @@
         private System.Windows.Forms.GroupBox groupVendas;
         private System.Windows.Forms.TextBox Valor;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkCliente;
         private System.Windows.Forms.TextBox QuemComprou;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.LinkLabel linkFuncionario;
         private System.Windows.Forms.TextBox QuemVendeu;
         private System.Windows.Forms.Label vendido_funcionario;
         private System.Windows.Forms.DateTimePicker data_venda;

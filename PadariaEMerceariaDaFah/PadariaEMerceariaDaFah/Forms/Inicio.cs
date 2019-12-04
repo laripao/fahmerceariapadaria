@@ -33,6 +33,7 @@ namespace PadariaEMerceariaDaFah
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+
             Form est = new EstoqueInicio
             {
                 TopLevel = false,
@@ -91,8 +92,19 @@ namespace PadariaEMerceariaDaFah
             {
                 GerenciaEmpresa.Instance.Produtos.AddRange(GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM laripaos.estoque_produto;"));
             }
+            if (GerenciaEmpresa.Instance.CarregarEstoqueItens() != null)
+            {
+                GerenciaEmpresa.Instance.EstoqueItens.AddRange(GerenciaEmpresa.Instance.CarregarEstoqueItensBanco("SELECT * FROM laripaos.item_estoque;"));
+            }
             GerenciaEmpresa.Instance.Clientes.AddRange(GerenciaEmpresa.Instance.CarregarClientesBanco("SELECT * FROM CLIENTE;"));
 
+            var Vencimento = Comercio.GerenciaEmpresa.Instance.CarregarEstoqueItensBanco("SELECT * FROM laripaos.item_estoque where validade_produto between CURDATE()-1 and CURDATE()+5;");
+
+            foreach(var item in Vencimento)
+            {
+                var Produto = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM estoque_produto WHERE CODIGO = " + item.Codigo + ";").FirstOrDefault();
+                list_vencimento.Items.Add(item.CodProduto + "|" + item.Validade + "|" + Produto.Nome);
+            }
         }
 
 
@@ -140,7 +152,7 @@ namespace PadariaEMerceariaDaFah
             switch (tabela.SelectedItem.ToString())
             {
                 case "Produto":
-                    tabelaSelecionada = "item_produto";
+                    tabelaSelecionada = "item_estoque";
                     break;
                 case "Funcionario":
                     tabelaSelecionada = "gerencia_funcionario";
@@ -320,7 +332,7 @@ namespace PadariaEMerceariaDaFah
             switch (tabela.SelectedItem.ToString())
             {
                 case "Produto":
-                    tabelaSelecionada = "item_produto";
+                    tabelaSelecionada = "item_estoque";
                     break;
                 case "Funcionario":
                     tabelaSelecionada = "gerencia_funcionario";
@@ -567,6 +579,22 @@ namespace PadariaEMerceariaDaFah
         private void folderBrowserDialog2_HelpRequest(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(tabControl1.SelectedTab.Text=="Importante")
+            {
+                list_vencimento.Items.Clear();
+                
+                    var Vencimento = Comercio.GerenciaEmpresa.Instance.CarregarEstoqueItensBanco("SELECT * FROM laripaos.item_estoque where validade_produto between CURDATE()-1 and CURDATE()+5;");
+
+                foreach (var item in Vencimento)
+                {
+                    var Produto = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT * FROM estoque_produto WHERE CODIGO = " + item.Codigo + ";").FirstOrDefault();
+                    list_vencimento.Items.Add(item.CodProduto + "|" + item.Validade + "|" + Produto.Nome);
+                }
+            }
         }
     }
 }

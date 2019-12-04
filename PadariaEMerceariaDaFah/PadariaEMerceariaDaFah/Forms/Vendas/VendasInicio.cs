@@ -150,15 +150,13 @@ namespace PadariaEMerceariaDaFah.Forms.Vendas
             {
                 var selectedVenda = Convert.ToInt32(list_vendas.SelectedItem.ToString().Split('|').First());
 
-                var venda = Comercio.GerenciaEmpresa.Instance.Vendas.FirstOrDefault(x => x.Codigo == selectedVenda);
+                var venda = Comercio.GerenciaEmpresa.Instance.CarregarVendasBanco("SELECT * FROM VENDAS WHERE CODIGO = " + selectedVenda + ";").FirstOrDefault();
 
                 venda.Cliente = codCLiente;
                 venda.Data = data_venda.Value.Date;
                 venda.Funcionario = codFuncionario;
 
                 Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE VENDAS SET " +
-                    "COD_CLIENTE = " + venda.Cliente + ", " +
-                    "COD_FUNCIONARIO = " + venda.Funcionario + ", " +
                     "DATA_DE_VENDA = STR_TO_DATE('" + venda.Data + "','%d/%m/%Y')" +
                     " WHERE CODIGO = " + venda.Codigo);
 
@@ -220,6 +218,8 @@ namespace PadariaEMerceariaDaFah.Forms.Vendas
 
                     valor += itemRelacao.Valor;
                 }
+
+                Valor.Text = valor.ToString();
             }
             
         }

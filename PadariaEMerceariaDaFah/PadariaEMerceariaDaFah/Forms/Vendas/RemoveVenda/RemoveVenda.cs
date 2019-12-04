@@ -29,13 +29,13 @@ namespace PadariaEMerceariaDaFah.Forms.Vendas.RemoveVenda
             if (Code != 0)
             {
                 var venda = Comercio.GerenciaEmpresa.Instance.Vendas.FirstOrDefault(x => x.Codigo == Code);
-                var relacao = Comercio.GerenciaEmpresa.Instance.RelacaoVendaProdutos.FirstOrDefault(x => x.CodVenda == venda.Codigo);
+                var relacao = Comercio.GerenciaEmpresa.Instance.RelacaoVendaProdutos.FirstOrDefault(x => x.CodVenda == Code);
                 try
                 {
                     Comercio.GerenciaEmpresa.Instance.Vendas.Remove(venda);
                     Comercio.GerenciaEmpresa.Instance.RelacaoVendaProdutos.Remove(relacao);
-                    Comercio.GerenciaEmpresa.Instance.Banco.Delete("DELETE FROM VENDA_ITEM WHERE COD_VENDA = " + venda.Codigo + ";");
-                    Comercio.GerenciaEmpresa.Instance.Banco.Delete("DELETE FROM VENDAS WHERE CODIGO = " + venda.Codigo + ";");
+                    Comercio.GerenciaEmpresa.Instance.Banco.Delete("DELETE FROM VENDA_ITEM WHERE COD_VENDA = " + Code + ";");
+                    Comercio.GerenciaEmpresa.Instance.Banco.Delete("DELETE FROM VENDAS WHERE CODIGO = " + Code + ";");
                     Comercio.GerenciaEmpresa.Instance.SalvarRelacaoVendaProduto(Comercio.GerenciaEmpresa.Instance.RelacaoVendaProdutos);
                     Comercio.GerenciaEmpresa.Instance.SalvarVendas(Comercio.GerenciaEmpresa.Instance.Vendas);
 
@@ -56,26 +56,28 @@ namespace PadariaEMerceariaDaFah.Forms.Vendas.RemoveVenda
         {
             if (Code != 0)
             {
-                double valor = 0;
+                var funcionario = Comercio.GerenciaEmpresa.Instance.CarregarFuncionariosBanco("SELECT GF.* FROM GERENCIA_FUNCIONARIO GF INNER JOIN VENDAS VD ON VD.COD_FUNCIONARIO = GF.CODIGO WHERE VD.CODIGO = " + Code + ";").FirstOrDefault();
+                var cliente = Comercio.GerenciaEmpresa.Instance.CarregarClientesBanco("SELECT CL.* FROM CLIENTE CL INNER JOIN VENDAS VD ON VD.COD_CLIENTE = CL.CODIGO WHERE VD.CODIGO = " + Code + ";").FirstOrDefault();
 
-                var venda = Comercio.GerenciaEmpresa.Instance.Vendas.FirstOrDefault(x => x.Codigo == Code);
-                var cliente = Comercio.GerenciaEmpresa.Instance.Clientes.FirstOrDefault(x => x.Codigo == venda.Cliente);
-                var funcionario = Comercio.GerenciaEmpresa.Instance.Funcionarios.FirstOrDefault(x => x.Codigo == venda.Funcionario);
-
-                data_venda.Value = venda.Data.Date;
                 QuemVendeu.Text = funcionario.Nome;
                 QuemComprou.Text = cliente.Nome;
 
-                var relacao = Comercio.GerenciaEmpresa.Instance.CarregarRelacaoVendaProdutosBanco("SELECT * FROM VENDA_ITEM WHERE COD_VENDA = " + venda.Codigo + ";");
-                
-                foreach (var item in relacao)
+                double valor = 0;
+
+                var produtos = Comercio.GerenciaEmpresa.Instance.CarregarProdutoBanco("SELECT EP.* FROM VENDAS VD INNER JOIN VENDA_ITEM VI ON VD.CODIGO = VI.COD_VENDA " +
+                                                                                                  "INNER JOIN ITEM_ESTOQUE IE ON IE.COD_ITEM = VI.COD_ITEM " +
+                                                                                                  "INNER JOIN ESTOQUE_PRODUTO EP ON EP.CODIGO = IE.COD_PRODUTO " +
+                                                                                                  "WHERE VD.CODIGO = " + Code + ";");
+
+                foreach (var itemRelacao in produtos)
                 {
-                    var estoque = Comercio.GerenciaEmpresa.Instance.EstoqueItens.FirstOrDefault(x => x.Codigo == item.CodItem);
-                    var produto = Comercio.GerenciaEmpresa.Instance.Produtos.FirstOrDefault(x => x.Codigo == estoque.CodProduto);
+                    var relacao = Comercio.GerenciaEmpresa.Instance.CarregarRelacaoVendaProdutosBanco("SELECT VI.* FROM VENDA_ITEM VI INNER JOIN ITEM_ESTOQUE IE " +
+                                                                                                        " ON VI.COD_ITEM = IE.COD_ITEM " +
+                                                                                                        " WHERE IE.COD_PRODUTO = " + itemRelacao.Codigo + " AND VI.COD_VENDA = " + Code + ";").FirstOrDefault();
 
-                    lista_produtos.Items.Add(item.Codigo + "|" + produto.Nome + "|" + item.Quantidade);
+                    lista_produtos.Items.Add(itemRelacao.Codigo + "|" + itemRelacao.Nome + "|" + relacao.Quantidade);
 
-                    valor += produto.Valor;
+                    valor += itemRelacao.Valor;
                 }
 
                 Valor.Text = valor.ToString();
