@@ -299,6 +299,7 @@
             this.list_vendas.Name = "list_vendas";
             this.list_vendas.Size = new System.Drawing.Size(223, 508);
             this.list_vendas.TabIndex = 1;
+            this.list_vendas.SelectedIndexChanged += new System.EventHandler(this.list_vendas_SelectedIndexChanged);
             // 
             // add_venda
             // 
