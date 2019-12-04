@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstoqueInicio));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.go_ingredientes = new System.Windows.Forms.Button();
             this.go_produtos = new System.Windows.Forms.Button();
@@ -69,9 +70,9 @@
             // 
             // go_ingredientes
             // 
-            this.go_ingredientes.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.func_Add;
+            this.go_ingredientes.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("go_ingredientes.BackgroundImage")));
             this.go_ingredientes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.go_ingredientes.Location = new System.Drawing.Point(86, 24);
+            this.go_ingredientes.Location = new System.Drawing.Point(12, 24);
             this.go_ingredientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.go_ingredientes.Name = "go_ingredientes";
             this.go_ingredientes.Size = new System.Drawing.Size(230, 46);
@@ -83,9 +84,9 @@
             // 
             // go_produtos
             // 
-            this.go_produtos.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.func_Add;
+            this.go_produtos.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("go_produtos.BackgroundImage")));
             this.go_produtos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.go_produtos.Location = new System.Drawing.Point(322, 23);
+            this.go_produtos.Location = new System.Drawing.Point(292, 23);
             this.go_produtos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.go_produtos.Name = "go_produtos";
             this.go_produtos.Size = new System.Drawing.Size(198, 46);
@@ -199,7 +200,7 @@
             // 
             // remove_item
             // 
-            this.remove_item.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
+            this.remove_item.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
             this.remove_item.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.remove_item.Location = new System.Drawing.Point(559, 281);
             this.remove_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -250,12 +251,12 @@
             // 
             // add_item
             // 
-            this.add_item.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.func_Add;
+            this.add_item.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("add_item.BackgroundImage")));
             this.add_item.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.add_item.Location = new System.Drawing.Point(526, 23);
+            this.add_item.Location = new System.Drawing.Point(508, 23);
             this.add_item.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.add_item.Name = "add_item";
-            this.add_item.Size = new System.Drawing.Size(321, 46);
+            this.add_item.Size = new System.Drawing.Size(339, 46);
             this.add_item.TabIndex = 0;
             this.add_item.Text = "Cadastrar Novo Item no Estoque";
             this.add_item.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

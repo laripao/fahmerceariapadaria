@@ -164,23 +164,38 @@ namespace PadariaEMerceariaDaFah.Forms.Vendas
 
         private void save_edit_venda_Click(object sender, EventArgs e)
         {
-            if(list_vendas.SelectedItem != null)
+            if (codCLiente == 0)
             {
-                var selectedVenda = Convert.ToInt32(list_vendas.SelectedItem.ToString().Split('|').First());
+                MessageBox.Show("Insira um cliente.");
+            }
+            if (codFuncionario == 0)
+            {
+                MessageBox.Show("Insira um funcionário.");
+            }
+            if (valorTotal == 0)
+            {
+                MessageBox.Show("Insira os produtos vendidos.");
+            }
+            if (codFuncionario != 0 && codCLiente != 0 && valorTotal > 0)
+            {
+                if (list_vendas.SelectedItem != null)
+                {
+                    var selectedVenda = Convert.ToInt32(list_vendas.SelectedItem.ToString().Split('|').First());
 
-                var venda = Comercio.GerenciaEmpresa.Instance.CarregarVendasBanco("SELECT * FROM VENDAS WHERE CODIGO = " + selectedVenda + ";").FirstOrDefault();
+                    var venda = Comercio.GerenciaEmpresa.Instance.CarregarVendasBanco("SELECT * FROM VENDAS WHERE CODIGO = " + selectedVenda + ";").FirstOrDefault();
 
-                venda.Cliente = codCLiente;
-                venda.Data = data_venda.Value.Date;
-                venda.Funcionario = codFuncionario;
+                    venda.Cliente = codCLiente;
+                    venda.Data = data_venda.Value.Date;
+                    venda.Funcionario = codFuncionario;
 
-                Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE VENDAS SET " +
-                    "DATA_DE_VENDA = STR_TO_DATE('" + venda.Data + "','%d/%m/%Y')" +
-                    " WHERE CODIGO = " + venda.Codigo);
+                    Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE VENDAS SET " +
+                        "DATA_DE_VENDA = STR_TO_DATE('" + venda.Data + "','%d/%m/%Y')" +
+                        " WHERE CODIGO = " + venda.Codigo);
 
-                Comercio.GerenciaEmpresa.Instance.SalvarVendas(Comercio.GerenciaEmpresa.Instance.Vendas);
+                    Comercio.GerenciaEmpresa.Instance.SalvarVendas(Comercio.GerenciaEmpresa.Instance.Vendas);
 
-                MessageBox.Show("Salvo com sucesso!");
+                    MessageBox.Show("Salvo com sucesso!");
+                }
             }
         }
 

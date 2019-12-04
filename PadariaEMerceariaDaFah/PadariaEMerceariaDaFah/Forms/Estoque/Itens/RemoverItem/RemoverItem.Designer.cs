@@ -43,7 +43,7 @@
             // 
             // acc_remove
             // 
-            this.acc_remove.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
+            this.acc_remove.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
             this.acc_remove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.acc_remove.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acc_remove.Location = new System.Drawing.Point(130, 158);
@@ -160,6 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(749, 220);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.acc_remove);

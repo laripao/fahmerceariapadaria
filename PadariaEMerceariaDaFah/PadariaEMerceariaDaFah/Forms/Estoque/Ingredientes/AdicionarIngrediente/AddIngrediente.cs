@@ -81,9 +81,13 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes.AdicionarIngrediente
             }
             if (nome_ingrediente.Text == null)
             {
-                MessageBox.Show("Ïnsira um nome.");
+                MessageBox.Show("Insira um nome.");
             }
-            else
+            if (codFornecedor == 0)
+            {
+                MessageBox.Show("Insira um fornecedor.");
+            }
+            if (nome_ingrediente.Text != null && valor_text.Text != null && quantidade_text.Text != null && codFornecedor != 0)
             {
                 var ingrediente = Comercio.GerenciaEmpresa.Instance.Ingredientes;
 

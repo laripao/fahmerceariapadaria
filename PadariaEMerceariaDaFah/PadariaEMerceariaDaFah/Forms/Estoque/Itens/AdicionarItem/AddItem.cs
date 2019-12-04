@@ -7,7 +7,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Itens
 {
     public partial class Itens : Form
     {
-        public int cod_produto;
+        public int cod_produto = 0;
         public Itens()
         {
             InitializeComponent();
@@ -42,7 +42,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Itens
 
         private void add_ingrediente_salvar_Click(object sender, System.EventArgs e)
         {
-            if(cod_produto == null)
+            if(cod_produto == 0)
             {
                 MessageBox.Show("Insira um produto.");
             }
@@ -50,7 +50,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Itens
             {
                 MessageBox.Show("Insira a quantidade.");
             }
-            else
+            if(!string.IsNullOrEmpty(qtd_text.Text) && cod_produto != 0)
             {
                 var itens = Comercio.GerenciaEmpresa.Instance.EstoqueItens;
 
