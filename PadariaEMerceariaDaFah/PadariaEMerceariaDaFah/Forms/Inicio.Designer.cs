@@ -38,10 +38,6 @@
             this.tabVendas = new System.Windows.Forms.TabPage();
             this.panel_vendas = new System.Windows.Forms.Panel();
             this.tabGerencia = new System.Windows.Forms.TabPage();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.TabGoCliente = new System.Windows.Forms.Button();
             this.TabGo_Fornecedor = new System.Windows.Forms.Button();
             this.TabGoFuncionario = new System.Windows.Forms.Button();
             this.tabPesquisa = new System.Windows.Forms.TabPage();
@@ -52,15 +48,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabela = new System.Windows.Forms.ComboBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.TabGoCliente = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabLogo.SuspendLayout();
             this.tabEstoque.SuspendLayout();
             this.tabVendas.SuspendLayout();
             this.tabGerencia.SuspendLayout();
+            this.tabPesquisa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPesquisa.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -77,7 +77,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1305, 779);
+            this.tabControl1.Size = new System.Drawing.Size(1260, 779);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -89,7 +89,7 @@
             this.tabLogo.Location = new System.Drawing.Point(4, 30);
             this.tabLogo.Name = "tabLogo";
             this.tabLogo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabLogo.Size = new System.Drawing.Size(1297, 745);
+            this.tabLogo.Size = new System.Drawing.Size(1252, 749);
             this.tabLogo.TabIndex = 0;
             this.tabLogo.Text = "Importante";
             // 
@@ -113,7 +113,7 @@
             this.list_vencimento.ItemHeight = 21;
             this.list_vencimento.Location = new System.Drawing.Point(6, 31);
             this.list_vencimento.Name = "list_vencimento";
-            this.list_vencimento.Size = new System.Drawing.Size(1285, 655);
+            this.list_vencimento.Size = new System.Drawing.Size(1240, 684);
             this.list_vencimento.TabIndex = 0;
             // 
             // tabEstoque
@@ -123,7 +123,7 @@
             this.tabEstoque.Location = new System.Drawing.Point(4, 30);
             this.tabEstoque.Name = "tabEstoque";
             this.tabEstoque.Padding = new System.Windows.Forms.Padding(3);
-            this.tabEstoque.Size = new System.Drawing.Size(1297, 745);
+            this.tabEstoque.Size = new System.Drawing.Size(1252, 749);
             this.tabEstoque.TabIndex = 1;
             this.tabEstoque.Text = "Estoque";
             // 
@@ -134,7 +134,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_produto.Location = new System.Drawing.Point(0, 0);
             this.panel_produto.Name = "panel_produto";
-            this.panel_produto.Size = new System.Drawing.Size(1294, 871);
+            this.panel_produto.Size = new System.Drawing.Size(1249, 875);
             this.panel_produto.TabIndex = 0;
             // 
             // tabVendas
@@ -143,7 +143,7 @@
             this.tabVendas.Controls.Add(this.panel_vendas);
             this.tabVendas.Location = new System.Drawing.Point(4, 30);
             this.tabVendas.Name = "tabVendas";
-            this.tabVendas.Size = new System.Drawing.Size(1297, 745);
+            this.tabVendas.Size = new System.Drawing.Size(1252, 749);
             this.tabVendas.TabIndex = 4;
             this.tabVendas.Text = "Vendas";
             // 
@@ -164,7 +164,7 @@
             this.tabGerencia.Controls.Add(this.TabGoFuncionario);
             this.tabGerencia.Location = new System.Drawing.Point(4, 30);
             this.tabGerencia.Name = "tabGerencia";
-            this.tabGerencia.Size = new System.Drawing.Size(1297, 745);
+            this.tabGerencia.Size = new System.Drawing.Size(1252, 749);
             this.tabGerencia.TabIndex = 2;
             this.tabGerencia.Text = "Gerência";
             this.tabGerencia.UseVisualStyleBackColor = true;
@@ -217,7 +217,7 @@
             // TabGo_Fornecedor
             // 
             this.TabGo_Fornecedor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TabGo_Fornecedor.Location = new System.Drawing.Point(842, 1);
+            this.TabGo_Fornecedor.Location = new System.Drawing.Point(797, 1);
             this.TabGo_Fornecedor.Name = "TabGo_Fornecedor";
             this.TabGo_Fornecedor.Size = new System.Drawing.Size(452, 141);
             this.TabGo_Fornecedor.TabIndex = 2;
@@ -228,7 +228,7 @@
             // TabGoFuncionario
             // 
             this.TabGoFuncionario.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.TabGoFuncionario.Location = new System.Drawing.Point(428, 0);
+            this.TabGoFuncionario.Location = new System.Drawing.Point(406, 0);
             this.TabGoFuncionario.Name = "TabGoFuncionario";
             this.TabGoFuncionario.Size = new System.Drawing.Size(408, 142);
             this.TabGoFuncionario.TabIndex = 1;
@@ -247,7 +247,7 @@
             this.tabPesquisa.Controls.Add(this.tabela);
             this.tabPesquisa.Location = new System.Drawing.Point(4, 30);
             this.tabPesquisa.Name = "tabPesquisa";
-            this.tabPesquisa.Size = new System.Drawing.Size(1297, 745);
+            this.tabPesquisa.Size = new System.Drawing.Size(1252, 749);
             this.tabPesquisa.TabIndex = 3;
             this.tabPesquisa.Text = "Pesquisa";
             this.tabPesquisa.UseVisualStyleBackColor = true;
@@ -318,10 +318,55 @@
             this.tabela.TabIndex = 3;
             this.tabela.SelectedIndexChanged += new System.EventHandler(this.tabela_SelectedIndexChanged);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(797, 148);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(452, 597);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 5;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(406, 148);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(408, 597);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // TabGoCliente
+            // 
+            this.TabGoCliente.Location = new System.Drawing.Point(3, 0);
+            this.TabGoCliente.Name = "TabGoCliente";
+            this.TabGoCliente.Size = new System.Drawing.Size(419, 142);
+            this.TabGoCliente.TabIndex = 0;
+            this.TabGoCliente.Text = "Cliente";
+            this.TabGoCliente.UseVisualStyleBackColor = true;
+            this.TabGoCliente.Click += new System.EventHandler(this.TabGoCliente_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(4, 149);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(418, 597);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
+            // 
             // Inicio
             // 
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(1329, 793);
+            this.ClientSize = new System.Drawing.Size(1284, 793);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Inicio";
@@ -333,11 +378,11 @@
             this.tabEstoque.ResumeLayout(false);
             this.tabVendas.ResumeLayout(false);
             this.tabGerencia.ResumeLayout(false);
+            this.tabPesquisa.ResumeLayout(false);
+            this.tabPesquisa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabPesquisa.ResumeLayout(false);
-            this.tabPesquisa.PerformLayout();
             this.ResumeLayout(false);
 
         }

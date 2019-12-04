@@ -368,6 +368,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Clients-icon2.png" />
+    <None Include="Resources\Clients-icon1.png" />
+    <None Include="Resources\Clients-icon.png" />
+    <None Include="Resources\Actions-draw-freehand-icon.png" />
+    <None Include="Resources\shopping-basket-add-icon32.png" />
+    <None Include="Resources\shopping-basket-add-icon.png" />
+    <None Include="Resources\shopping-basket-refresh-icon.png" />
     <None Include="Resources\Editfunc.png" />
     <None Include="Resources\func_Add.png" />
     <None Include="Resources\Actions-list-add-user-icon1.png" />

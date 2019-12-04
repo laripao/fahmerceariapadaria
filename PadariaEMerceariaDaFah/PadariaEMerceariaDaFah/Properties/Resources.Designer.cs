@@ -73,6 +73,16 @@ namespace PadariaEMerceariaDaFah.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Actions_draw_freehand_icon {
+            get {
+                object obj = ResourceManager.GetObject("Actions-draw-freehand-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Actions_edit_delete_icon {
             get {
                 object obj = ResourceManager.GetObject("Actions-edit-delete-icon", resourceCulture);
@@ -173,6 +183,36 @@ namespace PadariaEMerceariaDaFah.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Clients_icon {
+            get {
+                object obj = ResourceManager.GetObject("Clients-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Clients_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("Clients-icon1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Clients_icon2 {
+            get {
+                object obj = ResourceManager.GetObject("Clients-icon2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_validated_icon {
             get {
                 object obj = ResourceManager.GetObject("edit-validated-icon", resourceCulture);
@@ -226,6 +266,36 @@ namespace PadariaEMerceariaDaFah.Properties {
         internal static System.Drawing.Bitmap Save_icon {
             get {
                 object obj = ResourceManager.GetObject("Save-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_basket_add_icon {
+            get {
+                object obj = ResourceManager.GetObject("shopping-basket-add-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_basket_add_icon32 {
+            get {
+                object obj = ResourceManager.GetObject("shopping-basket-add-icon32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shopping_basket_refresh_icon {
+            get {
+                object obj = ResourceManager.GetObject("shopping-basket-refresh-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

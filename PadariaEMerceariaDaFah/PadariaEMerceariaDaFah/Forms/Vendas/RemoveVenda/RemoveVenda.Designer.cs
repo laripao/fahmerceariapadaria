@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoveVenda));
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Valor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -60,11 +61,11 @@
             this.groupBox3.Controls.Add(this.group_produtos);
             this.groupBox3.Enabled = false;
             this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 45);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox3.Location = new System.Drawing.Point(9, 37);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox3.Size = new System.Drawing.Size(800, 465);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(600, 378);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Dados da Venda";
@@ -72,82 +73,87 @@
             // Valor
             // 
             this.Valor.Enabled = false;
-            this.Valor.Location = new System.Drawing.Point(217, 414);
-            this.Valor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Valor.Location = new System.Drawing.Point(163, 336);
+            this.Valor.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Valor.Name = "Valor";
-            this.Valor.Size = new System.Drawing.Size(194, 27);
+            this.Valor.Size = new System.Drawing.Size(146, 23);
             this.Valor.TabIndex = 35;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 417);
+            this.label3.Location = new System.Drawing.Point(9, 339);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(204, 21);
+            this.label3.Size = new System.Drawing.Size(159, 17);
             this.label3.TabIndex = 34;
             this.label3.Text = "Valor total da compra:";
             // 
             // QuemComprou
             // 
             this.QuemComprou.Enabled = false;
-            this.QuemComprou.Location = new System.Drawing.Point(206, 172);
-            this.QuemComprou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QuemComprou.Location = new System.Drawing.Point(154, 140);
+            this.QuemComprou.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QuemComprou.Name = "QuemComprou";
-            this.QuemComprou.Size = new System.Drawing.Size(583, 27);
+            this.QuemComprou.Size = new System.Drawing.Size(438, 23);
             this.QuemComprou.TabIndex = 32;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 175);
+            this.label1.Location = new System.Drawing.Point(9, 142);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 21);
+            this.label1.Size = new System.Drawing.Size(150, 17);
             this.label1.TabIndex = 31;
             this.label1.Text = "Venda para o cliente:";
             // 
             // QuemVendeu
             // 
             this.QuemVendeu.Enabled = false;
-            this.QuemVendeu.Location = new System.Drawing.Point(206, 98);
-            this.QuemVendeu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QuemVendeu.Location = new System.Drawing.Point(154, 80);
+            this.QuemVendeu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.QuemVendeu.Name = "QuemVendeu";
-            this.QuemVendeu.Size = new System.Drawing.Size(583, 27);
+            this.QuemVendeu.Size = new System.Drawing.Size(438, 23);
             this.QuemVendeu.TabIndex = 29;
             // 
             // vendido_funcionario
             // 
             this.vendido_funcionario.AutoSize = true;
-            this.vendido_funcionario.Location = new System.Drawing.Point(12, 101);
+            this.vendido_funcionario.Location = new System.Drawing.Point(9, 82);
+            this.vendido_funcionario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.vendido_funcionario.Name = "vendido_funcionario";
-            this.vendido_funcionario.Size = new System.Drawing.Size(188, 21);
+            this.vendido_funcionario.Size = new System.Drawing.Size(145, 17);
             this.vendido_funcionario.TabIndex = 28;
             this.vendido_funcionario.Text = "Venda realizada por:";
             // 
             // data_venda
             // 
-            this.data_venda.Location = new System.Drawing.Point(166, 39);
+            this.data_venda.Location = new System.Drawing.Point(124, 32);
+            this.data_venda.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.data_venda.Name = "data_venda";
-            this.data_venda.Size = new System.Drawing.Size(364, 27);
+            this.data_venda.Size = new System.Drawing.Size(274, 23);
             this.data_venda.TabIndex = 27;
             this.data_venda.Value = new System.DateTime(2019, 11, 30, 0, 0, 0, 0);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 39);
+            this.label2.Location = new System.Drawing.Point(8, 32);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 21);
+            this.label2.Size = new System.Drawing.Size(113, 17);
             this.label2.TabIndex = 26;
             this.label2.Text = "Data de Venda:";
             // 
             // group_produtos
             // 
             this.group_produtos.Controls.Add(this.lista_produtos);
-            this.group_produtos.Location = new System.Drawing.Point(6, 235);
-            this.group_produtos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.group_produtos.Location = new System.Drawing.Point(4, 191);
+            this.group_produtos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.group_produtos.Name = "group_produtos";
-            this.group_produtos.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.group_produtos.Size = new System.Drawing.Size(788, 159);
+            this.group_produtos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.group_produtos.Size = new System.Drawing.Size(591, 129);
             this.group_produtos.TabIndex = 21;
             this.group_produtos.TabStop = false;
             this.group_produtos.Text = "Produtos Comprados";
@@ -155,20 +161,21 @@
             // lista_produtos
             // 
             this.lista_produtos.FormattingEnabled = true;
-            this.lista_produtos.ItemHeight = 21;
-            this.lista_produtos.Location = new System.Drawing.Point(25, 24);
-            this.lista_produtos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lista_produtos.ItemHeight = 17;
+            this.lista_produtos.Location = new System.Drawing.Point(19, 20);
+            this.lista_produtos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lista_produtos.Name = "lista_produtos";
-            this.lista_produtos.Size = new System.Drawing.Size(757, 109);
+            this.lista_produtos.Size = new System.Drawing.Size(569, 89);
             this.lista_produtos.TabIndex = 0;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 9);
+            this.label6.Location = new System.Drawing.Point(9, 7);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(571, 29);
+            this.label6.Size = new System.Drawing.Size(458, 23);
             this.label6.TabIndex = 21;
             this.label6.Text = "Tem certeza que deseja remover esta venda?";
             // 
@@ -177,10 +184,10 @@
             this.acc_remove.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
             this.acc_remove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.acc_remove.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acc_remove.Location = new System.Drawing.Point(212, 514);
-            this.acc_remove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.acc_remove.Location = new System.Drawing.Point(159, 418);
+            this.acc_remove.Margin = new System.Windows.Forms.Padding(2);
             this.acc_remove.Name = "acc_remove";
-            this.acc_remove.Size = new System.Drawing.Size(129, 49);
+            this.acc_remove.Size = new System.Drawing.Size(97, 40);
             this.acc_remove.TabIndex = 23;
             this.acc_remove.Text = "Remover";
             this.acc_remove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -192,10 +199,10 @@
             this.add_ingrediente_cancel.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Actions_edit_delete_icon;
             this.add_ingrediente_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_ingrediente_cancel.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_ingrediente_cancel.Location = new System.Drawing.Point(473, 514);
-            this.add_ingrediente_cancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add_ingrediente_cancel.Location = new System.Drawing.Point(355, 418);
+            this.add_ingrediente_cancel.Margin = new System.Windows.Forms.Padding(2);
             this.add_ingrediente_cancel.Name = "add_ingrediente_cancel";
-            this.add_ingrediente_cancel.Size = new System.Drawing.Size(139, 49);
+            this.add_ingrediente_cancel.Size = new System.Drawing.Size(104, 40);
             this.add_ingrediente_cancel.TabIndex = 22;
             this.add_ingrediente_cancel.Text = "Cancelar";
             this.add_ingrediente_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -204,16 +211,19 @@
             // 
             // RemoveVenda
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(824, 566);
+            this.ClientSize = new System.Drawing.Size(618, 460);
             this.Controls.Add(this.acc_remove);
             this.Controls.Add(this.add_ingrediente_cancel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "RemoveVenda";
-            this.Text = "RemoveVenda";
+            this.Text = "Remover Venda";
             this.Load += new System.EventHandler(this.RemoveVenda_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
