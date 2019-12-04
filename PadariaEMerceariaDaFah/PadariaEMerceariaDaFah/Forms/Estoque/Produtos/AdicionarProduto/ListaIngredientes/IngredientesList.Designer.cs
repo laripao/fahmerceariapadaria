@@ -56,7 +56,7 @@
             // 
             // go_addIngrediente
             // 
-            this.go_addIngrediente.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.func_Add;
+            this.go_addIngrediente.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.buy;
             this.go_addIngrediente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.go_addIngrediente.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.go_addIngrediente.Location = new System.Drawing.Point(252, 444);
@@ -71,7 +71,7 @@
             // 
             // go_ingrediente_Click
             // 
-            this.go_ingrediente_Click.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.Editfunc;
+            this.go_ingrediente_Click.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
             this.go_ingrediente_Click.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.go_ingrediente_Click.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.go_ingrediente_Click.Location = new System.Drawing.Point(12, 444);
@@ -153,6 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(693, 510);
             this.Controls.Add(this.ok_button_qtd);
             this.Controls.Add(this.label2);

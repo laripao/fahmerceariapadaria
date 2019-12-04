@@ -10,7 +10,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes
     public partial class IngredientesInicio : Form
     {
         public string nomeFornecedor;
-        public int codFornecedor;
+        public int codFornecedor = 0;
         public IngredientesInicio()
         {
             InitializeComponent();
@@ -120,33 +120,53 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Ingredientes
 
         private void save_edit_ingrediente_Click(object sender, EventArgs e)
         {
+
             if(list_Ingrediente.SelectedItem != null)
             {
-                var selectedIngrediente = Convert.ToInt32(list_Ingrediente.SelectedItem.ToString().Split('|').First());
-                var ingrediente = Comercio.GerenciaEmpresa.Instance.Ingredientes.FirstOrDefault(x => x.Codigo == selectedIngrediente);
+                if (quantidade_text.Text == null)
+                {
+                    MessageBox.Show("Insira valor de quantidade.");
+                }
+                if (valor_text.Text == null)
+                {
+                    MessageBox.Show("Insira um valor.");
+                }
+                if (nome_ingrediente.Text == null)
+                {
+                    MessageBox.Show("Insira um nome.");
+                }
+                if (string.IsNullOrEmpty(Fornecedor.Text))
+                {
+                    MessageBox.Show("Insira um fornecedor.");
+                }
+                if (nome_ingrediente.Text != null && valor_text.Text != null && quantidade_text.Text != null && !string.IsNullOrEmpty(Fornecedor.Text))
+                {
+                    var selectedIngrediente = Convert.ToInt32(list_Ingrediente.SelectedItem.ToString().Split('|').First());
+                    var ingrediente = Comercio.GerenciaEmpresa.Instance.Ingredientes.FirstOrDefault(x => x.Codigo == selectedIngrediente);
 
-                var relacao = Comercio.GerenciaEmpresa.Instance.RelacaoForneceIngredientes.FirstOrDefault(x => x.CodIngrediente == ingrediente.Codigo);
+                    var relacao = Comercio.GerenciaEmpresa.Instance.RelacaoForneceIngredientes.FirstOrDefault(x => x.CodIngrediente == ingrediente.Codigo);
 
-                relacao.CodFornecedor = codFornecedor;
-                ingrediente.Nome = nome_ingrediente.Text.FormatToDB();
-                ingrediente.Valor = Convert.ToDouble(valor_text.Text);
-                ingrediente.Quantidade = Convert.ToInt32(quantidade_text.Text);
-                ingrediente.Validade = data_validade.Value;
+                    relacao.CodFornecedor = codFornecedor;
+                    ingrediente.Nome = nome_ingrediente.Text.FormatToDB();
+                    ingrediente.Valor = Convert.ToDouble(valor_text.Text);
+                    ingrediente.Quantidade = Convert.ToInt32(quantidade_text.Text);
+                    ingrediente.Validade = data_validade.Value;
 
-                Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE ESTOQUE_INGREDIENTE SET NAME = '" + ingrediente.Nome + "'," +
-                    "VALIDADE = '" + ingrediente.Validade + "'," +
-                    "VALOR = '" + ingrediente.Valor + "'," +
-                    "QUANTIDADE = '" + ingrediente.Quantidade + "'" +
-                    "WHERE CODIGO = '" + ingrediente.Codigo + "';");
+                    Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE ESTOQUE_INGREDIENTE SET NAME = '" + ingrediente.Nome + "'," +
+                        "VALIDADE = '" + ingrediente.Validade + "'," +
+                        "VALOR = '" + ingrediente.Valor + "'," +
+                        "QUANTIDADE = '" + ingrediente.Quantidade + "'" +
+                        "WHERE CODIGO = '" + ingrediente.Codigo + "';");
 
-                Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE FORNECE SET COD_FORNECEDOR = '" + relacao.CodFornecedor + "WHERE COD_INGREDIENTE = '" + ingrediente.Codigo + "';");
+                    Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE FORNECE SET COD_FORNECEDOR = '" + relacao.CodFornecedor + "WHERE COD_INGREDIENTE = '" + ingrediente.Codigo + "';");
 
-                UpdateForm(selectedIngrediente);
+                    UpdateForm(selectedIngrediente);
 
-                Comercio.GerenciaEmpresa.Instance.SalvarIngredientes(Comercio.GerenciaEmpresa.Instance.Ingredientes);
-                Comercio.GerenciaEmpresa.Instance.SalvarRelacaoForneceIngredientes(Comercio.GerenciaEmpresa.Instance.RelacaoForneceIngredientes);
+                    Comercio.GerenciaEmpresa.Instance.SalvarIngredientes(Comercio.GerenciaEmpresa.Instance.Ingredientes);
+                    Comercio.GerenciaEmpresa.Instance.SalvarRelacaoForneceIngredientes(Comercio.GerenciaEmpresa.Instance.RelacaoForneceIngredientes);
 
-                MessageBox.Show("Ingrediente Atualizado com sucesso!");
+                    MessageBox.Show("Ingrediente Atualizado com sucesso!");
+                }
             }
         }
 

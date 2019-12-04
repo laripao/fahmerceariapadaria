@@ -96,6 +96,26 @@ namespace PadariaEMerceariaDaFah
             {
                 GerenciaEmpresa.Instance.EstoqueItens.AddRange(GerenciaEmpresa.Instance.CarregarEstoqueItensBanco("SELECT * FROM laripaos.item_estoque;"));
             }
+            if (GerenciaEmpresa.Instance.CarregarIngredientes() != null)
+            {
+                GerenciaEmpresa.Instance.Ingredientes.AddRange(GerenciaEmpresa.Instance.CarregarIngredientesBanco("SELECT * FROM laripaos.estoque_ingrediente;"));
+            }
+            if (GerenciaEmpresa.Instance.CarregarRelacaoForneceIngrediente() != null)
+            {
+                GerenciaEmpresa.Instance.RelacaoForneceIngredientes.AddRange(GerenciaEmpresa.Instance.CarregarRelacaoForneceIngredienteBanco("SELECT * FROM laripaos.fornece;"));
+            }
+            if (GerenciaEmpresa.Instance.CarregarRelacaoForneceProdutos() != null)
+            {
+                GerenciaEmpresa.Instance.RelacaoForneceProdutos.AddRange(GerenciaEmpresa.Instance.CarregarRelacaoForneceProdutosBanco("SELECT * FROM laripaos.estoque_produto_revendido;"));
+            }
+            if (GerenciaEmpresa.Instance.CarregarRelacaoProdutoUtilizaIngredientes() != null)
+            {
+                GerenciaEmpresa.Instance.RelacaoProdutoUtilizaIngredientes.AddRange(GerenciaEmpresa.Instance.CarregarRelacaoProdutoUtilizaIngredientesBanco("SELECT * FROM laripaos.utiliza;"));
+            }
+            if (GerenciaEmpresa.Instance.CarregarRelacaoVendaProdutos() != null)
+            {
+                GerenciaEmpresa.Instance.RelacaoVendaProdutos.AddRange(GerenciaEmpresa.Instance.CarregarRelacaoVendaProdutosBanco("SELECT * FROM laripaos.venda_item;"));
+            }
             GerenciaEmpresa.Instance.Clientes.AddRange(GerenciaEmpresa.Instance.CarregarClientesBanco("SELECT * FROM CLIENTE;"));
 
             var Vencimento = Comercio.GerenciaEmpresa.Instance.CarregarEstoqueItensBanco("SELECT * FROM laripaos.item_estoque where validade_produto between CURDATE()-1 and CURDATE()+5;");

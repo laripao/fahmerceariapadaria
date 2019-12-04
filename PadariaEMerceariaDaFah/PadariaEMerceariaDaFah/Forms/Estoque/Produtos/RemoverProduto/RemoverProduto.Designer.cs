@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemoverProduto));
             this.label6 = new System.Windows.Forms.Label();
             this.group_edit_produto = new System.Windows.Forms.GroupBox();
+            this.QuemFabricou = new System.Windows.Forms.TextBox();
+            this.fabricado_funcionario = new System.Windows.Forms.Label();
             this.group_ingredientes = new System.Windows.Forms.GroupBox();
             this.lista_ingredientes = new System.Windows.Forms.ListBox();
             this.valor_text = new System.Windows.Forms.MaskedTextBox();
@@ -45,8 +47,6 @@
             this.revendido = new System.Windows.Forms.RadioButton();
             this.acc_remove = new System.Windows.Forms.Button();
             this.cancel_remove = new System.Windows.Forms.Button();
-            this.QuemFabricou = new System.Windows.Forms.TextBox();
-            this.fabricado_funcionario = new System.Windows.Forms.Label();
             this.group_edit_produto.SuspendLayout();
             this.group_ingredientes.SuspendLayout();
             this.SuspendLayout();
@@ -87,6 +87,24 @@
             this.group_edit_produto.TabIndex = 21;
             this.group_edit_produto.TabStop = false;
             this.group_edit_produto.Text = "Produto";
+            // 
+            // QuemFabricou
+            // 
+            this.QuemFabricou.Enabled = false;
+            this.QuemFabricou.Location = new System.Drawing.Point(150, 425);
+            this.QuemFabricou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QuemFabricou.Name = "QuemFabricou";
+            this.QuemFabricou.Size = new System.Drawing.Size(501, 27);
+            this.QuemFabricou.TabIndex = 24;
+            // 
+            // fabricado_funcionario
+            // 
+            this.fabricado_funcionario.AutoSize = true;
+            this.fabricado_funcionario.Location = new System.Drawing.Point(6, 428);
+            this.fabricado_funcionario.Name = "fabricado_funcionario";
+            this.fabricado_funcionario.Size = new System.Drawing.Size(134, 21);
+            this.fabricado_funcionario.TabIndex = 23;
+            this.fabricado_funcionario.Text = "Fabricado por:";
             // 
             // group_ingredientes
             // 
@@ -206,7 +224,7 @@
             // 
             // acc_remove
             // 
-            this.acc_remove.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
+            this.acc_remove.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
             this.acc_remove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.acc_remove.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acc_remove.Location = new System.Drawing.Point(188, 501);
@@ -233,24 +251,6 @@
             this.cancel_remove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cancel_remove.UseVisualStyleBackColor = true;
             this.cancel_remove.Click += new System.EventHandler(this.cancel_remove_Click);
-            // 
-            // QuemFabricou
-            // 
-            this.QuemFabricou.Enabled = false;
-            this.QuemFabricou.Location = new System.Drawing.Point(150, 425);
-            this.QuemFabricou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.QuemFabricou.Name = "QuemFabricou";
-            this.QuemFabricou.Size = new System.Drawing.Size(501, 27);
-            this.QuemFabricou.TabIndex = 24;
-            // 
-            // fabricado_funcionario
-            // 
-            this.fabricado_funcionario.AutoSize = true;
-            this.fabricado_funcionario.Location = new System.Drawing.Point(6, 428);
-            this.fabricado_funcionario.Name = "fabricado_funcionario";
-            this.fabricado_funcionario.Size = new System.Drawing.Size(134, 21);
-            this.fabricado_funcionario.TabIndex = 23;
-            this.fabricado_funcionario.Text = "Fabricado por:";
             // 
             // RemoverProduto
             // 

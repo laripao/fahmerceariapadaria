@@ -31,8 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProdutoInicio));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.remove_produto = new System.Windows.Forms.Button();
+            this.save_edit_produto = new System.Windows.Forms.Button();
             this.habilitar_edicao = new System.Windows.Forms.CheckBox();
             this.group_edit_produto = new System.Windows.Forms.GroupBox();
+            this.linkFuncionario = new System.Windows.Forms.LinkLabel();
+            this.QuemFabricou = new System.Windows.Forms.TextBox();
+            this.fabricado_funcionario = new System.Windows.Forms.Label();
             this.group_ingredientes = new System.Windows.Forms.GroupBox();
             this.remove_ingredientes = new System.Windows.Forms.Button();
             this.add_ingredientes = new System.Windows.Forms.Button();
@@ -49,12 +54,7 @@
             this.Fornecedor = new System.Windows.Forms.TextBox();
             this.revendido = new System.Windows.Forms.RadioButton();
             this.list_produto = new System.Windows.Forms.ListBox();
-            this.remove_produto = new System.Windows.Forms.Button();
-            this.save_edit_produto = new System.Windows.Forms.Button();
             this.add_produto = new System.Windows.Forms.Button();
-            this.linkFuncionario = new System.Windows.Forms.LinkLabel();
-            this.QuemFabricou = new System.Windows.Forms.TextBox();
-            this.fabricado_funcionario = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.group_edit_produto.SuspendLayout();
@@ -94,6 +94,34 @@
             this.groupBox1.Text = "Produtos Existentes";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // remove_produto
+            // 
+            this.remove_produto.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
+            this.remove_produto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.remove_produto.Location = new System.Drawing.Point(579, 574);
+            this.remove_produto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.remove_produto.Name = "remove_produto";
+            this.remove_produto.Size = new System.Drawing.Size(215, 50);
+            this.remove_produto.TabIndex = 8;
+            this.remove_produto.Text = "Remover Produto";
+            this.remove_produto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.remove_produto.UseVisualStyleBackColor = true;
+            this.remove_produto.Click += new System.EventHandler(this.remove_produto_Click);
+            // 
+            // save_edit_produto
+            // 
+            this.save_edit_produto.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
+            this.save_edit_produto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.save_edit_produto.Location = new System.Drawing.Point(260, 574);
+            this.save_edit_produto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.save_edit_produto.Name = "save_edit_produto";
+            this.save_edit_produto.Size = new System.Drawing.Size(183, 50);
+            this.save_edit_produto.TabIndex = 7;
+            this.save_edit_produto.Text = "Salvar Edição";
+            this.save_edit_produto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.save_edit_produto.UseVisualStyleBackColor = true;
+            this.save_edit_produto.Click += new System.EventHandler(this.save_edit_produto_Click);
+            // 
             // habilitar_edicao
             // 
             this.habilitar_edicao.AutoSize = true;
@@ -132,6 +160,35 @@
             this.group_edit_produto.TabIndex = 8;
             this.group_edit_produto.TabStop = false;
             this.group_edit_produto.Text = "Produto";
+            // 
+            // linkFuncionario
+            // 
+            this.linkFuncionario.AutoSize = true;
+            this.linkFuncionario.Location = new System.Drawing.Point(263, 468);
+            this.linkFuncionario.Name = "linkFuncionario";
+            this.linkFuncionario.Size = new System.Drawing.Size(215, 21);
+            this.linkFuncionario.TabIndex = 23;
+            this.linkFuncionario.TabStop = true;
+            this.linkFuncionario.Text = "Selecione um funcionário";
+            this.linkFuncionario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFuncionario_LinkClicked);
+            // 
+            // QuemFabricou
+            // 
+            this.QuemFabricou.Enabled = false;
+            this.QuemFabricou.Location = new System.Drawing.Point(148, 439);
+            this.QuemFabricou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.QuemFabricou.Name = "QuemFabricou";
+            this.QuemFabricou.Size = new System.Drawing.Size(501, 27);
+            this.QuemFabricou.TabIndex = 22;
+            // 
+            // fabricado_funcionario
+            // 
+            this.fabricado_funcionario.AutoSize = true;
+            this.fabricado_funcionario.Location = new System.Drawing.Point(4, 442);
+            this.fabricado_funcionario.Name = "fabricado_funcionario";
+            this.fabricado_funcionario.Size = new System.Drawing.Size(134, 21);
+            this.fabricado_funcionario.TabIndex = 21;
+            this.fabricado_funcionario.Text = "Fabricado por:";
             // 
             // group_ingredientes
             // 
@@ -297,37 +354,9 @@
             this.list_produto.Location = new System.Drawing.Point(12, 21);
             this.list_produto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.list_produto.Name = "list_produto";
-            this.list_produto.Size = new System.Drawing.Size(215, 487);
+            this.list_produto.Size = new System.Drawing.Size(215, 550);
             this.list_produto.TabIndex = 1;
             this.list_produto.SelectedValueChanged += new System.EventHandler(this.list_produto_SelectedValueChanged);
-            // 
-            // remove_produto
-            // 
-            this.remove_produto.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
-            this.remove_produto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.remove_produto.Location = new System.Drawing.Point(579, 574);
-            this.remove_produto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.remove_produto.Name = "remove_produto";
-            this.remove_produto.Size = new System.Drawing.Size(215, 50);
-            this.remove_produto.TabIndex = 8;
-            this.remove_produto.Text = "Remover Produto";
-            this.remove_produto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.remove_produto.UseVisualStyleBackColor = true;
-            this.remove_produto.Click += new System.EventHandler(this.remove_produto_Click);
-            // 
-            // save_edit_produto
-            // 
-            this.save_edit_produto.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.edit_validated_icon;
-            this.save_edit_produto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.save_edit_produto.Location = new System.Drawing.Point(260, 574);
-            this.save_edit_produto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.save_edit_produto.Name = "save_edit_produto";
-            this.save_edit_produto.Size = new System.Drawing.Size(183, 50);
-            this.save_edit_produto.TabIndex = 7;
-            this.save_edit_produto.Text = "Salvar Edição";
-            this.save_edit_produto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.save_edit_produto.UseVisualStyleBackColor = true;
-            this.save_edit_produto.Click += new System.EventHandler(this.save_edit_produto_Click);
             // 
             // add_produto
             // 
@@ -342,35 +371,6 @@
             this.add_produto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.add_produto.UseVisualStyleBackColor = true;
             this.add_produto.Click += new System.EventHandler(this.add_produto_Click);
-            // 
-            // linkFuncionario
-            // 
-            this.linkFuncionario.AutoSize = true;
-            this.linkFuncionario.Location = new System.Drawing.Point(263, 468);
-            this.linkFuncionario.Name = "linkFuncionario";
-            this.linkFuncionario.Size = new System.Drawing.Size(215, 21);
-            this.linkFuncionario.TabIndex = 23;
-            this.linkFuncionario.TabStop = true;
-            this.linkFuncionario.Text = "Selecione um funcionário";
-            this.linkFuncionario.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFuncionario_LinkClicked);
-            // 
-            // QuemFabricou
-            // 
-            this.QuemFabricou.Enabled = false;
-            this.QuemFabricou.Location = new System.Drawing.Point(148, 439);
-            this.QuemFabricou.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.QuemFabricou.Name = "QuemFabricou";
-            this.QuemFabricou.Size = new System.Drawing.Size(501, 27);
-            this.QuemFabricou.TabIndex = 22;
-            // 
-            // fabricado_funcionario
-            // 
-            this.fabricado_funcionario.AutoSize = true;
-            this.fabricado_funcionario.Location = new System.Drawing.Point(4, 442);
-            this.fabricado_funcionario.Name = "fabricado_funcionario";
-            this.fabricado_funcionario.Size = new System.Drawing.Size(134, 21);
-            this.fabricado_funcionario.TabIndex = 21;
-            this.fabricado_funcionario.Text = "Fabricado por:";
             // 
             // ProdutoInicio
             // 

@@ -11,7 +11,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque
 {
     public partial class EstoqueInicio : Form
     {
-        public int cod_produto;
+        public int cod_produto = 0;
         public EstoqueInicio()
         {
             InitializeComponent();
@@ -126,26 +126,37 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque
 
         private void save_edit_item_Click(object sender, EventArgs e)
         {
-            if(list_estoque.SelectedItem != null)
+            if(cod_produto == 0)
             {
-                var selectedItem = Convert.ToInt32(list_estoque.SelectedItem.ToString().Split('|').First());
-                var item = Comercio.GerenciaEmpresa.Instance.EstoqueItens.FirstOrDefault(x => x.Codigo == selectedItem);
+                MessageBox.Show("Insira um produto.");
+            }
+            if(string.IsNullOrEmpty(qtd_text.Text))
+            {
+                MessageBox.Show("Insira um valor de quantidade.");
+            }
+            if(cod_produto != 0 && qtd_text.Text != "")
+            {
+                if (list_estoque.SelectedItem != null)
+                {
+                    var selectedItem = Convert.ToInt32(list_estoque.SelectedItem.ToString().Split('|').First());
+                    var item = Comercio.GerenciaEmpresa.Instance.EstoqueItens.FirstOrDefault(x => x.Codigo == selectedItem);
 
-                item.CodProduto = cod_produto;
-                item.Quantidade = Convert.ToInt32(qtd_text.Text);
-                item.Validade = data_validade.Value.Date;
+                    item.CodProduto = cod_produto;
+                    item.Quantidade = Convert.ToInt32(qtd_text.Text);
+                    item.Validade = data_validade.Value.Date;
 
-                Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE ITEM_ESTOQUE SET " +
-                    "COD_PRODUTO =" + cod_produto + ", " +
-                    "VALIDADE_PRODUTO = STR_TO_DATE('" + item.Validade + "','%d/%m/%Y'), " +
-                    "QUANTIDADE_PRODUTO = " + item.Quantidade +
-                    " WHERE COD_ITEM =" + item.Codigo + ";");
+                    Comercio.GerenciaEmpresa.Instance.Banco.Update("UPDATE ITEM_ESTOQUE SET " +
+                        "COD_PRODUTO =" + cod_produto + ", " +
+                        "VALIDADE_PRODUTO = STR_TO_DATE('" + item.Validade + "','%d/%m/%Y'), " +
+                        "QUANTIDADE_PRODUTO = " + item.Quantidade +
+                        " WHERE COD_ITEM =" + item.Codigo + ";");
 
-                UpdateForm(selectedItem);
+                    UpdateForm(selectedItem);
 
-                Comercio.GerenciaEmpresa.Instance.SalvarEstoqueItens(Comercio.GerenciaEmpresa.Instance.EstoqueItens);
+                    Comercio.GerenciaEmpresa.Instance.SalvarEstoqueItens(Comercio.GerenciaEmpresa.Instance.EstoqueItens);
 
-                MessageBox.Show("Salvo com sucesso.");
+                    MessageBox.Show("Salvo com sucesso.");
+                }
             }
         }
 

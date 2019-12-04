@@ -137,8 +137,23 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
         private void save_edit_produto_Click(object sender, EventArgs e)
         {
-            if (list_produto.SelectedItem != null)
+            if (nome_produto.Text == "")
             {
+                MessageBox.Show("Insira um nome do produto.");
+            }
+            if (valor_text.Text == "")
+            {
+                MessageBox.Show("Insira um valor.");
+            }
+            if (codFornecedor == 0 && revendido.Checked == true)
+            {
+                MessageBox.Show("Insira um fornecedor");
+            }
+            if (nome_produto.Text != "" && valor_text.Text != "" && !(codFornecedor == 0 && revendido.Checked == true))
+            {
+
+                if (list_produto.SelectedItem != null)
+                {
                 var selectedProduto = Convert.ToInt32(list_produto.SelectedItem.ToString().Split('|').First());
                 var produto = Comercio.GerenciaEmpresa.Instance.Produtos.FirstOrDefault(x => x.Codigo == selectedProduto);
 
@@ -222,6 +237,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.Produtos
 
                 }
                 UpdateForm(selectedProduto);
+                }
             }
         }
 

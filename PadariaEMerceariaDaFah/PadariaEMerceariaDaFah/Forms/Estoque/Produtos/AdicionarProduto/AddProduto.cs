@@ -12,7 +12,7 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
 {
     public partial class AddProduto : Form
     {
-        public int? codFornecedor;
+        public int? codFornecedor = 0;
         public string nomeFornecedor;
         public string nomeFuncionario;
         public int? codFuncionario = 0;
@@ -87,7 +87,11 @@ namespace PadariaEMerceariaDaFah.Forms.Estoque.AddProduto
             {
                 MessageBox.Show("Insira um valor.");
             }
-            if(nome_produto.Text != "" && valor_text.Text != "")
+            if(codFornecedor == 0 && revendido.Checked == true)
+            {
+                MessageBox.Show("Insira um fornecedor");
+            }
+            if(nome_produto.Text != "" && valor_text.Text != "" && !(codFornecedor == 0 && revendido.Checked == true))
             {
                 var produtos = Comercio.GerenciaEmpresa.Instance.Produtos;
 

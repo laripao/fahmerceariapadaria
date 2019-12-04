@@ -226,12 +226,12 @@
             // 
             // remove_venda
             // 
-            this.remove_venda.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.remove_func_icon;
+            this.remove_venda.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.shopping_basket_remove_icon;
             this.remove_venda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.remove_venda.Location = new System.Drawing.Point(621, 542);
             this.remove_venda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.remove_venda.Name = "remove_venda";
-            this.remove_venda.Size = new System.Drawing.Size(248, 62);
+            this.remove_venda.Size = new System.Drawing.Size(201, 46);
             this.remove_venda.TabIndex = 8;
             this.remove_venda.Text = "Remover Venda";
             this.remove_venda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -257,7 +257,7 @@
             this.save_edit_venda.Location = new System.Drawing.Point(354, 542);
             this.save_edit_venda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.save_edit_venda.Name = "save_edit_venda";
-            this.save_edit_venda.Size = new System.Drawing.Size(187, 64);
+            this.save_edit_venda.Size = new System.Drawing.Size(172, 46);
             this.save_edit_venda.TabIndex = 7;
             this.save_edit_venda.Text = "Salvar Edição";
             this.save_edit_venda.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -277,7 +277,7 @@
             // 
             // add_venda
             // 
-            this.add_venda.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.func_Add;
+            this.add_venda.BackgroundImage = global::PadariaEMerceariaDaFah.Properties.Resources.buy2;
             this.add_venda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.add_venda.Location = new System.Drawing.Point(731, 21);
             this.add_venda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
